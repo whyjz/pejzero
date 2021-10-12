@@ -5,6 +5,7 @@ workflows/Pe-J0-Greenland-Hayes.ipynb
 workflows/Pe-J0-Greenland-MultipleFelikson.ipynb
 workflows/Pe-J0-Greenland-MultipleOwnCalc2.ipynb
 workflows/mega_results.p
+workflows/tmp*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

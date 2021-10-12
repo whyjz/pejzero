@@ -95,11 +95,13 @@ def pe_corefun(u, h, dudx, dhdx, slope, dalphadx, m=3):
 
     # dfdx = kinevelo[idx] * dhdx_sm[idx] + diffu_const[idx] * dalphadx_sm[idx]  # C * H' + D * alpha'
     # j_over_c0 = -dfdx / ((m + 1) * dudx_sm[idx])
-    term5 = kinevelo * dhdx              # C * H'
+    # term5 = kinevelo * dhdx              # C * H'
+    term5 = (m + 1) * u * dhdx         # C * H'
     term6 = diffu_const * dalphadx       # D * alpha'
     j0 = term5 + term6
-    j0_ignore_dslope = ((m + 1) * u - m * (h * dudx / slope + u * dhdx / slope)) * dhdx
-    j_over_c0 = -j0 / ((m + 1) * dudx)
+    # j0_ignore_dslope = ((m + 1) * u - m * (h * dudx / slope + u * dhdx / slope)) * dhdx
+    j0_ignore_dslope = term5[:]
+    # j_over_c0 = -j0 / ((m + 1) * dudx)
     
     return pe, j0, term1, term2, term3, term4, term5, term6, pe_ignore_dslope, j0_ignore_dslope
 
@@ -240,3 +242,65 @@ def cal_avg_for_each_basin(data_group):
            'term1': term1_avg, 'term2': term2_avg, 'term3': term3_avg, 'term4': term4_avg,  'term5': term5_avg, 'term6': term6_avg, 
            'udiff': udiff_avg, 'udiff_sm': udiff_sm_avg, 'pe_ignore_dslope': pe_ignore_dslope_avg, 'j0_ignore_dslope': j0_ignore_dslope_avg}
     return avg
+
+
+
+def cal_pej0_for_each_flowline_raw(d, s, b, u, size_limit=280, minimum_amount_valid_u=20, savgol_winlength=251):
+    '''
+    Calculate Pe/J0 given d, s, b, and u.
+    
+    Arguments:
+    - d: distance along the flowline, from terminus
+    - s: surface elevation
+    - b: bed elevation
+    - u: speed
+    - size_limit: minimum size to start calculation, otherwise return None
+    - minimum_amount_valid_u: minimum amount of valid u measurements, otherwise return None
+    - savgol_winlength: Savgol filter window length.
+    
+    Returns:
+    - data group: dict object with the following entries: 'd', 's', 'b', 'u', 'pe', 'j0', 'term1', 'term2', 'term3', 'term4',  'udiff', and 'udiff_sm'
+    Note: Pe is stored as the form of Pe/l.
+    '''
+     
+    if d.size < size_limit:
+        return None   # skip really short glacier flowline
+
+    if sum(~np.isnan(u)) <= minimum_amount_valid_u:
+        return None
+    
+    nonnan_idx = np.logical_and(~np.isnan(s), ~np.isnan(b), ~np.isnan(u))
+
+    if np.sum(nonnan_idx) < size_limit:
+        return None   # skip really short glacier flowline
+
+    # the point closet to the divide = 0 km
+    s = np.flip(s)
+    b = np.flip(b)
+    u = np.flip(u)
+
+    s_sm, b_sm, u_sm, h_sm, dudx_sm, dhdx_sm, slope_sm, d2hdx2_sm, dalphadx_sm = savgol_smoothing(u, s, b, w=savgol_winlength)
+    
+    pe, j0, term1, term2, term3, term4, term5, term6, pe_ignore_dslope, j0_ignore_dslope = pe_corefun(u_sm, h_sm, dudx_sm, dhdx_sm, slope_sm, dalphadx_sm)
+
+    d_km = d / 1000
+
+    # flip again so that d = 0 km indicates front and points upstream
+    pe = np.flip(pe)
+    j0 = np.flip(j0)
+    s_sm = np.flip(s_sm)
+    b_sm = np.flip(b_sm)
+    u_sm = np.flip(u_sm)
+    term1 = np.flip(term1)
+    term2 = np.flip(term2)
+    term3 = np.flip(term3)
+    term4 = np.flip(term4)
+    term5 = np.flip(term5)
+    term6 = np.flip(term6)
+    pe_ignore_dslope = np.flip(pe_ignore_dslope)
+    j0_ignore_dslope = np.flip(j0_ignore_dslope)
+    
+    data_group = {'d': d_km, 's': s_sm, 'b': b_sm, 'u': u_sm, 'pe': pe, 'j0': j0, 
+                  'term1': term1, 'term2': term2, 'term3': term3, 'term4': term4, 'term5': term5, 'term6': term6, 
+                  'pe_ignore_dslope': pe_ignore_dslope, 'j0_ignore_dslope': j0_ignore_dslope,}
+    return data_group
