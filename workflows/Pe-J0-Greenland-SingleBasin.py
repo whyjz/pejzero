@@ -1,44 +1,47 @@
-from pjgris import my_savgol_filter, savgol_smoothing, pe_corefun, cal_pej0_for_each_flowline, cal_avg_for_each_basin
+#!/usr/bin/env python
+
+# See Fig3-4.ipynb for details.
+# Whyjay Zheng, Oct 21, 2021
+
+import pejzero
 import rasterio
-import utils
 from netCDF4 import Dataset
 import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
 
 import sys
+import os
 
 
 glacier_file = sys.argv[1]
-speed_file = '/home/jovyan/Projects/LubriSens/Data/ITSLIVE/GRE_G0240_1998_v.tif'
-vdiff_file = '/home/jovyan/Projects/LubriSens/Data/ITSLIVE/GRE_G0240_diff-2018-1998_v.tif'
+speed_file = '../data/GRE_G0240_1998_v.tif'
+vdiff_file = '../data/GRE_G0240_diff-2018-1998_v.tif'
 
 ds = Dataset(glacier_file, 'r')
-flowline_groups, _ = utils.get_flowline_groups(ds)
+flowline_groups, _ = pejzero.get_flowline_groups(ds)
 primary_flowlines = [i for i in flowline_groups if 'iter' not in i.path]
-
-speed_data = rasterio.open(speed_file)
-vdiff_data = rasterio.open(vdiff_file)
 
 results = {}
 
-for flowline_group in primary_flowlines:
+with rasterio.open(speed_file) as speed_data, rasterio.open(vdiff_file) as vdiff_data:
+    for flowline_group in primary_flowlines:
 
-    data_group = cal_pej0_for_each_flowline(flowline_group, speed_data, vdiff_data)
+        data_group = pejzero.cal_pej0_for_each_flowline(flowline_group, speed_data, vdiff_data)
 
-    if data_group is not None:
-        results[flowline_group.name] = data_group
+        if data_group is not None:
+            results[flowline_group.name] = data_group
         
-results['avg'] = cal_avg_for_each_basin(results)
+results['avg'] = pejzero.cal_avg_for_each_basin(results)
 
 #### plot results
         
+pej0_plot_length = 200
 fig, ax3 = plt.subplots(5, 2, sharex=True, figsize=(24, 20))
 gs = ax3[1, 1].get_gridspec()
 for ax in ax3[:, 1]:
     ax.remove()
 axbig = fig.add_subplot(gs[1:4, 1])
-pej0_plot_length = 200
 
 for key in results:
 
@@ -85,4 +88,9 @@ axbig.set_xlabel(r'$\frac{P_e}{\ell}$ (1/m)')
 axbig.set_ylabel(r'$J_0$ (m/yr)')
 axbig.set_title('Dot spacing: 50 m; \n Big dot indicates the first non-NaN value (the one closest to the terminus)')
 
-plt.savefig(Path(glacier_file).stem + '.png')
+outdir = '../data/results/'
+
+if not os.path.exists(outdir):
+    os.makedirs(outdir)
+
+plt.savefig(outdir + Path(glacier_file).stem + '.png')
