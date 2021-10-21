@@ -6,6 +6,33 @@ from scipy.signal import savgol_filter
 from scipy import interpolate
 import warnings
 
+
+def get_flowline_groups(ds):
+    '''
+    Adopts from Felikson et al., re-distributed under the MIT license.
+    You can find the original script (utils.py) at https://doi.org/10.5281/zenodo.4284715
+    Reference to cite if used:
+    Felikson, D., A. Catania, G., Bartholomaus, T. C., Morlighem, M., &Noël, B. P. Y. (2021). 
+    Steep Glacier Bed Knickpoints Mitigate Inland Thinning in Greenland. Geophysical Research Letters, 48(2), 1–10. https://doi.org/10.1029/2020GL090112
+    
+    Processing the netCDF4 dataset (ds) prepared by the same paper. Data available at https://zenodo.org/record/4284759
+    '''
+    flowline_groups = list()
+    iteration_list = list()
+    flowlines = [k for k in ds.groups.keys() if 'flowline' in k]
+    for flowline in flowlines:
+        flowline_groups.append(ds[flowline])
+        iteration_list.append('main')
+        
+    iterations = [k for k in ds.groups.keys() if 'iter' in k]
+    for iteration in iterations:
+        flowlines = [k for k in ds[iteration].groups.keys() if 'flowline' in k]
+        for flowline in flowlines:
+            flowline_groups.append(ds[iteration][flowline])
+            iteration_list.append(iteration)
+            
+    return flowline_groups, iteration_list
+
 def savgol_smoothing(u, elev, bed, w=201, delta=50, mode='interp'):
     '''
     Apply Savitzky–Golay filter to glacier speed (u), surface elevation (elev), and surface elevations (bed) 
