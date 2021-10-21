@@ -1,0 +1,4 @@
+set -ex
+
+# install pejzero package
+pip install -e .
