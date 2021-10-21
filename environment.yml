@@ -1,0 +1,14 @@
+name: jme
+
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - matplotlib
+  - netcdf4
+  - numpy
+  - pandas
+  - rasterio
+  - scipy
+  - seaborn
