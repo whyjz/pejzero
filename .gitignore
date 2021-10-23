@@ -9,7 +9,9 @@ workflows/tmp*
 data/Felikson2021
 data/GRE_G0240_1998_v.tif
 data/GRE_G0240_diff-2018-1998_v.tif
-data/results
+data/results/glacier*.png
+data/results/mega_results.h5
+workflows/deprecated
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

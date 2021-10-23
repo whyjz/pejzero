@@ -5,6 +5,7 @@ import numpy as np
 from scipy.signal import savgol_filter
 from scipy import interpolate
 import warnings
+import h5py
 
 
 def get_flowline_groups(ds):
@@ -331,3 +332,49 @@ def cal_pej0_for_each_flowline_raw(d, s, b, u, size_limit=280, minimum_amount_va
                   'term1': term1, 'term2': term2, 'term3': term3, 'term4': term4, 'term5': term5, 'term6': term6, 
                   'pe_ignore_dslope': pe_ignore_dslope, 'j0_ignore_dslope': j0_ignore_dslope,}
     return data_group
+
+
+
+# ============ DATA IO
+
+# These functions are based on the StackExchange post at https://codereview.stackexchange.com/questions/120802/recursively-save-python-dictionaries-to-hdf5-files-using-h5py/121308 (written by hpaulj)
+# For saving the result dictionary recursively to an HDF5 file (as well as loading them from the file).
+
+def save_pej0_results(result_dic, filename):
+    """
+    ....
+    """
+    def recursively_save_dict_contents_to_group(h5file, path, dic):
+        """
+        ....
+        """
+        for key, item in dic.items():
+            if isinstance(item, (np.ndarray, np.int64, np.float64, str, bytes)):
+                h5file[path + key] = item
+            elif isinstance(item, dict):
+                recursively_save_dict_contents_to_group(h5file, path + key + '/', item)
+            else:
+                raise ValueError('Cannot save %s type'%type(item))
+    
+    with h5py.File(filename, 'w') as h5file:
+        recursively_save_dict_contents_to_group(h5file, '/', result_dic)
+                
+                
+def load_pej0_results(filename):
+    """
+    ....
+    """
+    def recursively_load_dict_contents_from_group(h5file, path):
+        """
+        ....
+        """
+        ans = {}
+        for key, item in h5file[path].items():
+            if isinstance(item, h5py._hl.dataset.Dataset):
+                ans[key] = item[:]
+            elif isinstance(item, h5py._hl.group.Group):
+                ans[key] = recursively_load_dict_contents_from_group(h5file, path + key + '/')
+        return ans
+    
+    with h5py.File(filename, 'r') as h5file:
+        return recursively_load_dict_contents_from_group(h5file, '/')

@@ -5,7 +5,7 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-requirements = ['numpy', 'scipy']
+requirements = ['numpy', 'scipy', 'h5py']
     
 setuptools.setup(
     name             = "pejzero",

@@ -6,6 +6,7 @@ channels:
 dependencies:
   - python=3.8
   - geopandas
+  - h5py
   - matplotlib
   - netcdf4
   - numpy

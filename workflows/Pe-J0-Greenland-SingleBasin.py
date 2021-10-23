@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 import sys
-import os
+# import os
 
 
 glacier_file = sys.argv[1]
@@ -88,9 +88,9 @@ axbig.set_xlabel(r'$\frac{P_e}{\ell}$ (1/m)')
 axbig.set_ylabel(r'$J_0$ (m/yr)')
 axbig.set_title('Dot spacing: 50 m; \n Big dot indicates the first non-NaN value (the one closest to the terminus)')
 
-outdir = '../data/results/'
+# outdir = '../data/results/'
 
-if not os.path.exists(outdir):
-    os.makedirs(outdir)
+# if not os.path.exists(outdir):
+#     os.makedirs(outdir)
 
 plt.savefig(outdir + Path(glacier_file).stem + '.png')
