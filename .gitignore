@@ -14,6 +14,7 @@ data/SRA_G0240_2018_v_EPSG32633.tif
 data/results/glacier*.png
 data/results/mega_results_Greenland.h5
 workflows/deprecated
+jupyter-book/_build
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

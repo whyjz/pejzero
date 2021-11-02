@@ -1,4 +1,4 @@
-# pejzero (originally sensitive-glacier)
+# pejzero
 
 Supplmental materials (including documentation, workflows, figures, and code) presented in "Characteristics of marine-terminating glaciers vulnerable to lubricated bed."
 

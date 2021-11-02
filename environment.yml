@@ -7,6 +7,7 @@ dependencies:
   - python=3.8
   - geopandas
   - h5py
+  - jupyter-book=0.10
   - matplotlib
   - netcdf4
   - numpy
