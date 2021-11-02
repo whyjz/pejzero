@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Figure 7 &#8212; Jupyter Meets the Earth - Toy research workflows</title>
+    <title>Figure 7 &#8212; Pejzero</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -80,7 +80,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Jupyter Meets the Earth - Toy research workflows</h1>
+      <h1 class="site-logo" id="site-title">Pejzero</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -274,10 +274,10 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="figure-7">
 <h1>Figure 7<a class="headerlink" href="#figure-7" title="Permalink to this headline">¶</a></h1>
-<p>This notebook produces Figure 7 and other auxillary figures.</p>
+<p>This notebook produces Figure 7 and other auxiliary figures.</p>
 <div class="section" id="get-data">
 <h2>Get data<a class="headerlink" href="#get-data" title="Permalink to this headline">¶</a></h2>
-<p>(1) from the Ice Thickness Models Intercomparison eXperiment (ITMIX) data set (Farinotti et al., 2017), available at <a class="reference external" href="https://doi.org/10.5905/ethz-1007-92">https://doi.org/10.5905/ethz-1007-92</a>. Redistributed under the CC BY-NC-SA 4.0 License (see previous link for details).</p>
+<p>(1) from the Ice Thickness Models Intercomparison eXperiment (ITMIX) data set (Farinotti et al., 2017), available at <a class="reference external" href="https://doi.org/10.5905/ethz-1007-92">https://doi.org/10.5905/ethz-1007-92</a>. Redistributed under the CC BY-NC-SA 4.0 License (see the previous link for details).</p>
 <p>Reference: Farinotti, D., Brinkerhoff, D. J., Clarke, G. K. C., Fürst, J. J., Frey, H., Gantayat, P., Gillet-Chaulet, F., Girard, C., Huss, M., Leclercq, P. W., Linsbauer, A., Machguth, H., Martin, C., Maussion, F., Morlighem, M., Mosbeux, C., Pandit, A., Portmann, A., Rabatel, A., …Andreassen, L. M. (2017). How accurate are estimates of glacier ice thickness? Results from ITMIX, the Ice Thickness Models Intercomparison eXperiment. Cryosphere, 11(2), 949–970. <a class="reference external" href="https://doi.org/10.5194/tc-11-949-2017">https://doi.org/10.5194/tc-11-949-2017</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -295,11 +295,11 @@ fi
 </div>
 </div>
 </div>
-<p>(2) From ITS_LIVE: A NASA MEaSUREs project to provide automated, low latency, global glacier flow and elevation change datasets. Original data available at <a class="reference external" href="https://its-live.jpl.nasa.gov/">https://its-live.jpl.nasa.gov/</a>. We manually made the file for 2018-1998 speed difference.</p>
+<p>(2) From ITS_LIVE: A NASA MEaSUREs project to provide automated, low latency, global glacier flow and elevation change datasets. Original data available at <a class="reference external" href="https://its-live.jpl.nasa.gov/">https://its-live.jpl.nasa.gov/</a>. We use the 2018 speed mosaics.</p>
 <p>References:</p>
 <ol class="simple">
-<li><p>Gardner, A. S., M. A. Fahnestock, and T. A. Scambos, 2019 [Accessed October 21, 2021]: ITS_LIVE Regional Glacier and Ice Sheet Surface Velocities. Data archived at National Snow and Ice Data Center; <a class="reference external" href="https://doi.org/10.5067/6II6VW8LLWJ7">https://doi.org/10.5067/6II6VW8LLWJ7</a>.</p></li>
-<li><p>Gardner, A. S., G. Moholdt, T. Scambos, M. Fahnstock, S. Ligtenberg, M. van den Broeke, and J. Nilsson, 2018: Increased West Antarctic and unchanged East Antarctic ice discharge over the last 7 years, Cryosphere, 12(2): 521–547, <a class="reference external" href="https://doi.org/10.5194/tc-12-521-2018">https://doi.org/10.5194/tc-12-521-2018</a>.</p></li>
+<li><p>Gardner, A. S., M. A. Fahnestock, and T. A. Scambos (2019) [Accessed October 21, 2021]. ITS_LIVE Regional Glacier and Ice Sheet Surface Velocities. Data archived at National Snow and Ice Data Center. <a class="reference external" href="https://doi.org/10.5067/6II6VW8LLWJ7">https://doi.org/10.5067/6II6VW8LLWJ7</a></p></li>
+<li><p>Gardner, A. S., G. Moholdt, T. Scambos, M. Fahnstock, S. Ligtenberg, M. van den Broeke, and J. Nilsson (2018). Increased West Antarctic and unchanged East Antarctic ice discharge over the last 7 years, Cryosphere, 12(2), 521–547. <a class="reference external" href="https://doi.org/10.5194/tc-12-521-2018">https://doi.org/10.5194/tc-12-521-2018</a></p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -312,7 +312,7 @@ fi
 </div>
 </div>
 </div>
-<p>(3) The flowline shapefile available at <code class="docutils literal notranslate"><span class="pre">../data/flowline_statpts4_clean_EPSG32633.shp</span></code> for flowline vertices, which is already included in the data folder.</p>
+<p>(3) The flowline shapefile available at <code class="docutils literal notranslate"><span class="pre">../data/flowline_statpts4_clean_EPSG32633.shp</span></code> for flowline vertices, which is included in the data folder.</p>
 </div>
 <div class="section" id="analysis">
 <h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
@@ -386,7 +386,7 @@ fi
 <span class="n">flowlines</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b_collection</span>
 <span class="n">flowlines</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">u_collection</span>
 <span class="n">flowlines</span><span class="p">[</span><span class="s1">&#39;udiff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">udiff_collection</span>
-<span class="n">flowlines</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>    <span class="c1"># shows the first 20 rows for a data structure overview</span>
+<span class="n">flowlines</span><span class="p">[:</span><span class="mi">8</span><span class="p">]</span>    <span class="c1"># shows the first 8 rows for a data structure overview</span>
 </pre></div>
 </div>
 </div>
@@ -499,126 +499,6 @@ fi
       <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
       <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
     </tr>
-    <tr>
-      <th>8</th>
-      <td>33</td>
-      <td>LINESTRING (714393.516 8832506.236, 714323.676...</td>
-      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>34</td>
-      <td>LINESTRING (716679.860 8836349.537, 716585.703...</td>
-      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>35</td>
-      <td>LINESTRING (717773.938 8840711.824, 717671.800...</td>
-      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
-      <td>[54.178279876708984, 56.63970947265625, 57.402...</td>
-      <td>[36.810001373291016, 24.610000610351562, 20.72...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>36</td>
-      <td>LINESTRING (718545.404 8845957.789, 718461.521...</td>
-      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, 56.35...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, 38.02...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>41</td>
-      <td>LINESTRING (713881.544 8850081.623, 713786.366...</td>
-      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
-      <td>[78.92904663085938, 81.34900665283203, 82.5393...</td>
-      <td>[18.530000686645508, 14.520000457763672, 13.18...</td>
-      <td>[57.0, 57.0, 57.0, 57.0, 53.0, 53.0, 51.0, 51....</td>
-      <td>[55.69731140136719, 68.87822723388672, 68.8782...</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>42</td>
-      <td>LINESTRING (713278.398 8851512.341, 713185.602...</td>
-      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
-      <td>[94.33719635009766, 97.05919647216797, 98.8939...</td>
-      <td>[25.84000015258789, 23.780000686645508, 23.579...</td>
-      <td>[38.0, 37.0, 36.0, 36.0, 35.0, 35.0, 33.0, 33....</td>
-      <td>[108.94284057617188, 65.72891235351562, 48.354...</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>43</td>
-      <td>LINESTRING (713516.851 8853111.378, 713423.414...</td>
-      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
-      <td>[119.32270050048828, 123.3187026977539, 125.97...</td>
-      <td>[59.029998779296875, 58.7400016784668, 58.9399...</td>
-      <td>[24.0, 24.0, 22.0, 22.0, 21.0, 21.0, 21.0, 20....</td>
-      <td>[146.85009765625, 146.85009765625, 137.5840148...</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>44</td>
-      <td>LINESTRING (714148.050 8854289.617, 714054.629...</td>
-      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
-      <td>[112.30809783935547, 116.591796875, 118.391197...</td>
-      <td>[65.2699966430664, 64.66999816894531, 64.38999...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, 18.0, 18.0...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, 184.952865...</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>45</td>
-      <td>LINESTRING (715031.729 8855383.695, 714955.885...</td>
-      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
-      <td>[100.89569854736328, 103.95110321044922, 107.0...</td>
-      <td>[66.22000122070312, 65.91999816894531, 65.7200...</td>
-      <td>[nan, nan, nan, nan, nan, nan, 22.0, 21.0, 21....</td>
-      <td>[nan, nan, nan, nan, nan, nan, 183.17868041992...</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>46</td>
-      <td>LINESTRING (715831.248 8856632.067, 715757.262...</td>
-      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
-      <td>[109.5530014038086, 114.07540130615234, 118.40...</td>
-      <td>[65.05000305175781, 65.66999816894531, 66.0899...</td>
-      <td>[nan, 18.0, 18.0, 16.0, 16.0, 16.0, 14.0, 14.0...</td>
-      <td>[nan, 190.0363006591797, 199.29000854492188, 2...</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>51</td>
-      <td>LINESTRING (718608.523 8858350.331, 718540.801...</td>
-      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
-      <td>[72.38777160644531, 78.70345306396484, 82.4579...</td>
-      <td>[9.960000038146973, 5.840000152587891, 4.01000...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>52</td>
-      <td>LINESTRING (720214.574 8860145.741, 720149.519...</td>
-      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
-      <td>[83.44994354248047, 89.03939819335938, 92.7600...</td>
-      <td>[-163.0500030517578, -168.24000549316406, -169...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
-    </tr>
   </tbody>
 </table>
 </div></div></div>
@@ -626,7 +506,7 @@ fi
 </div>
 <div class="section" id="derive-p-e-ell-and-j-0">
 <h3>(2) Derive <span class="math notranslate nohighlight">\(P_e/\ell\)</span> and <span class="math notranslate nohighlight">\(J_0\)</span><a class="headerlink" href="#derive-p-e-ell-and-j-0" title="Permalink to this headline">¶</a></h3>
-<p><span class="math notranslate nohighlight">\(P_e/\ell\)</span> and <span class="math notranslate nohighlight">\(J_0\)</span> are derived for each flowline first, and then we calculate the average of 6 flowlines in a basin. Similar to <code class="docutils literal notranslate"><span class="pre">Fig5.ipynb</span></code>, we have saved the results as <code class="docutils literal notranslate"><span class="pre">mega_results_Austfonna.h5</span></code> and have commented the cell below. If you do wish to repeat/verify the <span class="math notranslate nohighlight">\(P_e\)</span>-<span class="math notranslate nohighlight">\(J_0\)</span> calculation, you can uncomment the cell below and regenerate the <code class="docutils literal notranslate"><span class="pre">mega_results_Austfonna.h5</span></code> file.</p>
+<p><span class="math notranslate nohighlight">\(P_e/\ell\)</span> and <span class="math notranslate nohighlight">\(J_0\)</span> are derived for each flowline first, and then we calculate the average of 6 flowlines in a basin. Similar to <code class="docutils literal notranslate"><span class="pre">Fig5.ipynb</span></code>, we have saved the results as <code class="docutils literal notranslate"><span class="pre">mega_results_Austfonna.h5</span></code> and have commented out the cell below. If you wish to repeat/verify the <span class="math notranslate nohighlight">\(P_e\)</span>-<span class="math notranslate nohighlight">\(J_0\)</span> calculation, you can uncomment the cell below and regenerate the <code class="docutils literal notranslate"><span class="pre">mega_results_Austfonna.h5</span></code> file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># results = {&#39;1&#39;: {}, &#39;3&#39;: {}, &#39;4&#39;: {}, &#39;5&#39;: {}, &#39;6&#39;: {}, &#39;7&#39;: {}, &#39;10&#39;: {}, &#39;17&#39;: {}}</span>
@@ -653,7 +533,7 @@ fi
 </div>
 </div>
 </div>
-<p>Now we read the data from the HDF5 file. If you rerun the cell above and already get the <code class="docutils literal notranslate"><span class="pre">results</span></code> variable, then you can safely comment this cell out.</p>
+<p>Now we read the data from the HDF5 file. If you rerun the cell above and already get the <code class="docutils literal notranslate"><span class="pre">results</span></code> variable, you can safely comment this cell out.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">pejzero</span><span class="o">.</span><span class="n">load_pej0_results</span><span class="p">(</span><span class="s2">&quot;../data/results/mega_results_Austfonna.h5&quot;</span><span class="p">)</span>
@@ -664,7 +544,7 @@ fi
 </div>
 <div class="section" id="plot-for-single-glacier-basin">
 <h3>(3) plot for single glacier basin<a class="headerlink" href="#plot-for-single-glacier-basin" title="Permalink to this headline">¶</a></h3>
-<p>This is similar to <strong>Figure 3 and 4</strong>. You can simply change <code class="docutils literal notranslate"><span class="pre">basin_no_list</span></code> to plot more basins.</p>
+<p>Similar to <strong>Figure 3 and 4</strong>, you can change <code class="docutils literal notranslate"><span class="pre">basin_no_list</span></code> to plot more basins.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pej0_plot_length</span> <span class="o">=</span> <span class="mi">200</span>   <span class="c1"># This determines how many vertices from the terminus should be plotted (200 vertices = 10 km)</span>
@@ -748,7 +628,7 @@ fi
 <div class="cell_output docutils container">
 <div class="output text_html"><div style="vertical-align: middle;"><strong>mycmap</strong> </div><div class="cmap"><img alt="mycmap colormap" title="mycmap" style="border: 1px solid #555;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAABACAYAAABsv8+/AAAAFXRFWHRUaXRsZQBteWNtYXAgY29sb3JtYXBbv6KmAAAAG3RFWHREZXNjcmlwdGlvbgBteWNtYXAgY29sb3JtYXASKLpCAAAAMHRFWHRBdXRob3IATWF0cGxvdGxpYiB2My40LjIsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmes1mPdAAAAMnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHYzLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZ4Jw/PoAAAISSURBVHic7dbNbuIwGIbRzwMzVSv1Yntnc31twV2QUCWQJiAWld5zNsbGzg9i8bS/b/97VdXr87/aNj5t2/cy3ffytK+qqn0dqqpqV8fT2A7D+nS+G/e148q56b7Fc216func/uI618/V4aOqqo6f71VV1cfx431h/ef943z79RbODfe5XF+6z2n/8Hrnsc/mW7//Xu/T9cO915mP/a5zy+v9pv3b36cvrN/7vD+/992/Z2/Dhz/TsZ3GVrub1sf5+fv5+nl+23Vbzc5d3G/cv9u0vvY86895/Xnaxe/x4Ove+J5rz9OrDWNNxuNsvrS+dV/v19cfdp/+oOdcO/9L7vOo+4//CgAgiAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACfQEX5ATUhjmzuwAAAABJRU5ErkJggg=="></div><div style="vertical-align: middle; max-width: 514px; display: flex; justify-content: space-between;"><div style="float: left;"><div title="#0571b0ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #0571b0ff;"></div> under</div><div style="margin: 0 auto; display: inline-block;">bad <div title="#00000000" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #00000000;"></div></div><div style="float: right;">over <div title="#8411b1ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #8411b1ff;"></div></div></div></div>
 </div>
-<p>And finally, we can make <strong>Figure 7</strong> by color coding each average glacier flowline using <code class="docutils literal notranslate"><span class="pre">mycmap</span></code> on the profile and the <span class="math notranslate nohighlight">\(J_0\)</span>-<span class="math notranslate nohighlight">\(P_0/\ell\)</span> plots.</p>
+<p>Finally, we can make <strong>Figure 7</strong> by color coding each average glacier flowline using <code class="docutils literal notranslate"><span class="pre">mycmap</span></code> on the profile and the <span class="math notranslate nohighlight">\(J_0\)</span>-<span class="math notranslate nohighlight">\(P_0/\ell\)</span> plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># alias (to keep consistent with Figure 5)</span>
