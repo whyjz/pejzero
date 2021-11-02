@@ -1,0 +1,918 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>workflows presented in “Characteristics of marine-terminating glaciers vulnerable to lubricated bed” &#8212; Jupyter Meets the Earth - Toy research workflows</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://whyjz.github.io/pejzero/workflows/Pe-J0-Greenland-MultipleBasins-calc.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Jupyter Meets the Earth - Toy research workflows</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Supplemental material for “Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds”
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fig3-4.html">
+   Figures 3-4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fig5.html">
+   Figure 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fig6.html">
+   Figure 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fig7.html">
+   Figure 7
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/workflows/Pe-J0-Greenland-MultipleBasins-calc.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/whyjz/pejzero"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/whyjz/pejzero/issues/new?title=Issue%20on%20page%20%2Fworkflows/Pe-J0-Greenland-MultipleBasins-calc.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/whyjz/pejzero/edit/main/jupyter-book/workflows/Pe-J0-Greenland-MultipleBasins-calc.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/whyjz/pejzero/main?urlpath=lab/tree/jupyter-book/workflows/Pe-J0-Greenland-MultipleBasins-calc.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#draft-v-0-2">
+   (DRAFT) v 0.2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objectives-besides-the-science">
+     Objectives besides the science
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#color-codes-for-the-challenges">
+     Color codes for the challenges
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results-from-the-data-of-the-greenland-ice-sheet">
+   1. Results from the data of the Greenland Ice Sheet
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="workflows-presented-in-characteristics-of-marine-terminating-glaciers-vulnerable-to-lubricated-bed">
+<h1>workflows presented in “Characteristics of marine-terminating glaciers vulnerable to lubricated bed”<a class="headerlink" href="#workflows-presented-in-characteristics-of-marine-terminating-glaciers-vulnerable-to-lubricated-bed" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="draft-v-0-2">
+<h2>(DRAFT) v 0.2<a class="headerlink" href="#draft-v-0-2" title="Permalink to this headline">¶</a></h2>
+<p>This notebook is not officially published yet. All the content is subject to change at any time.</p>
+<div class="section" id="objectives-besides-the-science">
+<h3>Objectives besides the science<a class="headerlink" href="#objectives-besides-the-science" title="Permalink to this headline">¶</a></h3>
+<p>Beside the science, the other important purpose of this notebook is to test and find the best way to present a live workflow along with an academic publication (e.g., a journal paper published by Geophysical Research Letters), maximizing its reproducibility.</p>
+<p>We plan to submit this notebook as part of the supporting information of the manuscript (xxx - see the title).</p>
+<p>Triditionally, this kind of materials would be zipped and uploaded to the same place where you can find online paper text (probably through a DOI).</p>
+<p>In the light of the FAIR data policy, publishers are beginning to ask that the supplemental materials should be easily findable, accessible, and reusable as well. A popular option for geoscience researchers is Zenodo, which we can get a permanent DOI for the data sets, code, and documents uploaded there.</p>
+<p>Here we would like to make one step forward and see how we can include Jupyter notebooks + binder or Jupyter Book pages as the supplemental materials while retaining their functionaility to the users. (i.e. they should NOT be only uploaded to Zenodo as a zipped file).</p>
+</div>
+<div class="section" id="color-codes-for-the-challenges">
+<h3>Color codes for the challenges<a class="headerlink" href="#color-codes-for-the-challenges" title="Permalink to this headline">¶</a></h3>
+<p><font color='blue'> This means a minor issue – can be resolved without much effort.</font></p>
+<p><font color='red'> This means a major issue – needs attention of more people.</font></p>
+</div>
+</div>
+<div class="section" id="results-from-the-data-of-the-greenland-ice-sheet">
+<h2>1. Results from the data of the Greenland Ice Sheet<a class="headerlink" href="#results-from-the-data-of-the-greenland-ice-sheet" title="Permalink to this headline">¶</a></h2>
+<p>The notebook calculates <span class="math notranslate nohighlight">\(P_e\)</span> and <span class="math notranslate nohighlight">\(J_0\)</span> of multiple glaciers in Greenland using the flowline location provided by Felikson et al (2021). <font color='blue'>(Needs a formal ciation and reference section)</font></p>
+<p>The <span class="math notranslate nohighlight">\(P_e\)</span> and <span class="math notranslate nohighlight">\(J_0\)</span> are then compared with the glacier speed change during 1998-2018 from the ITS_LIVE data set.</p>
+<p><font color='red'> Suppose we get a DOI from Zenodo’s service by uploading the supplemental materials. How to make the DOI link to a binder or a Jupyter book page so users can directly execute these cells? Should we contact Zenodo team for more discussion? </font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="c1"># %matplotlib widget</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pjgris.py</span></code> contains few functions for running this notebook. It is not meant to be published as a Python package (at least this is what I think). <font color='blue'>What is a good way to host this file?</font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pejzero</span> <span class="kn">import</span> <span class="n">my_savgol_filter</span><span class="p">,</span> <span class="n">savgol_smoothing</span><span class="p">,</span> <span class="n">pe_corefun</span><span class="p">,</span> <span class="n">cal_pej0_for_each_flowline</span><span class="p">,</span> <span class="n">cal_avg_for_each_basin</span><span class="p">,</span> <span class="n">get_flowline_groups</span>
+<span class="c1"># import glob</span>
+<span class="kn">import</span> <span class="nn">rasterio</span>
+<span class="c1"># import utils</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="c1"># from scipy import interpolate</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !wget https://zenodo.org/record/4284759/files/netcdfs.zip</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This notebook needs to import lots of data from the SI of Felikson et al.’s paper. Each <code class="docutils literal notranslate"><span class="pre">.nc</span></code> file here is roughly 20-30 MB. <font color='red'>What is a good way to host these data?</font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">netcdf_dir</span> <span class="o">=</span> <span class="s1">&#39;/home/jovyan/Projects/LubriSens/Data/Felikson2021/netcdfs&#39;</span>
+<span class="n">glacier_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0001&#39;</span><span class="p">,</span> <span class="s1">&#39;0003&#39;</span><span class="p">,</span> <span class="s1">&#39;0004&#39;</span><span class="p">,</span> <span class="s1">&#39;0005&#39;</span><span class="p">,</span> <span class="s1">&#39;0007&#39;</span><span class="p">,</span> <span class="s1">&#39;0009&#39;</span><span class="p">,</span> <span class="s1">&#39;0010&#39;</span><span class="p">,</span> <span class="s1">&#39;0014&#39;</span><span class="p">,</span> <span class="s1">&#39;0015&#39;</span><span class="p">,</span> <span class="s1">&#39;0016&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;0019&#39;</span><span class="p">,</span> <span class="s1">&#39;0020&#39;</span><span class="p">,</span> <span class="s1">&#39;0021&#39;</span><span class="p">,</span> <span class="s1">&#39;0022&#39;</span><span class="p">,</span> <span class="s1">&#39;0024&#39;</span><span class="p">,</span> <span class="s1">&#39;0025&#39;</span><span class="p">,</span> <span class="s1">&#39;0027&#39;</span><span class="p">,</span> <span class="s1">&#39;0029&#39;</span><span class="p">,</span> <span class="s1">&#39;0035&#39;</span><span class="p">,</span> <span class="s1">&#39;0036&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;0037&#39;</span><span class="p">,</span> <span class="s1">&#39;0039&#39;</span><span class="p">,</span> <span class="s1">&#39;0043&#39;</span><span class="p">,</span> <span class="s1">&#39;0046&#39;</span><span class="p">,</span> <span class="s1">&#39;0047&#39;</span><span class="p">,</span> <span class="s1">&#39;0048&#39;</span><span class="p">,</span> <span class="s1">&#39;0049&#39;</span><span class="p">,</span> <span class="s1">&#39;0050&#39;</span><span class="p">,</span> <span class="s1">&#39;0052&#39;</span><span class="p">,</span> <span class="s1">&#39;0054&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;0058&#39;</span><span class="p">,</span> <span class="s1">&#39;0059&#39;</span><span class="p">,</span> <span class="s1">&#39;0085&#39;</span><span class="p">,</span> <span class="s1">&#39;0099&#39;</span><span class="p">,</span> <span class="s1">&#39;0103&#39;</span><span class="p">,</span> <span class="s1">&#39;0105&#39;</span><span class="p">,</span> <span class="s1">&#39;0106&#39;</span><span class="p">,</span> <span class="s1">&#39;0111&#39;</span><span class="p">,</span> <span class="s1">&#39;0113&#39;</span><span class="p">,</span> <span class="s1">&#39;0114&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;0115&#39;</span><span class="p">,</span> <span class="s1">&#39;0116&#39;</span><span class="p">,</span> <span class="s1">&#39;0124&#39;</span><span class="p">,</span> <span class="s1">&#39;0129&#39;</span><span class="p">,</span> <span class="s1">&#39;0135&#39;</span><span class="p">,</span> <span class="s1">&#39;0152&#39;</span><span class="p">,</span> <span class="s1">&#39;0167&#39;</span><span class="p">,</span> <span class="s1">&#39;0168&#39;</span><span class="p">,</span> <span class="s1">&#39;0174&#39;</span><span class="p">,</span> <span class="s1">&#39;0177&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;0181&#39;</span><span class="p">,</span> <span class="s1">&#39;0183&#39;</span><span class="p">,</span> <span class="s1">&#39;0207&#39;</span><span class="p">,</span> <span class="s1">&#39;0208&#39;</span><span class="p">,</span> <span class="s1">&#39;0212&#39;</span><span class="p">,</span> <span class="s1">&#39;0213&#39;</span><span class="p">,</span> <span class="s1">&#39;0217&#39;</span><span class="p">,</span> <span class="s1">&#39;0245&#39;</span><span class="p">,</span> <span class="s1">&#39;0252&#39;</span><span class="p">,</span> <span class="s1">&#39;0276&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;0277&#39;</span><span class="p">,</span> <span class="s1">&#39;a006&#39;</span><span class="p">,</span> <span class="s1">&#39;a011&#39;</span><span class="p">,</span> <span class="s1">&#39;a030&#39;</span><span class="p">,</span> <span class="s1">&#39;a031&#39;</span><span class="p">,</span> <span class="s1">&#39;a033&#39;</span><span class="p">,</span> <span class="s1">&#39;a034&#39;</span><span class="p">,</span> <span class="s1">&#39;a045&#39;</span><span class="p">,</span> <span class="s1">&#39;a061&#39;</span><span class="p">,</span> <span class="s1">&#39;a112&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;a132&#39;</span><span class="p">,</span> <span class="s1">&#39;a147&#39;</span><span class="p">,</span> <span class="s1">&#39;a148&#39;</span><span class="p">,</span> <span class="s1">&#39;a173&#39;</span><span class="p">,</span> <span class="s1">&#39;a184&#39;</span><span class="p">,</span> <span class="s1">&#39;a199&#39;</span><span class="p">,</span> <span class="s1">&#39;a251&#39;</span><span class="p">,</span> <span class="s1">&#39;a260&#39;</span><span class="p">,</span> <span class="s1">&#39;b006&#39;</span><span class="p">,</span> <span class="s1">&#39;b011&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;b030&#39;</span><span class="p">,</span> <span class="s1">&#39;b031&#39;</span><span class="p">,</span> <span class="s1">&#39;b033&#39;</span><span class="p">,</span> <span class="s1">&#39;b034&#39;</span><span class="p">,</span> <span class="s1">&#39;b045&#39;</span><span class="p">,</span> <span class="s1">&#39;b061&#39;</span><span class="p">,</span> <span class="s1">&#39;b132&#39;</span><span class="p">,</span> <span class="s1">&#39;b147&#39;</span><span class="p">,</span> <span class="s1">&#39;b148&#39;</span><span class="p">,</span> <span class="s1">&#39;b173&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;b184&#39;</span><span class="p">,</span> <span class="s1">&#39;b199&#39;</span><span class="p">,</span> <span class="s1">&#39;b216&#39;</span><span class="p">,</span> <span class="s1">&#39;b251&#39;</span><span class="p">,</span> <span class="s1">&#39;c031&#39;</span><span class="p">,</span> <span class="s1">&#39;c033&#39;</span><span class="p">,</span> <span class="s1">&#39;c034&#39;</span><span class="p">,</span> <span class="s1">&#39;c061&#39;</span><span class="p">,</span> <span class="s1">&#39;c173&#39;</span><span class="p">,</span> <span class="s1">&#39;c184&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;c216&#39;</span><span class="p">,</span> <span class="s1">&#39;d173&#39;</span><span class="p">,</span> <span class="s1">&#39;d184&#39;</span><span class="p">,</span> <span class="s1">&#39;d216&#39;</span><span class="p">]</span>
+
+<span class="c1"># glaciers = [i for i in glob.glob(netcdf_dir + &#39;/glacier*.nc&#39;)]</span>
+<span class="n">glaciers</span> <span class="o">=</span> <span class="p">[</span><span class="n">netcdf_dir</span> <span class="o">+</span> <span class="s1">&#39;/glacier&#39;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">glacier_labels</span><span class="p">]</span>
+<span class="c1"># glaciers.sort()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;glaciers total: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">glaciers</span><span class="p">)))</span>
+<span class="c1"># glaciers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>glaciers total: 104
+</pre></div>
+</div>
+</div>
+</div>
+<p>This notebook also uses ITS_LIVE dataset as the input of glacier speed. <font color='blue'>Should we show how to get the data from the ITS_LIVE website, or just give readers the downloaded file?</font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed_file</span> <span class="o">=</span> <span class="s1">&#39;/home/jovyan/Projects/LubriSens/Data/ITSLIVE/GRE_G0240_1998_v.tif&#39;</span>
+<span class="n">speed_data</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">speed_file</span><span class="p">)</span>
+<span class="n">vdiff_file</span> <span class="o">=</span> <span class="s1">&#39;/home/jovyan/Projects/LubriSens/Data/ITSLIVE/GRE_G0240_diff-2018-1998_v.tif&#39;</span>
+<span class="n">vdiff_data</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">vdiff_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mega_results</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">glacier_file</span> <span class="ow">in</span> <span class="n">glaciers</span><span class="p">:</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">glacier_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">flowline_groups</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_flowline_groups</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+    <span class="n">primary_flowlines</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">flowline_groups</span> <span class="k">if</span> <span class="s1">&#39;iter&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">i</span><span class="o">.</span><span class="n">path</span><span class="p">]</span>
+    
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">flowline_group</span> <span class="ow">in</span> <span class="n">primary_flowlines</span><span class="p">:</span>
+
+        <span class="n">data_group</span> <span class="o">=</span> <span class="n">cal_pej0_for_each_flowline</span><span class="p">(</span><span class="n">flowline_group</span><span class="p">,</span> <span class="n">speed_data</span><span class="p">,</span> <span class="n">vdiff_data</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">data_group</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">results</span><span class="p">[</span><span class="n">flowline_group</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_group</span>
+
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;avg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cal_avg_for_each_basin</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+    <span class="n">mega_results</span><span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">glacier_file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]]</span> <span class="o">=</span> <span class="n">results</span>
+    
+<span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">mega_results</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span> <span class="s2">&quot;mega_results.p&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span> <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here comes a long cell because most lines here are within a for loop. <font color='red'> Is it possible to run a for loop across multiple cells so we can make better comments/explanations using Markdown for the code within  the loop? </font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mega_results</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span> <span class="nb">open</span><span class="p">(</span> <span class="s2">&quot;mega_results.p&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for key in mega_results:</span>
+<span class="c1">#     print(key)</span>
+<span class="c1"># mega_results[&#39;0001&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following cells visualize the results. <font color='blue'>I don’t know if making either (or all) of them interactive is a good idea or not…. Maybe we will see some time while working on the other issues.</font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># burd = cm.get_cmap(&#39;turbo&#39;, 51)</span>
+<span class="c1"># print(burd(1))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="s1">&#39;0021&#39;</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d
+s
+b
+u
+pe
+j0
+term1
+term2
+term3
+term4
+term5
+term6
+udiff
+udiff_sm
+pe_ignore_dslope
+j0_ignore_dslope
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">mega_results</span><span class="p">[</span><span class="s1">&#39;0021&#39;</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+<span class="n">pe</span> <span class="o">=</span> <span class="n">mega_results</span><span class="p">[</span><span class="s1">&#39;0021&#39;</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span>
+<span class="n">j0</span> <span class="o">=</span> <span class="n">mega_results</span><span class="p">[</span><span class="s1">&#39;0021&#39;</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">113</span><span class="p">,</span><span class="mi">176</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">171</span><span class="p">,</span><span class="mi">229</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="mi">240</span><span class="p">,</span><span class="mi">189</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">222</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">202</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">220</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">177</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">132</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">177</span><span class="p">,</span><span class="mi">255</span><span class="p">]])</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span> <span class="o">/</span> <span class="mi">255</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">3500</span><span class="p">])</span> <span class="o">+</span> <span class="mi">500</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4000</span>
+<span class="n">mycmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">&quot;mycmap&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">colors</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># results</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<span class="c1"># cmap = cm.get_cmap(&#39;Spectral_r&#39;)</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_value</span> <span class="o">=</span> <span class="n">z_max</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_max</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_min</span><span class="p">)</span> <span class="k">else</span> <span class="n">z_min</span>
+    <span class="n">z_value_scaled</span> <span class="o">=</span> <span class="p">(</span><span class="n">z_value</span> <span class="o">+</span> <span class="mi">500</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4000</span>
+    <span class="n">rgba</span> <span class="o">=</span> <span class="n">mycmap</span><span class="p">(</span><span class="n">z_value_scaled</span><span class="p">)</span>
+    <span class="c1"># if z_value &gt; 1000:</span>
+    <span class="c1">#     linecolor = &#39;xkcd:red&#39;</span>
+    <span class="c1"># elif z_value &lt; -250: </span>
+    <span class="c1">#     linecolor = &#39;xkcd:blue&#39;</span>
+    <span class="c1"># else:</span>
+    <span class="c1">#     linecolor = &#39;xkcd:green&#39;</span>
+    <span class="c1"># linecolor = (z_value + 500) / 3500</span>
+    <span class="c1"># linecolor = 1 if linecolor &gt; 1 else linecolor </span>
+    <span class="c1"># linecolor = 0 if linecolor &lt; 0 else linecolor </span>
+    <span class="c1"># print(key, linecolor)</span>
+    <span class="n">ax1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>    <span class="c1"># color=burd(linecolor)</span>
+    <span class="n">ax1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">])</span>
+    <span class="n">ax1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Pe-J0-Greenland-MultipleBasins-calc_20_0.png" src="../_images/Pe-J0-Greenland-MultipleBasins-calc_20_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;Spectral_r&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_value</span> <span class="o">=</span> <span class="n">z_max</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_max</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_min</span><span class="p">)</span> <span class="k">else</span> <span class="n">z_min</span>
+    <span class="n">z_value_scaled</span> <span class="o">=</span> <span class="p">(</span><span class="n">z_value</span> <span class="o">+</span> <span class="mi">500</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4000</span>
+    <span class="n">rgba</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">z_value_scaled</span><span class="p">)</span>
+    <span class="c1"># if z_value &gt; 200:</span>
+    <span class="c1">#     linecolor = &#39;xkcd:red&#39;</span>
+    <span class="c1"># elif z_value &lt; -250: </span>
+    <span class="c1">#     linecolor = &#39;xkcd:blue&#39;</span>
+    <span class="c1"># else:</span>
+    <span class="c1">#     linecolor = &#39;xkcd:green&#39;</span>
+    <span class="c1"># linecolor = (z_value + 500) / 3500</span>
+    <span class="c1"># linecolor = 1 if linecolor &gt; 1 else linecolor </span>
+    <span class="c1"># linecolor = 0 if linecolor &lt; 0 else linecolor </span>
+    <span class="c1"># ax2.plot(mega_results[key][&#39;avg&#39;][&#39;pe&#39;][:100], mega_results[key][&#39;avg&#39;][&#39;j0&#39;][:100], color=linecolor)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Pe-J0-Greenland-MultipleBasins-calc_22_0.png" src="../_images/Pe-J0-Greenland-MultipleBasins-calc_22_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">length</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">to_df</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_value</span> <span class="o">=</span> <span class="n">z_max</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_max</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_min</span><span class="p">)</span> <span class="k">else</span> <span class="n">z_min</span>
+    <span class="k">if</span> <span class="n">z_value</span> <span class="o">&gt;</span> <span class="mi">300</span><span class="p">:</span>
+        <span class="n">linecolor1</span> <span class="o">=</span> <span class="s1">&#39;xkcd:light red&#39;</span>
+        <span class="n">linecolor2</span> <span class="o">=</span> <span class="s1">&#39;xkcd:dark red&#39;</span>
+        <span class="n">flag</span> <span class="o">=</span> <span class="s1">&#39;unstable&#39;</span>
+    <span class="k">elif</span> <span class="n">z_value</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">300</span><span class="p">:</span> 
+        <span class="n">linecolor1</span> <span class="o">=</span> <span class="s1">&#39;xkcd:light blue&#39;</span>
+        <span class="n">linecolor2</span> <span class="o">=</span> <span class="s1">&#39;xkcd:dark blue&#39;</span>
+        <span class="n">flag</span> <span class="o">=</span> <span class="s1">&#39;unstable&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">linecolor1</span> <span class="o">=</span> <span class="s1">&#39;xkcd:light green&#39;</span>
+        <span class="n">linecolor2</span> <span class="o">=</span> <span class="s1">&#39;xkcd:dark green&#39;</span>
+        <span class="n">flag</span> <span class="o">=</span> <span class="s1">&#39;stable&#39;</span>
+    <span class="c1"># linecolor = (z_value + 500) / 3500</span>
+    <span class="c1"># linecolor = 1 if linecolor &gt; 1 else linecolor </span>
+    <span class="c1"># linecolor = 0 if linecolor &lt; 0 else linecolor </span>
+    <span class="c1"># ax2.plot(mega_results[key][&#39;avg&#39;][&#39;pe&#39;][:100], mega_results[key][&#39;avg&#39;][&#39;j0&#39;][:100], color=linecolor)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">linecolor1</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+             <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">linecolor2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">to_df</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> 
+                  <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> 
+                  <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))])</span>
+    <span class="c1"># to_df.append([next(x for x in mega_results[key][&#39;avg&#39;][&#39;pe_ignore_dslope&#39;] if not np.isnan(x)), </span>
+    <span class="c1">#               next(x for x in mega_results[key][&#39;avg&#39;][&#39;j0_ignore_dslope&#39;] if not np.isnan(x)), </span>
+    <span class="c1">#               next(x for x in mega_results[key][&#39;avg&#39;][&#39;udiff_sm&#39;] if not np.isnan(x)),</span>
+    <span class="c1">#               flag])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Pe-J0-Greenland-MultipleBasins-calc_23_0.png" src="../_images/Pe-J0-Greenland-MultipleBasins-calc_23_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;height_ratios&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="c1"># fig.tight_layout()</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_value</span> <span class="o">=</span> <span class="n">z_max</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_max</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_min</span><span class="p">)</span> <span class="k">else</span> <span class="n">z_min</span>
+    <span class="n">z_value_scaled</span> <span class="o">=</span> <span class="p">(</span><span class="n">z_value</span> <span class="o">+</span> <span class="mi">500</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4000</span>
+    <span class="n">rgba</span> <span class="o">=</span> <span class="n">mycmap</span><span class="p">(</span><span class="n">z_value_scaled</span><span class="p">)</span>
+    <span class="n">rgba2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rgba</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.5</span> 
+    <span class="c1"># ax1[0].plot(mega_results[key][&#39;avg&#39;][&#39;d&#39;], mega_results[key][&#39;avg&#39;][&#39;pe_ignore_dslope&#39;], color=rgba)    # color=burd(linecolor)</span>
+    <span class="c1"># ax1[0].set_ylim([-0.002, 0.002])</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance from the terminus (km)&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Speed change 1998-2018 (m/yr)&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+                <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (1/m)&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m/yr)&#39;</span><span class="p">)</span>
+    
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Fig3.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Pe-J0-Greenland-MultipleBasins-calc_25_0.png" src="../_images/Pe-J0-Greenland-MultipleBasins-calc_25_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df = pd.DataFrame(to_df, columns=[r&#39;$\frac{P_e}{\ell}$ (1/m)&#39;, r&#39;$J_0$ (m/yr)&#39;, &#39;Speed diff (m/yr)&#39;, &#39;Class&#39;])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">to_df</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (1/m)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$J_0$ (m/yr)&#39;</span><span class="p">,</span> <span class="s1">&#39;Speed diff (m/yr)&#39;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>$\frac{P_e}{\ell}$ (1/m)</th>
+      <th>$J_0$ (m/yr)</th>
+      <th>Speed diff (m/yr)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000021</td>
+      <td>-915.378881</td>
+      <td>3029.186179</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000306</td>
+      <td>-200.805053</td>
+      <td>511.123464</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.000047</td>
+      <td>-82.857761</td>
+      <td>456.284207</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.000034</td>
+      <td>-450.936824</td>
+      <td>-435.655180</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.000078</td>
+      <td>-1243.208582</td>
+      <td>-349.572187</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>0.000234</td>
+      <td>-112.716518</td>
+      <td>613.747370</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>0.000044</td>
+      <td>-167.859915</td>
+      <td>1023.168837</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>0.000054</td>
+      <td>-1081.388452</td>
+      <td>2774.927415</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>0.000315</td>
+      <td>5.479272</td>
+      <td>467.138448</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>0.000231</td>
+      <td>-222.535111</td>
+      <td>573.128198</td>
+    </tr>
+  </tbody>
+</table>
+<p>104 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Speed diff (m/yr)&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      3029.186179
+1       511.123464
+2       456.284207
+3      -435.655180
+4      -349.572187
+          ...     
+99      613.747370
+100    1023.168837
+101    2774.927415
+102     467.138448
+103     573.128198
+Name: Speed diff (m/yr), Length: 104, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../data/pej0_GrIS_classification.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;Speed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot:title={&#39;center&#39;:&#39;Speed&#39;}&gt;]], dtype=object)
+</pre></div>
+</div>
+<img alt="../_images/Pe-J0-Greenland-MultipleBasins-calc_34_1.png" src="../_images/Pe-J0-Greenland-MultipleBasins-calc_34_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aa</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;pe&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;j0&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Pe-J0-Greenland-MultipleBasins-calc_36_0.png" src="../_images/Pe-J0-Greenland-MultipleBasins-calc_36_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aa</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7f5448a782e0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mega_results</span><span class="p">[</span><span class="s1">&#39;0001&#39;</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">length</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for i, j in zip(results[&#39;glacier0021.nc&#39;][&#39;d&#39;], results[&#39;glacier0021.nc&#39;][&#39;pe&#39;]):</span>
+<span class="c1">#     print(i, j)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_value</span> <span class="o">=</span> <span class="n">z_max</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_max</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_min</span><span class="p">)</span> <span class="k">else</span> <span class="n">z_min</span>
+    <span class="k">if</span> <span class="n">z_value</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="n">linecolor</span> <span class="o">=</span> <span class="s1">&#39;xkcd:red&#39;</span>
+    <span class="k">elif</span> <span class="n">z_value</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">250</span><span class="p">:</span> 
+        <span class="n">linecolor</span> <span class="o">=</span> <span class="s1">&#39;xkcd:brown&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">linecolor</span> <span class="o">=</span> <span class="s1">&#39;xkcd:blue&#39;</span>
+    <span class="c1"># linecolor = (z_value + 500) / 3500</span>
+    <span class="c1"># linecolor = 1 if linecolor &gt; 1 else linecolor </span>
+    <span class="c1"># linecolor = 0 if linecolor &lt; 0 else linecolor </span>
+    <span class="c1"># ax3.plot(results[key][&#39;term1&#39;][:150] + results[key][&#39;term2&#39;][:150] + results[key][&#39;term3&#39;][:150] + results[key][&#39;term4&#39;][:150], results[key][&#39;j0&#39;][:150], color=linecolor)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;term1&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">]</span> <span class="o">+</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;term2&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">]</span> <span class="o">+</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;term3&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;j0&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">linecolor</span><span class="p">)</span>
+
+    
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (1/m)&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m/yr)&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Greenland Ice Sheet </span><span class="se">\n</span><span class="s1"> Accelerated glaciers = red; Stable glaciers = blue; Decce. gl. = brown&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Greenland Ice Sheet \n Accelerated glaciers = red; Stable glaciers = blue; Decce. gl. = brown&#39;)
+</pre></div>
+</div>
+<img alt="../_images/Pe-J0-Greenland-MultipleBasins-calc_49_1.png" src="../_images/Pe-J0-Greenland-MultipleBasins-calc_49_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fig, ax4 = plt.subplots(1, 1, sharex=True)</span>
+<span class="c1"># for key in results:</span>
+<span class="c1">#     z_max = np.nanmax(results[key][&#39;udiff_sm&#39;])</span>
+<span class="c1">#     z_min = np.nanmin(results[key][&#39;udiff_sm&#39;])</span>
+<span class="c1">#     z_value = z_max if abs(z_max) &gt; abs(z_min) else z_min</span>
+<span class="c1">#     if z_value &gt; 500:</span>
+<span class="c1">#         linecolor = &#39;xkcd:red&#39;</span>
+<span class="c1">#     elif z_value &lt; -250: </span>
+<span class="c1">#         linecolor = &#39;xkcd:brown&#39;</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         linecolor = &#39;xkcd:blue&#39;</span>
+<span class="c1">#     # linecolor = (z_value + 500) / 3500</span>
+<span class="c1">#     # linecolor = 1 if linecolor &gt; 1 else linecolor </span>
+<span class="c1">#     # linecolor = 0 if linecolor &lt; 0 else linecolor </span>
+<span class="c1">#     # ax3.plot(results[key][&#39;term1&#39;][:150] + results[key][&#39;term2&#39;][:150] + results[key][&#39;term3&#39;][:150] + results[key][&#39;term4&#39;][:150], results[key][&#39;j0&#39;][:150], color=burd(linecolor))</span>
+<span class="c1">#     ax4.plot(results[key][&#39;term1&#39;][:100] + results[key][&#39;term2&#39;][:100] + results[key][&#39;term3&#39;][:100], results[key][&#39;j0&#39;][:100], color=linecolor)</span>
+
+    
+<span class="c1"># ax4.set_xlabel(r&#39;$\frac{P_e}{\ell}$ (1/m)&#39;)</span>
+<span class="c1"># ax4.set_ylabel(r&#39;$J_0$ (m/yr)&#39;)</span>
+<span class="c1"># ax4.set_title(&#39;Greenland Ice Sheet \n Accelerated glaciers = red; Stable glaciers = blue; Decce. gl. = brown&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">Path</span><span class="p">(</span><span class="n">glacier_file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;glacierd216&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-.conda-jme-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-.conda-jme-py",
+            path: "./workflows"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-.conda-jme-py'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Whyjay Zheng<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

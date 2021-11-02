@@ -1,0 +1,860 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Figure 7 &#8212; Jupyter Meets the Earth - Toy research workflows</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://whyjz.github.io/pejzero/workflows/Fig7.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Figure 6" href="Fig6.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Jupyter Meets the Earth - Toy research workflows</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Supplemental material for “Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds”
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fig3-4.html">
+   Figures 3-4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fig5.html">
+   Figure 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fig6.html">
+   Figure 6
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Figure 7
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/workflows/Fig7.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/whyjz/pejzero"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/whyjz/pejzero/issues/new?title=Issue%20on%20page%20%2Fworkflows/Fig7.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/whyjz/pejzero/edit/main/jupyter-book/workflows/Fig7.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/whyjz/pejzero/main?urlpath=lab/tree/jupyter-book/workflows/Fig7.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-data">
+   Get data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis">
+   Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-ingest">
+     (1) Data ingest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derive-p-e-ell-and-j-0">
+     (2) Derive
+     <span class="math notranslate nohighlight">
+      \(P_e/\ell\)
+     </span>
+     and
+     <span class="math notranslate nohighlight">
+      \(J_0\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-for-single-glacier-basin">
+     (3) plot for single glacier basin
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualization">
+   Visualization
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="figure-7">
+<h1>Figure 7<a class="headerlink" href="#figure-7" title="Permalink to this headline">¶</a></h1>
+<p>This notebook produces Figure 7 and other auxillary figures.</p>
+<div class="section" id="get-data">
+<h2>Get data<a class="headerlink" href="#get-data" title="Permalink to this headline">¶</a></h2>
+<p>(1) from the Ice Thickness Models Intercomparison eXperiment (ITMIX) data set (Farinotti et al., 2017), available at <a class="reference external" href="https://doi.org/10.5905/ethz-1007-92">https://doi.org/10.5905/ethz-1007-92</a>. Redistributed under the CC BY-NC-SA 4.0 License (see previous link for details).</p>
+<p>Reference: Farinotti, D., Brinkerhoff, D. J., Clarke, G. K. C., Fürst, J. J., Frey, H., Gantayat, P., Gillet-Chaulet, F., Girard, C., Huss, M., Leclercq, P. W., Linsbauer, A., Machguth, H., Martin, C., Maussion, F., Morlighem, M., Mosbeux, C., Pandit, A., Portmann, A., Rabatel, A., …Andreassen, L. M. (2017). How accurate are estimates of glacier ice thickness? Results from ITMIX, the Ice Thickness Models Intercomparison eXperiment. Cryosphere, 11(2), 949–970. <a class="reference external" href="https://doi.org/10.5194/tc-11-949-2017">https://doi.org/10.5194/tc-11-949-2017</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+if [ ! -d ../data/ITMIX/ ]; then
+    wget -P ../data/ITMIX/ --content-disposition --no-verbose &#39;http://www.geo.cornell.edu/eas/gstudent/wz278/paperdraft2021/ITMIX_dataset.zip&#39; 
+    unzip ../data/ITMIX/ITMIX_dataset.zip -d ../data/ITMIX/
+    unzip ../data/ITMIX/01_ITMIX_input_data.zip -d ../data/ITMIX/01_ITMIX_input_data/
+    unzip ../data/ITMIX/02_ITMIX_results.zip -d ../data/ITMIX/02_ITMIX_results/
+    unzip ../data/ITMIX/03_ITMIX_measured_thickness.zip -d ../data/ITMIX/03_ITMIX_measured_thickness/
+    rm -rf ../data/ITMIX/*.zip
+fi
+</pre></div>
+</div>
+</div>
+</div>
+<p>(2) From ITS_LIVE: A NASA MEaSUREs project to provide automated, low latency, global glacier flow and elevation change datasets. Original data available at <a class="reference external" href="https://its-live.jpl.nasa.gov/">https://its-live.jpl.nasa.gov/</a>. We manually made the file for 2018-1998 speed difference.</p>
+<p>References:</p>
+<ol class="simple">
+<li><p>Gardner, A. S., M. A. Fahnestock, and T. A. Scambos, 2019 [Accessed October 21, 2021]: ITS_LIVE Regional Glacier and Ice Sheet Surface Velocities. Data archived at National Snow and Ice Data Center; <a class="reference external" href="https://doi.org/10.5067/6II6VW8LLWJ7">https://doi.org/10.5067/6II6VW8LLWJ7</a>.</p></li>
+<li><p>Gardner, A. S., G. Moholdt, T. Scambos, M. Fahnstock, S. Ligtenberg, M. van den Broeke, and J. Nilsson, 2018: Increased West Antarctic and unchanged East Antarctic ice discharge over the last 7 years, Cryosphere, 12(2): 521–547, <a class="reference external" href="https://doi.org/10.5194/tc-12-521-2018">https://doi.org/10.5194/tc-12-521-2018</a>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+if [ ! -f ../data/SRA_G0240_2018_v_EPSG32633.tif ]; then
+    wget http://www.geo.cornell.edu/eas/gstudent/wz278/paperdraft2021/SRA_G0240_2018_v_EPSG32633.tif -P ../data/ --no-verbose
+fi
+</pre></div>
+</div>
+</div>
+</div>
+<p>(3) The flowline shapefile available at <code class="docutils literal notranslate"><span class="pre">../data/flowline_statpts4_clean_EPSG32633.shp</span></code> for flowline vertices, which is already included in the data folder.</p>
+</div>
+<div class="section" id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">rasterio</span> <span class="k">as</span> <span class="nn">rio</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pejzero</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are all file locations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flowline_file</span> <span class="o">=</span> <span class="s1">&#39;../data/flowline_statpts4_clean_EPSG32633.shp&#39;</span>
+<span class="n">bed_file</span> <span class="o">=</span> <span class="s1">&#39;../data/ITMIX/02_ITMIX_results/Farinotti_Austfonna_bedrock.asc&#39;</span>
+<span class="n">surface_file</span> <span class="o">=</span> <span class="s1">&#39;../data/ITMIX/01_ITMIX_input_data/Austfonna/02_surface_Austfonna_2007_UTM33.asc&#39;</span>
+<span class="n">speed_file</span> <span class="o">=</span> <span class="s1">&#39;../data/ITMIX/01_ITMIX_input_data/Austfonna/06_speed_Austfonna_1995-1996_UTM33.asc&#39;</span>
+<span class="n">speed2018_file</span> <span class="o">=</span> <span class="s1">&#39;../data/SRA_G0240_2018_v_EPSG32633.tif&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="data-ingest">
+<h3>(1) Data ingest<a class="headerlink" href="#data-ingest" title="Permalink to this headline">¶</a></h3>
+<p>Sample all the necessary measurements at the vertex locations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flowlines</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">flowline_file</span><span class="p">)</span>
+<span class="n">d_collection</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">s_collection</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">b_collection</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">u_collection</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">udiff_collection</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="n">rio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">surface_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">src_surface</span><span class="p">,</span> <span class="n">rio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">bed_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">src_bed</span><span class="p">,</span> <span class="n">rio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">speed_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">src_speed</span><span class="p">,</span> <span class="n">rio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">speed2018_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">src_speed2018</span><span class="p">:</span>
+
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">flowlines</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="c1"># ==== creating distance marks</span>
+        <span class="n">d_stop</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span> <span class="mi">50</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">d_stop</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">coords</span><span class="p">))</span>
+        <span class="n">d_collection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="c1"># ==== sample surface elevation </span>
+        <span class="n">surface_gen</span> <span class="o">=</span> <span class="n">src_surface</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">record</span><span class="p">)</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">surface_gen</span><span class="p">])</span>
+        <span class="n">s</span><span class="p">[</span><span class="n">s</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">9998</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">s_collection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="c1"># ==== sample bed elevation</span>
+        <span class="n">bed_gen</span> <span class="o">=</span> <span class="n">src_bed</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">record</span><span class="p">)</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">bed_gen</span><span class="p">])</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">b</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">9998</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">b_collection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="c1"># ==== sample glacier speed</span>
+        <span class="n">speed_gen</span> <span class="o">=</span> <span class="n">src_speed</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">record</span><span class="p">)</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">speed_gen</span><span class="p">])</span>
+        <span class="n">u</span><span class="p">[</span><span class="n">u</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">u_collection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="c1"># ==== sample and calculate glacier speed change</span>
+        <span class="n">speed2018_gen</span> <span class="o">=</span> <span class="n">src_speed2018</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+        <span class="n">u2018</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">record</span><span class="p">)</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">speed2018_gen</span><span class="p">])</span>
+        <span class="n">u2018</span><span class="p">[</span><span class="n">u2018</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">udiff</span> <span class="o">=</span> <span class="n">u2018</span> <span class="o">-</span> <span class="n">u</span>
+        <span class="n">udiff_collection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">udiff</span><span class="p">)</span>
+        
+<span class="n">flowlines</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d_collection</span>
+<span class="n">flowlines</span><span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s_collection</span>
+<span class="n">flowlines</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b_collection</span>
+<span class="n">flowlines</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">u_collection</span>
+<span class="n">flowlines</span><span class="p">[</span><span class="s1">&#39;udiff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">udiff_collection</span>
+<span class="n">flowlines</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>    <span class="c1"># shows the first 20 rows for a data structure overview</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>glacier_id</th>
+      <th>geometry</th>
+      <th>d</th>
+      <th>s</th>
+      <th>b</th>
+      <th>u</th>
+      <th>udiff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>11</td>
+      <td>LINESTRING (661744.501 8812864.548, 661772.209...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[124.80580139160156, 125.9896011352539, 126.51...</td>
+      <td>[6.389999866485596, 6.630000114440918, 6.76000...</td>
+      <td>[9.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0...</td>
+      <td>[2.063974380493164, 1.063974380493164, 1.06397...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>12</td>
+      <td>LINESTRING (664882.963 8810146.886, 664950.156...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[105.45079803466797, 107.12020111083984, 107.8...</td>
+      <td>[-66.0, -75.98999786376953, -78.91999816894531...</td>
+      <td>[12.0, 13.0, 13.0, 13.0, 13.0, 14.0, 14.0, 14....</td>
+      <td>[0.3671684265136719, 0.06629180908203125, 0.06...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>13</td>
+      <td>LINESTRING (669704.623 8810585.218, 669770.209...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[130.61459350585938, 132.28590393066406, 132.4...</td>
+      <td>[-107.91999816894531, -113.83999633789062, -11...</td>
+      <td>[18.0, 17.0, 17.0, 17.0, 17.0, 17.0, 17.0, 17....</td>
+      <td>[-6.172802925109863, -5.395359039306641, -5.77...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>14</td>
+      <td>LINESTRING (673035.951 8808972.154, 673095.381...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[127.32119750976562, 127.9738998413086, 128.56...</td>
+      <td>[-41.369998931884766, -45.77000045776367, -47....</td>
+      <td>[14.0, 14.0, 14.0, 14.0, 14.0, 14.0, 14.0, 14....</td>
+      <td>[-0.8997259140014648, -0.8997259140014648, -0....</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>15</td>
+      <td>LINESTRING (676753.012 8808446.155, 676815.893...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[144.21249389648438, 146.13330078125, 147.1508...</td>
+      <td>[-46.41999816894531, -50.880001068115234, -53....</td>
+      <td>[9.0, 8.0, 7.0, 7.0, 7.0, 7.0, 7.0, 7.0, 7.0, ...</td>
+      <td>[5.6007080078125, 6.6007080078125, 7.600708007...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>16</td>
+      <td>LINESTRING (680680.473 8808481.221, 680771.006...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[142.48159790039062, 142.54119873046875, 142.3...</td>
+      <td>[-84.48999786376953, -88.70999908447266, -89.3...</td>
+      <td>[8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, ...</td>
+      <td>[27.496936798095703, 27.496936798095703, 27.49...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>31</td>
+      <td>LINESTRING (709733.163 8827112.114, 709698.322...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>32</td>
+      <td>LINESTRING (712538.492 8829608.857, 712479.960...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>33</td>
+      <td>LINESTRING (714393.516 8832506.236, 714323.676...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>34</td>
+      <td>LINESTRING (716679.860 8836349.537, 716585.703...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>35</td>
+      <td>LINESTRING (717773.938 8840711.824, 717671.800...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[54.178279876708984, 56.63970947265625, 57.402...</td>
+      <td>[36.810001373291016, 24.610000610351562, 20.72...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>36</td>
+      <td>LINESTRING (718545.404 8845957.789, 718461.521...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, 56.35...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, 38.02...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>41</td>
+      <td>LINESTRING (713881.544 8850081.623, 713786.366...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[78.92904663085938, 81.34900665283203, 82.5393...</td>
+      <td>[18.530000686645508, 14.520000457763672, 13.18...</td>
+      <td>[57.0, 57.0, 57.0, 57.0, 53.0, 53.0, 51.0, 51....</td>
+      <td>[55.69731140136719, 68.87822723388672, 68.8782...</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>42</td>
+      <td>LINESTRING (713278.398 8851512.341, 713185.602...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[94.33719635009766, 97.05919647216797, 98.8939...</td>
+      <td>[25.84000015258789, 23.780000686645508, 23.579...</td>
+      <td>[38.0, 37.0, 36.0, 36.0, 35.0, 35.0, 33.0, 33....</td>
+      <td>[108.94284057617188, 65.72891235351562, 48.354...</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>43</td>
+      <td>LINESTRING (713516.851 8853111.378, 713423.414...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[119.32270050048828, 123.3187026977539, 125.97...</td>
+      <td>[59.029998779296875, 58.7400016784668, 58.9399...</td>
+      <td>[24.0, 24.0, 22.0, 22.0, 21.0, 21.0, 21.0, 20....</td>
+      <td>[146.85009765625, 146.85009765625, 137.5840148...</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>44</td>
+      <td>LINESTRING (714148.050 8854289.617, 714054.629...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[112.30809783935547, 116.591796875, 118.391197...</td>
+      <td>[65.2699966430664, 64.66999816894531, 64.38999...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, 18.0, 18.0...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, 184.952865...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>45</td>
+      <td>LINESTRING (715031.729 8855383.695, 714955.885...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[100.89569854736328, 103.95110321044922, 107.0...</td>
+      <td>[66.22000122070312, 65.91999816894531, 65.7200...</td>
+      <td>[nan, nan, nan, nan, nan, nan, 22.0, 21.0, 21....</td>
+      <td>[nan, nan, nan, nan, nan, nan, 183.17868041992...</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>46</td>
+      <td>LINESTRING (715831.248 8856632.067, 715757.262...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[109.5530014038086, 114.07540130615234, 118.40...</td>
+      <td>[65.05000305175781, 65.66999816894531, 66.0899...</td>
+      <td>[nan, 18.0, 18.0, 16.0, 16.0, 16.0, 14.0, 14.0...</td>
+      <td>[nan, 190.0363006591797, 199.29000854492188, 2...</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>51</td>
+      <td>LINESTRING (718608.523 8858350.331, 718540.801...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[72.38777160644531, 78.70345306396484, 82.4579...</td>
+      <td>[9.960000038146973, 5.840000152587891, 4.01000...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>52</td>
+      <td>LINESTRING (720214.574 8860145.741, 720149.519...</td>
+      <td>[0.0, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0,...</td>
+      <td>[83.44994354248047, 89.03939819335938, 92.7600...</td>
+      <td>[-163.0500030517578, -168.24000549316406, -169...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+      <td>[nan, nan, nan, nan, nan, nan, nan, nan, nan, ...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="derive-p-e-ell-and-j-0">
+<h3>(2) Derive <span class="math notranslate nohighlight">\(P_e/\ell\)</span> and <span class="math notranslate nohighlight">\(J_0\)</span><a class="headerlink" href="#derive-p-e-ell-and-j-0" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(P_e/\ell\)</span> and <span class="math notranslate nohighlight">\(J_0\)</span> are derived for each flowline first, and then we calculate the average of 6 flowlines in a basin. Similar to <code class="docutils literal notranslate"><span class="pre">Fig5.ipynb</span></code>, we have saved the results as <code class="docutils literal notranslate"><span class="pre">mega_results_Austfonna.h5</span></code> and have commented the cell below. If you do wish to repeat/verify the <span class="math notranslate nohighlight">\(P_e\)</span>-<span class="math notranslate nohighlight">\(J_0\)</span> calculation, you can uncomment the cell below and regenerate the <code class="docutils literal notranslate"><span class="pre">mega_results_Austfonna.h5</span></code> file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># results = {&#39;1&#39;: {}, &#39;3&#39;: {}, &#39;4&#39;: {}, &#39;5&#39;: {}, &#39;6&#39;: {}, &#39;7&#39;: {}, &#39;10&#39;: {}, &#39;17&#39;: {}}</span>
+
+<span class="c1"># for idx, row in flowlines.iterrows():</span>
+<span class="c1">#     data_group = pejzero.cal_pej0_for_each_flowline_raw(row[&#39;d&#39;], row[&#39;s&#39;], row[&#39;b&#39;], row[&#39;u&#39;], savgol_winlength=251)</span>
+    
+<span class="c1">#     if data_group is not None:</span>
+<span class="c1">#         data_group[&#39;udiff&#39;] = row[&#39;udiff&#39;]</span>
+<span class="c1">#         udiff_sm = pejzero.my_savgol_filter(row[&#39;udiff&#39;], window_length=151, polyorder=1, deriv=0, delta=50, mode=&#39;interp&#39;)</span>
+<span class="c1">#         data_group[&#39;udiff_sm&#39;] = udiff_sm</span>
+<span class="c1">#         basin_no = str(row[&#39;glacier_id&#39;] // 10)</span>
+<span class="c1">#         flowline_no = str(row[&#39;glacier_id&#39;] % 10)</span>
+<span class="c1">#         results[basin_no][flowline_no] = data_group</span>
+        
+<span class="c1"># #### Calculate average</span>
+<span class="c1"># for key in results:</span>
+<span class="c1">#     data_group = results[key]</span>
+<span class="c1">#     avg = pejzero.cal_avg_for_each_basin(data_group)</span>
+<span class="c1">#     results[key][&#39;avg&#39;] = avg</span>
+    
+<span class="c1"># pejzero.save_pej0_results(results, &quot;../data/results/mega_results_Austfonna.h5&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we read the data from the HDF5 file. If you rerun the cell above and already get the <code class="docutils literal notranslate"><span class="pre">results</span></code> variable, then you can safely comment this cell out.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">pejzero</span><span class="o">.</span><span class="n">load_pej0_results</span><span class="p">(</span><span class="s2">&quot;../data/results/mega_results_Austfonna.h5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-for-single-glacier-basin">
+<h3>(3) plot for single glacier basin<a class="headerlink" href="#plot-for-single-glacier-basin" title="Permalink to this headline">¶</a></h3>
+<p>This is similar to <strong>Figure 3 and 4</strong>. You can simply change <code class="docutils literal notranslate"><span class="pre">basin_no_list</span></code> to plot more basins.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pej0_plot_length</span> <span class="o">=</span> <span class="mi">200</span>   <span class="c1"># This determines how many vertices from the terminus should be plotted (200 vertices = 10 km)</span>
+
+<span class="n">basin_no_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;7&#39;</span><span class="p">]</span>
+<span class="c1"># basin_no_list = [&#39;1&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;10&#39;, &#39;17&#39;]</span>
+
+<span class="k">for</span> <span class="n">basin_no</span> <span class="ow">in</span> <span class="n">basin_no_list</span><span class="p">:</span>
+    
+    <span class="c1"># ==== Create axes (5 in the left and a big one in the right)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+    <span class="n">gs</span> <span class="o">=</span> <span class="n">ax1</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_gridspec</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">ax1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+    <span class="n">axbig</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># ==== Plot data</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s1">&#39;avg&#39;</span><span class="p">:</span>
+            <span class="n">ax1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;s&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:aquamarine&#39;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:brown&#39;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;u&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:light green&#39;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:light red&#39;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:light blue&#39;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;udiff&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:gray&#39;</span><span class="p">)</span>
+            <span class="n">axbig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:light purple&#39;</span><span class="p">)</span>
+            <span class="c1"># plot first non-NaN value (the one closest to the terminus)</span>
+            <span class="n">axbig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+                       <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:light purple&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ax1</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;u&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:dark green&#39;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:dark red&#39;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:dark blue&#39;</span><span class="p">)</span>
+            <span class="n">axbig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:dark purple&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="c1"># plot first non-NaN value (the one closest to the terminus)</span>
+            <span class="n">axbig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+                       <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:dark purple&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+            
+    <span class="c1"># ==== Add supplemental text </span>
+    <span class="n">ax1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Basin </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basin_no</span><span class="p">))</span>
+    <span class="n">ax1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Surface (cyan) and bed (brown) </span><span class="se">\n</span><span class="s1"> elevation (m)&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Speed 1996 (m/yr)&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (1/m)&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m/yr)&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance from terminus (km)&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Speed change 1996-2018 (m/yr)&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">axbig</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (1/m)&#39;</span><span class="p">)</span>
+    <span class="n">axbig</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m/yr)&#39;</span><span class="p">)</span>
+    <span class="n">axbig</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Dot spacing: 50 m; </span><span class="se">\n</span><span class="s1"> Big dot indicates the first non-NaN value (the one closest to the terminus)&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../data/results/Austfonna_glacier</span><span class="si">{}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basin_no</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Fig7_15_0.png" src="../_images/Fig7_15_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualization">
+<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
+<p>Firstly we use the same color map from <strong>Figure 5</strong> but will eventually stretch it differently.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">113</span><span class="p">,</span><span class="mi">176</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">171</span><span class="p">,</span><span class="mi">229</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="mi">240</span><span class="p">,</span><span class="mi">189</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">222</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">202</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">220</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">177</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">132</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">177</span><span class="p">,</span><span class="mi">255</span><span class="p">]])</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span> <span class="o">/</span> <span class="mi">255</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">3500</span><span class="p">])</span> <span class="o">+</span> <span class="mi">500</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4000</span>
+<span class="n">mycmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">&quot;mycmap&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">colors</span><span class="p">)))</span>
+<span class="n">mycmap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="vertical-align: middle;"><strong>mycmap</strong> </div><div class="cmap"><img alt="mycmap colormap" title="mycmap" style="border: 1px solid #555;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAABACAYAAABsv8+/AAAAFXRFWHRUaXRsZQBteWNtYXAgY29sb3JtYXBbv6KmAAAAG3RFWHREZXNjcmlwdGlvbgBteWNtYXAgY29sb3JtYXASKLpCAAAAMHRFWHRBdXRob3IATWF0cGxvdGxpYiB2My40LjIsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmes1mPdAAAAMnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHYzLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZ4Jw/PoAAAISSURBVHic7dbNbuIwGIbRzwMzVSv1Yntnc31twV2QUCWQJiAWld5zNsbGzg9i8bS/b/97VdXr87/aNj5t2/cy3ffytK+qqn0dqqpqV8fT2A7D+nS+G/e148q56b7Fc216func/uI618/V4aOqqo6f71VV1cfx431h/ef943z79RbODfe5XF+6z2n/8Hrnsc/mW7//Xu/T9cO915mP/a5zy+v9pv3b36cvrN/7vD+/992/Z2/Dhz/TsZ3GVrub1sf5+fv5+nl+23Vbzc5d3G/cv9u0vvY86895/Xnaxe/x4Ove+J5rz9OrDWNNxuNsvrS+dV/v19cfdp/+oOdcO/9L7vOo+4//CgAgiAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACfQEX5ATUhjmzuwAAAABJRU5ErkJggg=="></div><div style="vertical-align: middle; max-width: 514px; display: flex; justify-content: space-between;"><div style="float: left;"><div title="#0571b0ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #0571b0ff;"></div> under</div><div style="margin: 0 auto; display: inline-block;">bad <div title="#00000000" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #00000000;"></div></div><div style="float: right;">over <div title="#8411b1ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #8411b1ff;"></div></div></div></div>
+</div>
+<p>And finally, we can make <strong>Figure 7</strong> by color coding each average glacier flowline using <code class="docutils literal notranslate"><span class="pre">mycmap</span></code> on the profile and the <span class="math notranslate nohighlight">\(J_0\)</span>-<span class="math notranslate nohighlight">\(P_0/\ell\)</span> plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># alias (to keep consistent with Figure 5)</span>
+<span class="n">mega_results</span> <span class="o">=</span> <span class="n">results</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;height_ratios&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_value</span> <span class="o">=</span> <span class="n">z_max</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_max</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_min</span><span class="p">)</span> <span class="k">else</span> <span class="n">z_min</span>
+    <span class="c1">#### The color map is stretched between 0 and 2000 m/yr! ####</span>
+    <span class="n">z_value_scaled</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">/</span> <span class="mi">2000</span>
+    <span class="c1">#############################################################</span>
+    <span class="n">rgba</span> <span class="o">=</span> <span class="n">mycmap</span><span class="p">(</span><span class="n">z_value_scaled</span><span class="p">)</span>
+    <span class="n">rgba2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rgba</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.5</span> 
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance from the terminus (km)&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Speed change 1996-2018 (m/yr)&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+                <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (1/m)&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m/yr)&#39;</span><span class="p">)</span>
+    <span class="c1"># Fine tune label location</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">-</span> <span class="mf">0.00002</span><span class="p">,</span>
+                    <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span> <span class="c1"># , color=rgba, markersize=15)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="mf">0.00001</span><span class="p">,</span>
+                    <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span> <span class="c1"># , color=rgba, markersize=15)</span>
+    
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../data/results/Fig7.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Fig7_19_0.png" src="../_images/Fig7_19_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-.conda-jme-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-.conda-jme-py",
+            path: "./workflows"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-.conda-jme-py'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="Fig6.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Figure 6</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Whyjay Zheng<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

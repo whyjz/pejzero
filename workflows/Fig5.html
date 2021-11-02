@@ -1,0 +1,603 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Figure 5 &#8212; Jupyter Meets the Earth - Toy research workflows</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://whyjz.github.io/pejzero/workflows/Fig5.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Figure 6" href="Fig6.html" />
+    <link rel="prev" title="Figures 3-4" href="Fig3-4.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Jupyter Meets the Earth - Toy research workflows</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Supplemental material for “Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds”
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fig3-4.html">
+   Figures 3-4
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Figure 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fig6.html">
+   Figure 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fig7.html">
+   Figure 7
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/workflows/Fig5.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/whyjz/pejzero"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/whyjz/pejzero/issues/new?title=Issue%20on%20page%20%2Fworkflows/Fig5.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/whyjz/pejzero/edit/main/jupyter-book/workflows/Fig5.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/whyjz/pejzero/main?urlpath=lab/tree/jupyter-book/workflows/Fig5.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-data">
+   Get data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis">
+   Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualization">
+   Visualization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploring-the-results">
+   Exploring the results
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="figure-5">
+<h1>Figure 5<a class="headerlink" href="#figure-5" title="Permalink to this headline">¶</a></h1>
+<p>This notebook produces Figure 5 and other auxillary figures.</p>
+<div class="section" id="get-data">
+<h2>Get data<a class="headerlink" href="#get-data" title="Permalink to this headline">¶</a></h2>
+<p>We get the Data from Felikson et al. (2021) and ITS_LIVE (Gardner et al., 2018; Gardner et al., 2019) again. See <code class="docutils literal notranslate"><span class="pre">Fig3-4.ipynb</span></code> for more details.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+if [ ! -d ../data/Felikson2021/ ]; then
+    wget https://zenodo.org/record/4284759/files/netcdfs.zip -P ../data/Felikson2021/ --no-verbose
+    unzip ../data/Felikson2021/netcdfs.zip -d ../data/Felikson2021/
+    rm -rf ../data/Felikson2021/netcdfs.zip
+fi
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+if [ ! -f ../data/GRE_G0240_1998_v.tif ]; then
+    wget http://www.geo.cornell.edu/eas/gstudent/wz278/paperdraft2021/GRE_G0240_1998_v.tif -P ../data/ --no-verbose
+    wget http://www.geo.cornell.edu/eas/gstudent/wz278/paperdraft2021/GRE_G0240_diff-2018-1998_v.tif -P ../data/ --no-verbose
+fi
+</pre></div>
+</div>
+</div>
+</div>
+<p>To save some processing time, we can get the <code class="docutils literal notranslate"><span class="pre">mega_results_Greenland.h5</span></code> file containing the results. See Analysis Section for more information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+if [ ! -f ../data/results/mega_results_Greenland.h5 ]; then
+    wget http://www.geo.cornell.edu/eas/gstudent/wz278/paperdraft2021/mega_results_Greenland.h5 -P ../data/results/ --no-verbose
+fi
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pejzero</span>
+<span class="kn">import</span> <span class="nn">rasterio</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We select and process 104 glaciers with valid key parameters at 3 km from the terminus. And we stick to the same ITS_LIVE rasters we use for Figure 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">netcdf_dir</span> <span class="o">=</span> <span class="s1">&#39;../data/Felikson2021&#39;</span>
+<span class="n">glacier_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0001&#39;</span><span class="p">,</span> <span class="s1">&#39;0003&#39;</span><span class="p">,</span> <span class="s1">&#39;0004&#39;</span><span class="p">,</span> <span class="s1">&#39;0005&#39;</span><span class="p">,</span> <span class="s1">&#39;0007&#39;</span><span class="p">,</span> <span class="s1">&#39;0009&#39;</span><span class="p">,</span> <span class="s1">&#39;0010&#39;</span><span class="p">,</span> <span class="s1">&#39;0014&#39;</span><span class="p">,</span> <span class="s1">&#39;0015&#39;</span><span class="p">,</span> <span class="s1">&#39;0016&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;0019&#39;</span><span class="p">,</span> <span class="s1">&#39;0020&#39;</span><span class="p">,</span> <span class="s1">&#39;0021&#39;</span><span class="p">,</span> <span class="s1">&#39;0022&#39;</span><span class="p">,</span> <span class="s1">&#39;0024&#39;</span><span class="p">,</span> <span class="s1">&#39;0025&#39;</span><span class="p">,</span> <span class="s1">&#39;0027&#39;</span><span class="p">,</span> <span class="s1">&#39;0029&#39;</span><span class="p">,</span> <span class="s1">&#39;0035&#39;</span><span class="p">,</span> <span class="s1">&#39;0036&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;0037&#39;</span><span class="p">,</span> <span class="s1">&#39;0039&#39;</span><span class="p">,</span> <span class="s1">&#39;0043&#39;</span><span class="p">,</span> <span class="s1">&#39;0046&#39;</span><span class="p">,</span> <span class="s1">&#39;0047&#39;</span><span class="p">,</span> <span class="s1">&#39;0048&#39;</span><span class="p">,</span> <span class="s1">&#39;0049&#39;</span><span class="p">,</span> <span class="s1">&#39;0050&#39;</span><span class="p">,</span> <span class="s1">&#39;0052&#39;</span><span class="p">,</span> <span class="s1">&#39;0054&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;0058&#39;</span><span class="p">,</span> <span class="s1">&#39;0059&#39;</span><span class="p">,</span> <span class="s1">&#39;0085&#39;</span><span class="p">,</span> <span class="s1">&#39;0099&#39;</span><span class="p">,</span> <span class="s1">&#39;0103&#39;</span><span class="p">,</span> <span class="s1">&#39;0105&#39;</span><span class="p">,</span> <span class="s1">&#39;0106&#39;</span><span class="p">,</span> <span class="s1">&#39;0111&#39;</span><span class="p">,</span> <span class="s1">&#39;0113&#39;</span><span class="p">,</span> <span class="s1">&#39;0114&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;0115&#39;</span><span class="p">,</span> <span class="s1">&#39;0116&#39;</span><span class="p">,</span> <span class="s1">&#39;0124&#39;</span><span class="p">,</span> <span class="s1">&#39;0129&#39;</span><span class="p">,</span> <span class="s1">&#39;0135&#39;</span><span class="p">,</span> <span class="s1">&#39;0152&#39;</span><span class="p">,</span> <span class="s1">&#39;0167&#39;</span><span class="p">,</span> <span class="s1">&#39;0168&#39;</span><span class="p">,</span> <span class="s1">&#39;0174&#39;</span><span class="p">,</span> <span class="s1">&#39;0177&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;0181&#39;</span><span class="p">,</span> <span class="s1">&#39;0183&#39;</span><span class="p">,</span> <span class="s1">&#39;0207&#39;</span><span class="p">,</span> <span class="s1">&#39;0208&#39;</span><span class="p">,</span> <span class="s1">&#39;0212&#39;</span><span class="p">,</span> <span class="s1">&#39;0213&#39;</span><span class="p">,</span> <span class="s1">&#39;0217&#39;</span><span class="p">,</span> <span class="s1">&#39;0245&#39;</span><span class="p">,</span> <span class="s1">&#39;0252&#39;</span><span class="p">,</span> <span class="s1">&#39;0276&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;0277&#39;</span><span class="p">,</span> <span class="s1">&#39;a006&#39;</span><span class="p">,</span> <span class="s1">&#39;a011&#39;</span><span class="p">,</span> <span class="s1">&#39;a030&#39;</span><span class="p">,</span> <span class="s1">&#39;a031&#39;</span><span class="p">,</span> <span class="s1">&#39;a033&#39;</span><span class="p">,</span> <span class="s1">&#39;a034&#39;</span><span class="p">,</span> <span class="s1">&#39;a045&#39;</span><span class="p">,</span> <span class="s1">&#39;a061&#39;</span><span class="p">,</span> <span class="s1">&#39;a112&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;a132&#39;</span><span class="p">,</span> <span class="s1">&#39;a147&#39;</span><span class="p">,</span> <span class="s1">&#39;a148&#39;</span><span class="p">,</span> <span class="s1">&#39;a173&#39;</span><span class="p">,</span> <span class="s1">&#39;a184&#39;</span><span class="p">,</span> <span class="s1">&#39;a199&#39;</span><span class="p">,</span> <span class="s1">&#39;a251&#39;</span><span class="p">,</span> <span class="s1">&#39;a260&#39;</span><span class="p">,</span> <span class="s1">&#39;b006&#39;</span><span class="p">,</span> <span class="s1">&#39;b011&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;b030&#39;</span><span class="p">,</span> <span class="s1">&#39;b031&#39;</span><span class="p">,</span> <span class="s1">&#39;b033&#39;</span><span class="p">,</span> <span class="s1">&#39;b034&#39;</span><span class="p">,</span> <span class="s1">&#39;b045&#39;</span><span class="p">,</span> <span class="s1">&#39;b061&#39;</span><span class="p">,</span> <span class="s1">&#39;b132&#39;</span><span class="p">,</span> <span class="s1">&#39;b147&#39;</span><span class="p">,</span> <span class="s1">&#39;b148&#39;</span><span class="p">,</span> <span class="s1">&#39;b173&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;b184&#39;</span><span class="p">,</span> <span class="s1">&#39;b199&#39;</span><span class="p">,</span> <span class="s1">&#39;b216&#39;</span><span class="p">,</span> <span class="s1">&#39;b251&#39;</span><span class="p">,</span> <span class="s1">&#39;c031&#39;</span><span class="p">,</span> <span class="s1">&#39;c033&#39;</span><span class="p">,</span> <span class="s1">&#39;c034&#39;</span><span class="p">,</span> <span class="s1">&#39;c061&#39;</span><span class="p">,</span> <span class="s1">&#39;c173&#39;</span><span class="p">,</span> <span class="s1">&#39;c184&#39;</span><span class="p">,</span> 
+                  <span class="s1">&#39;c216&#39;</span><span class="p">,</span> <span class="s1">&#39;d173&#39;</span><span class="p">,</span> <span class="s1">&#39;d184&#39;</span><span class="p">,</span> <span class="s1">&#39;d216&#39;</span><span class="p">]</span>
+
+<span class="n">glaciers</span> <span class="o">=</span> <span class="p">[</span><span class="n">netcdf_dir</span> <span class="o">+</span> <span class="s1">&#39;/glacier&#39;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">glacier_labels</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;glaciers total: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">glaciers</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>glaciers total: 104
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed_file</span> <span class="o">=</span> <span class="s1">&#39;../data/GRE_G0240_1998_v.tif&#39;</span>
+<span class="n">vdiff_file</span> <span class="o">=</span> <span class="s1">&#39;../data/GRE_G0240_diff-2018-1998_v.tif&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Process all the selected flowlines and save the results as <code class="docutils literal notranslate"><span class="pre">mega_results_Greenland.h5</span></code>. We have commented the cell below because it takes some time to run. We have uploaded the results on Zenodo for you to directly read the results. If you do wish to repeat/verify the <span class="math notranslate nohighlight">\(P_e\)</span>-<span class="math notranslate nohighlight">\(J_0\)</span> calculation, you can uncomment the cell below and regenerate the <code class="docutils literal notranslate"><span class="pre">mega_results_Greenland.h5</span></code> file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mega_results = {}</span>
+
+<span class="c1"># with rasterio.open(speed_file) as speed_data, rasterio.open(vdiff_file) as vdiff_data:</span>
+<span class="c1">#     for glacier_file in glaciers:</span>
+<span class="c1">#         ds = Dataset(glacier_file, &#39;r&#39;)</span>
+<span class="c1">#         flowline_groups, _ = pejzero.get_flowline_groups(ds)</span>
+<span class="c1">#         primary_flowlines = [i for i in flowline_groups if &#39;iter&#39; not in i.path]</span>
+
+<span class="c1">#         results = {}</span>
+
+<span class="c1">#         for flowline_group in primary_flowlines:</span>
+
+<span class="c1">#             data_group = pejzero.cal_pej0_for_each_flowline(flowline_group, speed_data, vdiff_data)</span>
+
+<span class="c1">#             if data_group is not None:</span>
+<span class="c1">#                 results[flowline_group.name] = data_group</span>
+
+<span class="c1">#         results[&#39;avg&#39;] = pejzero.cal_avg_for_each_basin(results)</span>
+<span class="c1">#         mega_results[Path(glacier_file).stem[-4:]] = results</span>
+
+<span class="c1"># pejzero.save_pej0_results(mega_results, &quot;../data/results/mega_results_Greenland.h5&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we read the data from the HDF5 file. If you rerun the cell above and already get the <code class="docutils literal notranslate"><span class="pre">mega_results</span></code> variable, then you can safely comment this cell out.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mega_results</span> <span class="o">=</span> <span class="n">pejzero</span><span class="o">.</span><span class="n">load_pej0_results</span><span class="p">(</span><span class="s2">&quot;../data/results/mega_results_Greenland.h5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We extract 3 features for each average flowline, convert them to a Pandas dataframe, and save them into a csv file for <strong>Figure 6</strong>:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(P_e/\ell\)</span> at 3 km (the closest <span class="math notranslate nohighlight">\(P_e/\ell\)</span> reading to the terminus)</p></li>
+<li><p><span class="math notranslate nohighlight">\(J_0\)</span> at 3 km (the closest <span class="math notranslate nohighlight">\(P_e/\ell\)</span> reading to the terminus)</p></li>
+<li><p>Speed change</p></li>
+</ol>
+<p>We have commented this cell out because <code class="docutils literal notranslate"><span class="pre">pej0_GrIS_classification.csv</span></code> is along provided along with the workflows. That said, you can always uncomment the cell below and regenerate it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to_df = []</span>
+<span class="c1"># for key in mega_results:</span>
+<span class="c1">#     to_df.append([next(x for x in mega_results[key][&#39;avg&#39;][&#39;pe_ignore_dslope&#39;] if not np.isnan(x)), </span>
+<span class="c1">#                   next(x for x in mega_results[key][&#39;avg&#39;][&#39;j0_ignore_dslope&#39;] if not np.isnan(x)), </span>
+<span class="c1">#                   next(x for x in mega_results[key][&#39;avg&#39;][&#39;udiff_sm&#39;] if not np.isnan(x))])</span>
+    
+<span class="c1"># df = pd.DataFrame(to_df, columns=[r&#39;$\frac{P_e}{\ell}$ (1/m)&#39;, r&#39;$J_0$ (m/yr)&#39;, &#39;Speed diff (m/yr)&#39;])</span>
+<span class="c1"># df.to_csv(&#39;../data/pej0_GrIS_classification.csv&#39;, index=False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualization">
+<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
+<p>Firstly we design a color map based on the 1998-2018 speed change. This color map uses 7 nodes and strecthes from -500 m/yr to 3500/yr.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">113</span><span class="p">,</span><span class="mi">176</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">171</span><span class="p">,</span><span class="mi">229</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="mi">240</span><span class="p">,</span><span class="mi">189</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">222</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">202</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">220</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">177</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">132</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">177</span><span class="p">,</span><span class="mi">255</span><span class="p">]])</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span> <span class="o">/</span> <span class="mi">255</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">3500</span><span class="p">])</span> <span class="o">+</span> <span class="mi">500</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4000</span>
+<span class="n">mycmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">&quot;mycmap&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">colors</span><span class="p">)))</span>
+<span class="n">mycmap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="vertical-align: middle;"><strong>mycmap</strong> </div><div class="cmap"><img alt="mycmap colormap" title="mycmap" style="border: 1px solid #555;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAABACAYAAABsv8+/AAAAFXRFWHRUaXRsZQBteWNtYXAgY29sb3JtYXBbv6KmAAAAG3RFWHREZXNjcmlwdGlvbgBteWNtYXAgY29sb3JtYXASKLpCAAAAMHRFWHRBdXRob3IATWF0cGxvdGxpYiB2My40LjIsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmes1mPdAAAAMnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHYzLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZ4Jw/PoAAAISSURBVHic7dbNbuIwGIbRzwMzVSv1Yntnc31twV2QUCWQJiAWld5zNsbGzg9i8bS/b/97VdXr87/aNj5t2/cy3ffytK+qqn0dqqpqV8fT2A7D+nS+G/e148q56b7Fc216func/uI618/V4aOqqo6f71VV1cfx431h/ef943z79RbODfe5XF+6z2n/8Hrnsc/mW7//Xu/T9cO915mP/a5zy+v9pv3b36cvrN/7vD+/992/Z2/Dhz/TsZ3GVrub1sf5+fv5+nl+23Vbzc5d3G/cv9u0vvY86895/Xnaxe/x4Ove+J5rz9OrDWNNxuNsvrS+dV/v19cfdp/+oOdcO/9L7vOo+4//CgAgiAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACfQEX5ATUhjmzuwAAAABJRU5ErkJggg=="></div><div style="vertical-align: middle; max-width: 514px; display: flex; justify-content: space-between;"><div style="float: left;"><div title="#0571b0ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #0571b0ff;"></div> under</div><div style="margin: 0 auto; display: inline-block;">bad <div title="#00000000" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #00000000;"></div></div><div style="float: right;">over <div title="#8411b1ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #8411b1ff;"></div></div></div></div>
+</div>
+<p>Now we can make <strong>Figure 5</strong> by color coding each average glacier flowline using <code class="docutils literal notranslate"><span class="pre">mycmap</span></code> on the profile and the <span class="math notranslate nohighlight">\(J_0\)</span>-<span class="math notranslate nohighlight">\(P_0/\ell\)</span> plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;height_ratios&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
+    <span class="n">z_value</span> <span class="o">=</span> <span class="n">z_max</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_max</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_min</span><span class="p">)</span> <span class="k">else</span> <span class="n">z_min</span>
+    <span class="n">z_value_scaled</span> <span class="o">=</span> <span class="p">(</span><span class="n">z_value</span> <span class="o">+</span> <span class="mi">500</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4000</span>
+    <span class="n">rgba</span> <span class="o">=</span> <span class="n">mycmap</span><span class="p">(</span><span class="n">z_value_scaled</span><span class="p">)</span>
+    <span class="n">rgba2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rgba</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.5</span> 
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+                <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance from the terminus (km)&#39;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Speed change 1998-2018 (m/yr)&#39;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (1/m)&#39;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m/yr)&#39;</span><span class="p">)</span>
+    
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../data/results/Fig5.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Fig5_19_0.png" src="../_images/Fig5_19_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="exploring-the-results">
+<h2>Exploring the results<a class="headerlink" href="#exploring-the-results" title="Permalink to this headline">¶</a></h2>
+<p>These extra cells provide general overview of the data structure of <code class="docutils literal notranslate"><span class="pre">mega_results.h5</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="s1">&#39;a034&#39;</span><span class="p">]:</span>    <span class="c1"># This is Alison glacier (see Figure 1). You can replace the ID with any one we select in the beginning of this notebook.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>avg
+flowline03
+flowline04
+flowline05
+flowline06
+flowline07
+flowline08
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mega_results</span><span class="p">[</span><span class="s1">&#39;a034&#39;</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">]</span>    <span class="c1"># Average of Alison&#39;s 6 primary flowlines</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;b&#39;: array([      nan,       nan,       nan, ..., 602.95337, 603.01636,
+        603.074  ], dtype=float32),
+ &#39;d&#39;: array([0.0000e+00, 5.0000e-02, 1.0000e-01, ..., 1.3410e+02, 1.3415e+02,
+        1.3420e+02], dtype=float32),
+ &#39;j0&#39;: array([        nan,         nan,         nan, ..., 14.26131558,
+        14.80505341, 15.32604264]),
+ &#39;j0_ignore_dslope&#39;: array([        nan,         nan,         nan, ..., -4.34209113,
+        -4.40261348, -4.46299192]),
+ &#39;pe&#39;: array([           nan,            nan,            nan, ...,
+        5.77694301e-05, 5.83274997e-05, 5.88461048e-05]),
+ &#39;pe_ignore_dslope&#39;: array([           nan,            nan,            nan, ...,
+        2.91079403e-05, 2.86310854e-05, 2.81535963e-05]),
+ &#39;s&#39;: array([      nan,       nan,       nan, ..., 2096.6362, 2097.0464,
+        2097.4556], dtype=float32),
+ &#39;term1&#39;: array([          nan,           nan,           nan, ..., 6.9380649e-06,
+        6.9413554e-06, 6.9449325e-06], dtype=float32),
+ &#39;term2&#39;: array([           nan,            nan,            nan, ...,
+        1.70232476e-05, 1.64765127e-05, 1.59292828e-05]),
+ &#39;term3&#39;: array([          nan,           nan,           nan, ..., 5.1466282e-06,
+        5.2132173e-06, 5.2793803e-06], dtype=float32),
+ &#39;term4&#39;: array([          nan,           nan,           nan, ..., 2.8661490e-05,
+        2.9696412e-05, 3.0692507e-05], dtype=float32),
+ &#39;term5&#39;: array([        nan,         nan,         nan, ..., -4.34209113,
+        -4.40261348, -4.46299192]),
+ &#39;term6&#39;: array([        nan,         nan,         nan, ..., 18.60340671,
+        19.20766689, 19.78903456]),
+ &#39;u&#39;: array([         nan,          nan,          nan, ..., 138.15043176,
+        138.33779054, 138.5253413 ]),
+ &#39;udiff&#39;: array([2195.36425781, 2052.66967773, 2095.30116781, ...,  -51.73809052,
+         -55.16622416,  -51.02975082]),
+ &#39;udiff_sm&#39;: array([nan, nan, nan, ..., nan, nan, nan])}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-.conda-jme-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-.conda-jme-py",
+            path: "./workflows"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-.conda-jme-py'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="Fig3-4.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Figures 3-4</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="Fig6.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Figure 6</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Whyjay Zheng<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
