@@ -1,11 +1,9 @@
 # pejzero
 
-Supplmental materials (including documentation, workflows, figures, and code) presented in "Characteristics of marine-terminating glaciers vulnerable to lubricated bed."
+Supplmental materials (including documentation, workflows, figures, and code) presented in "Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds."
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/whyjz/pejzero/HEAD)
 
 ### License
 
-© Whyjay Zheng. All rights reserved upon further notice.
-
-<!-- Dual licensed: MIT and CC-BY 4.0 -->
+© Whyjay Zheng 2021. MIT and CC-BY 4.0 dual licensed.
