@@ -7,6 +7,7 @@ import pejzero
 import rasterio
 from netCDF4 import Dataset
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
 from pathlib import Path
 
@@ -37,6 +38,7 @@ results['avg'] = pejzero.cal_avg_for_each_basin(results)
 #### plot results
         
 pej0_plot_length = 200
+matplotlib.rc('font', size=20)
 fig, ax3 = plt.subplots(5, 2, sharex=True, figsize=(24, 20))
 gs = ax3[1, 1].get_gridspec()
 for ax in ax3[:, 1]:
@@ -78,15 +80,15 @@ for key in results:
         
     
 ax3[0, 0].set_title(Path(glacier_file).stem)
-ax3[0, 0].set_ylabel('Surface (cyan) and bed (brown) \n elevation (m)')
-ax3[1, 0].set_ylabel('Speed 1998 (m/yr)')
-ax3[2, 0].set_ylabel(r'$\frac{P_e}{\ell}$ (1/m)')
-ax3[3, 0].set_ylabel(r'$J_0$ (m/yr)')
+ax3[0, 0].set_ylabel('Elevantion (m): \n Surface (cyan) \n bed (brown)')
+ax3[1, 0].set_ylabel('Speed 1998 (m yr$^{-1}$)')
+ax3[2, 0].set_ylabel(r'$\frac{P_e}{\ell}$ (m$^{-1}$)')
+ax3[3, 0].set_ylabel(r'$J_0$ (m yr$^{-1}$)')
 ax3[4, 0].set_xlabel('Distance from terminus (km)')
-ax3[4, 0].set_ylabel('Speed change 1998-2018 (m/yr)')
-axbig.set_xlabel(r'$\frac{P_e}{\ell}$ (1/m)')
-axbig.set_ylabel(r'$J_0$ (m/yr)')
-axbig.set_title('Dot spacing: 50 m; \n Big dot indicates the first non-NaN value (the one closest to the terminus)')
+ax3[4, 0].set_ylabel('Speed change \n 1998–2018 (m yr$^{-1}$)')
+axbig.set_xlabel(r'$\frac{P_e}{\ell}$ (m$^{-1}$)')
+axbig.set_ylabel(r'$J_0$ (m yr$^{-1}$)')
+axbig.set_title('Dot spacing: 50 m; \n Big dot indicates the first non-NaN value \n (closest to the terminus)')
 
 # outdir = '../data/results/'
 
