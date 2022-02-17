@@ -1,7 +1,7 @@
 format: jb-article
 root: index
 sections:
-- file: workflows/Fig3-4
-- file: workflows/Fig5
+# - file: workflows/Fig3-4
+# - file: workflows/Fig5
 - file: workflows/Fig6
-- file: workflows/Fig7
+# - file: workflows/Fig7
