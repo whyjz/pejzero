@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Figure 5 &#8212; Pejzero</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -41,8 +41,8 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -54,10 +54,11 @@
     <link rel="canonical" href="https://whyjz.github.io/pejzero/workflows/Fig5.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Figure 6" href="Fig6.html" />
-    <link rel="prev" title="Figures 3-4" href="Fig3-4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -96,25 +97,10 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Fig3-4.html">
-   Figures 3-4
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Figure 5
-  </a>
- </li>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Fig6.html">
    Figure 6
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Fig7.html">
-   Figure 7
   </a>
  </li>
 </ul>
@@ -163,7 +149,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -216,7 +202,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -251,7 +237,45 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Figure 5</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-data">
+   Get data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis">
+   Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualization">
+   Visualization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploring-the-results">
+   Exploring the results
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="figure-5">
@@ -306,10 +330,12 @@ fi
 <span class="kn">import</span> <span class="nn">rasterio</span>
 <span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># from mpl_toolkits.axes_grid1.inset_locator import inset_axes</span>
 </pre></div>
 </div>
 </div>
@@ -394,14 +420,14 @@ fi
 <p>We have commented out this cell out because <code class="docutils literal notranslate"><span class="pre">pej0_GrIS_classification.csv</span></code> is provided along with the workflows. That said, you can always uncomment the cell below and regenerate it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to_df = []</span>
-<span class="c1"># for key in mega_results:</span>
-<span class="c1">#     to_df.append([next(x for x in mega_results[key][&#39;avg&#39;][&#39;pe_ignore_dslope&#39;] if not np.isnan(x)), </span>
-<span class="c1">#                   next(x for x in mega_results[key][&#39;avg&#39;][&#39;j0_ignore_dslope&#39;] if not np.isnan(x)), </span>
-<span class="c1">#                   next(x for x in mega_results[key][&#39;avg&#39;][&#39;udiff_sm&#39;] if not np.isnan(x))])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_df</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
+    <span class="n">to_df</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> 
+                  <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> 
+                  <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))])</span>
     
-<span class="c1"># df = pd.DataFrame(to_df, columns=[r&#39;$\frac{P_e}{\ell}$ (1/m)&#39;, r&#39;$J_0$ (m/yr)&#39;, &#39;Speed diff (m/yr)&#39;])</span>
-<span class="c1"># df.to_csv(&#39;../data/results/pej0_GrIS_classification.csv&#39;, index=False)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">to_df</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (m$^{-1}$)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="s1">&#39;Speed diff (m yr$^{-1}$)&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../data/results/pej0_GrIS_classification.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -412,27 +438,50 @@ fi
 <p>Firstly we design a color map based on the 1998-2018 speed change. This color map uses 7 nodes that stretch from -500 m/yr to 3500/yr.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">113</span><span class="p">,</span><span class="mi">176</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
-                   <span class="p">[</span><span class="mi">171</span><span class="p">,</span><span class="mi">229</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
-                   <span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="mi">240</span><span class="p">,</span><span class="mi">189</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
-                   <span class="p">[</span><span class="mi">222</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
-                   <span class="p">[</span><span class="mi">202</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
-                   <span class="p">[</span><span class="mi">220</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">177</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
-                   <span class="p">[</span><span class="mi">132</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">177</span><span class="p">,</span><span class="mi">255</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Version 1 (original submission)</span>
+<span class="c1"># colors = np.array([[5,113,176,255],</span>
+<span class="c1">#                    [171,229,255,255],</span>
+<span class="c1">#                    [255,240,189,255],</span>
+<span class="c1">#                    [222,130,38,255],</span>
+<span class="c1">#                    [202,0,32,255],</span>
+<span class="c1">#                    [220,22,177,255],</span>
+<span class="c1">#                    [132,17,177,255]])</span>
+<span class="c1"># colors = colors / 255</span>
+<span class="c1"># nodes = (np.array([-500, -300, 100, 500, 1500, 2500, 3500]) + 500) / 4000</span>
+<span class="c1"># mycmap = LinearSegmentedColormap.from_list(&quot;mycmap&quot;, list(zip(nodes, colors)))</span>
+<span class="c1"># mycmap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Version 2 (revised submission, based on the roma colormap https://github.com/GenericMappingTools/gmt/blob/master/share/cpt/roma.cpt)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">56</span><span class="p">,</span><span class="mi">156</span><span class="p">,</span><span class="mi">198</span><span class="p">,</span><span class="mi">230</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">198</span><span class="p">,</span><span class="mi">213</span><span class="p">,</span><span class="mi">210</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">192</span><span class="p">,</span><span class="mi">234</span><span class="p">,</span><span class="mi">195</span><span class="p">,</span><span class="mi">180</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">207</span><span class="p">,</span><span class="mi">229</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">190</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">200</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">230</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">126</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">63</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">]])</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span> <span class="o">/</span> <span class="mi">255</span>
-<span class="n">nodes</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">3500</span><span class="p">])</span> <span class="o">+</span> <span class="mi">500</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4000</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">3500</span><span class="p">])</span> <span class="o">+</span> <span class="mi">500</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4000</span>
 <span class="n">mycmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">&quot;mycmap&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">colors</span><span class="p">)))</span>
 <span class="n">mycmap</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div style="vertical-align: middle;"><strong>mycmap</strong> </div><div class="cmap"><img alt="mycmap colormap" title="mycmap" style="border: 1px solid #555;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAABACAYAAABsv8+/AAAAFXRFWHRUaXRsZQBteWNtYXAgY29sb3JtYXBbv6KmAAAAG3RFWHREZXNjcmlwdGlvbgBteWNtYXAgY29sb3JtYXASKLpCAAAAMHRFWHRBdXRob3IATWF0cGxvdGxpYiB2My40LjIsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmes1mPdAAAAMnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHYzLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZ4Jw/PoAAAISSURBVHic7dbNbuIwGIbRzwMzVSv1Yntnc31twV2QUCWQJiAWld5zNsbGzg9i8bS/b/97VdXr87/aNj5t2/cy3ffytK+qqn0dqqpqV8fT2A7D+nS+G/e148q56b7Fc216func/uI618/V4aOqqo6f71VV1cfx431h/ef943z79RbODfe5XF+6z2n/8Hrnsc/mW7//Xu/T9cO915mP/a5zy+v9pv3b36cvrN/7vD+/992/Z2/Dhz/TsZ3GVrub1sf5+fv5+nl+23Vbzc5d3G/cv9u0vvY86895/Xnaxe/x4Ove+J5rz9OrDWNNxuNsvrS+dV/v19cfdp/+oOdcO/9L7vOo+4//CgAgiAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACfQEX5ATUhjmzuwAAAABJRU5ErkJggg=="></div><div style="vertical-align: middle; max-width: 514px; display: flex; justify-content: space-between;"><div style="float: left;"><div title="#0571b0ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #0571b0ff;"></div> under</div><div style="margin: 0 auto; display: inline-block;">bad <div title="#00000000" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #00000000;"></div></div><div style="float: right;">over <div title="#8411b1ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #8411b1ff;"></div></div></div></div>
+<div class="output text_html"><div style="vertical-align: middle;"><strong>mycmap</strong> </div><div class="cmap"><img alt="mycmap colormap" title="mycmap" style="border: 1px solid #555;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAABACAYAAABsv8+/AAAAFXRFWHRUaXRsZQBteWNtYXAgY29sb3JtYXBbv6KmAAAAG3RFWHREZXNjcmlwdGlvbgBteWNtYXAgY29sb3JtYXASKLpCAAAAMHRFWHRBdXRob3IATWF0cGxvdGxpYiB2My40LjIsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmes1mPdAAAAMnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHYzLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZ4Jw/PoAAAI0SURBVHic7dZNcptAFIXRB5L3lMVmPVlKNhGpOwMaRQIT/5TtSuWeM8GNXjfg0Td9+/7jZ1XV6TS1++v5NPWqqtN5sz7Ny/q8rm+/r/s3++a+XKtVVT3NfVnPfV2Pa/WqqqepH831x/mDuWk397DenTfm57pMVVWnfpmrqub+a1quy/p2f8xVW9bVrmN9nauqers8rG/Xvsz1g33r+u73o/t/39d3vx+919g3fr/2ZXsb12ub7tetjfULc/3apzFfm/mxv9Xz8+vchz/n4bzb/Ob+/rlt/Jv6s8/tu+cu+9v2vQ/fZ5y/O/foex/3t+33HrzPn+/efe+41nK/Fi9e+yvn3jr/Wed+8Xy9cu5ff+93rz/6vM0fb93/Wed+2Xnr+oP/r6v54D4A8B8TAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQKDfsO+ktOquTRgAAAAASUVORK5CYII="></div><div style="vertical-align: middle; max-width: 514px; display: flex; justify-content: space-between;"><div style="float: left;"><div title="#389cc6e6" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #389cc6e6;"></div> under</div><div style="margin: 0 auto; display: inline-block;">bad <div title="#00000000" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #00000000;"></div></div><div style="float: right;">over <div title="#200600ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #200600ff;"></div></div></div></div>
 </div>
 <p>We can make <strong>Figure 5</strong> by color coding each average glacier flowline using <code class="docutils literal notranslate"><span class="pre">mycmap</span></code> on the profile and the <span class="math notranslate nohighlight">\(J_0\)</span>-<span class="math notranslate nohighlight">\(P_0/\ell\)</span> plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;height_ratios&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;height_ratios&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
     <span class="n">z_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
@@ -440,24 +489,39 @@ fi
     <span class="n">z_value</span> <span class="o">=</span> <span class="n">z_max</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_max</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_min</span><span class="p">)</span> <span class="k">else</span> <span class="n">z_min</span>
     <span class="n">z_value_scaled</span> <span class="o">=</span> <span class="p">(</span><span class="n">z_value</span> <span class="o">+</span> <span class="mi">500</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4000</span>
     <span class="n">rgba</span> <span class="o">=</span> <span class="n">mycmap</span><span class="p">(</span><span class="n">z_value_scaled</span><span class="p">)</span>
-    <span class="n">rgba2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rgba</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.5</span> 
+    <span class="c1"># rgba2 = np.array(rgba) / 1.5 </span>
     <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
-    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
-                <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+                <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
+<span class="n">letter_specs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;fontweight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="s1">&#39;va&#39;</span><span class="p">:</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;ha&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">}</span>
 <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance from the terminus (km)&#39;</span><span class="p">)</span>
-<span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Speed change 1998-2018 (m/yr)&#39;</span><span class="p">)</span>
-<span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (1/m)&#39;</span><span class="p">)</span>
-<span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m/yr)&#39;</span><span class="p">)</span>
+<span class="n">label_top</span> <span class="o">=</span> <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Speed change </span><span class="se">\n</span><span class="s1"> 1998-2018 </span><span class="se">\n</span><span class="s1"> (m yr$^{-1}$)&#39;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.96</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="o">**</span><span class="n">letter_specs</span><span class="p">)</span>
+<span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (m$^{-1}$)&#39;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.96</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="o">**</span><span class="n">letter_specs</span><span class="p">)</span>
+<span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">cbaxes</span> <span class="o">=</span> <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">inset_axes</span><span class="p">([</span><span class="mf">0.32</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+<span class="c1"># cbaxes = inset_axes(ax4[1], width=&quot;30%&quot;, height=&quot;3%&quot;, loc=4) </span>
+
+<span class="c1"># cmap = mpl.cm.cool</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=-</span><span class="mi">500</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">3500</span><span class="p">)</span>
+<span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">3500</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">mycmap</span><span class="p">),</span>
+             <span class="n">cax</span><span class="o">=</span><span class="n">cbaxes</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Speed change (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
+<span class="n">cbaxes</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
     
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../data/results/Fig5.pdf&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../data/results/Fig5.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_extra_artists</span><span class="o">=</span><span class="p">(</span><span class="n">label_top</span><span class="p">,),</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Fig5_19_0.png" src="../_images/Fig5_19_0.png" />
+<img alt="../_images/Fig5_20_0.png" src="../_images/Fig5_20_0.png" />
 </div>
 </div>
 </div>
@@ -550,54 +614,28 @@ flowline08
 
               </div>
               
-        
             
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="Fig3-4.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Figures 3-4</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="Fig6.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Figure 6</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Whyjay Zheng<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Whyjay Zheng<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
