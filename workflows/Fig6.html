@@ -322,6 +322,8 @@
       <th>$\frac{P_e}{\ell}$ (m$^{-1}$)</th>
       <th>$J_0$ (m yr$^{-1}$)</th>
       <th>Speed diff (m yr$^{-1}$)</th>
+      <th>Speed diff (%)</th>
+      <th>Advance (km)</th>
     </tr>
   </thead>
   <tbody>
@@ -330,33 +332,45 @@
       <td>0.000021</td>
       <td>-915.378881</td>
       <td>3029.186179</td>
+      <td>66.610459</td>
+      <td>-17.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.000306</td>
       <td>-200.805053</td>
       <td>511.123464</td>
+      <td>84.192696</td>
+      <td>-2.3</td>
     </tr>
     <tr>
       <th>2</th>
       <td>-0.000047</td>
       <td>-82.857761</td>
       <td>456.284207</td>
+      <td>55.293407</td>
+      <td>-3.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>-0.000034</td>
       <td>-450.936824</td>
       <td>-435.655180</td>
+      <td>-12.603562</td>
+      <td>-0.3</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0.000078</td>
       <td>-1243.208582</td>
       <td>-349.572187</td>
+      <td>-8.164585</td>
+      <td>-0.2</td>
     </tr>
     <tr>
       <th>...</th>
+      <td>...</td>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -366,34 +380,44 @@
       <td>0.000234</td>
       <td>-112.716518</td>
       <td>613.747370</td>
+      <td>34.516832</td>
+      <td>-0.9</td>
     </tr>
     <tr>
       <th>100</th>
       <td>0.000044</td>
       <td>-167.859915</td>
       <td>1023.168837</td>
+      <td>55.202543</td>
+      <td>-4.1</td>
     </tr>
     <tr>
       <th>101</th>
       <td>0.000054</td>
       <td>-1081.388452</td>
       <td>2774.927415</td>
+      <td>51.468309</td>
+      <td>-8.8</td>
     </tr>
     <tr>
       <th>102</th>
       <td>0.000315</td>
       <td>5.479272</td>
       <td>467.138448</td>
+      <td>31.283371</td>
+      <td>-0.9</td>
     </tr>
     <tr>
       <th>103</th>
       <td>0.000231</td>
       <td>-222.535111</td>
       <td>573.128198</td>
+      <td>41.697811</td>
+      <td>-4.1</td>
     </tr>
   </tbody>
 </table>
-<p>104 rows × 3 columns</p>
+<p>104 rows × 5 columns</p>
 </div></div></div>
 </div>
 <p>This histogram gives a quick idea about the distribution of speed change:</p>
@@ -405,6 +429,16 @@
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/Fig6_5_0.png" src="../_images/Fig6_5_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;Speed diff (%)&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Fig6_6_0.png" src="../_images/Fig6_6_0.png" />
 </div>
 </div>
 </div>
@@ -455,12 +489,12 @@ How many glaciers have a lower speed change?:  50
 <span class="n">legend</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
 <span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;xkcd:gray&#39;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../data/results/Fig6.pdf&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../data/results/Fig6-1.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Fig6_9_0.png" src="../_images/Fig6_9_0.png" />
+<img alt="../_images/Fig6_10_0.png" src="../_images/Fig6_10_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -514,6 +548,67 @@ How many glaciers have a lower speed change?:  50
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.001338775306495195
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Speed diff (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Advance (km)&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Speed diff (m yr$^{-1}$)&#39;, ylabel=&#39;Advance (km)&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/Fig6_24_1.png" src="../_images/Fig6_24_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Advance (km)&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">]</span>
+
+<span class="n">cmap</span> <span class="o">=</span> <span class="p">{</span><span class="sa">r</span><span class="s1">&#39;$|\Delta V| \geq$ 300 m yr$^{-1}$&#39;</span><span class="p">:</span> <span class="s1">&#39;#C94337&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$|\Delta V| &lt;$ 300 m yr$^{-1}$&#39;</span><span class="p">:</span> <span class="s1">&#39;#8EB7E4&#39;</span><span class="p">}</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (m$^{-1}$)&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Legend&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> 
+                  <span class="n">joint_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="p">},</span> <span class="n">marginal_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">height</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.0003</span><span class="p">,</span> <span class="mf">0.0010</span><span class="p">])</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">700</span><span class="p">])</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="mf">0.0003</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0003</span><span class="p">,</span> <span class="mf">0.0006</span><span class="p">,</span> <span class="mf">0.0009</span><span class="p">])</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_marg_x</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_marg_y</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">legend</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;xkcd:gray&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../data/results/Fig6-2.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Fig6_29_0.png" src="../_images/Fig6_29_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Advance (km)&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">]</span>
+
+<span class="n">cmap</span> <span class="o">=</span> <span class="p">{</span><span class="sa">r</span><span class="s1">&#39;$|\Delta V| \geq$ 300 m yr$^{-1}$&#39;</span><span class="p">:</span> <span class="s1">&#39;#C94337&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$|\Delta V| &lt;$ 300 m yr$^{-1}$&#39;</span><span class="p">:</span> <span class="s1">&#39;#8EB7E4&#39;</span><span class="p">}</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (m$^{-1}$)&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Legend&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> 
+                  <span class="n">joint_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="p">},</span> <span class="n">marginal_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">height</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.0003</span><span class="p">,</span> <span class="mf">0.0010</span><span class="p">])</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">700</span><span class="p">])</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="mf">0.0003</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0003</span><span class="p">,</span> <span class="mf">0.0006</span><span class="p">,</span> <span class="mf">0.0009</span><span class="p">])</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_marg_x</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_marg_y</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">legend</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;xkcd:gray&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../data/results/Fig6-3.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Fig6_31_0.png" src="../_images/Fig6_31_0.png" />
 </div>
 </div>
 </div>
