@@ -319,8 +319,8 @@ fi
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
 
 if [ ! -f ../data/GRE_G0240_1998_v.tif ]; then
-    wget http://www.geo.cornell.edu/eas/gstudent/wz278/paperdraft2021/GRE_G0240_1998_v.tif -P ../data/ --no-verbose
-    wget http://www.geo.cornell.edu/eas/gstudent/wz278/paperdraft2021/GRE_G0240_diff-2018-1998_v.tif -P ../data/ --no-verbose
+    wget https://github.com/whyjz/pejzero/releases/download/v0.1/GRE_G0240_1998_v.tif -P ../data/ --no-verbose
+    wget https://github.com/whyjz/pejzero/releases/download/v0.1/GRE_G0240_diff-2018-1998_v.tif -P ../data/ --no-verbose
 fi
 </pre></div>
 </div>
@@ -332,7 +332,7 @@ fi
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
 
 if [ ! -f ../data/results/mega_results_Greenland.h5 ]; then
-    wget http://www.geo.cornell.edu/eas/gstudent/wz278/paperdraft2021/mega_results_Greenland.h5 -P ../data/results/ --no-verbose
+    wget https://github.com/whyjz/pejzero/releases/download/v0.1/mega_results_Greenland.h5 -P ../data/results/ --no-verbose
 fi
 </pre></div>
 </div>
@@ -388,6 +388,8 @@ fi
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed_file</span> <span class="o">=</span> <span class="s1">&#39;../data/GRE_G0240_1998_v.tif&#39;</span>
 <span class="n">vdiff_file</span> <span class="o">=</span> <span class="s1">&#39;../data/GRE_G0240_diff-2018-1998_v.tif&#39;</span>
+
+<span class="n">retreat_file</span> <span class="o">=</span> <span class="s1">&#39;../data/GrIS_ice-retreat.csv&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -437,13 +439,33 @@ fi
 <p>We have commented out this cell out because <code class="docutils literal notranslate"><span class="pre">pej0_GrIS_classification.csv</span></code> is provided along with the workflows. That said, you can always uncomment the cell below and regenerate it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">retreat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">retreat_file</span><span class="p">)</span>
+<span class="n">retreat</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">retreat</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0001&#39;</span><span class="p">][</span><span class="s1">&#39;advance (km)&#39;</span><span class="p">]</span>
+<span class="c1"># float(front_pos)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    -17
+Name: advance (km), dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_df</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
+    <span class="n">u1998</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;u&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">udiff</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">front_pos</span> <span class="o">=</span> <span class="n">retreat</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">retreat</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">][</span><span class="s1">&#39;advance (km)&#39;</span><span class="p">]</span>
     <span class="n">to_df</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> 
                   <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> 
-                  <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))])</span>
+                  <span class="n">udiff</span><span class="p">,</span>
+                  <span class="mi">100</span> <span class="o">*</span> <span class="n">udiff</span> <span class="o">/</span> <span class="n">u1998</span><span class="p">,</span>
+                  <span class="nb">float</span><span class="p">(</span><span class="n">front_pos</span><span class="p">)])</span>
     
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">to_df</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (m$^{-1}$)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="s1">&#39;Speed diff (m yr$^{-1}$)&#39;</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">to_df</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (m$^{-1}$)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="s1">&#39;Speed diff (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="s1">&#39;Speed diff (%)&#39;</span><span class="p">,</span> <span class="s1">&#39;Advance (km)&#39;</span><span class="p">])</span>
 <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../data/results/pej0_GrIS_classification.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -509,8 +531,16 @@ fi
     <span class="c1"># rgba2 = np.array(rgba) / 1.5 </span>
     <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
     <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
-                <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">pinhead_cor</span> <span class="o">=</span> <span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+                   <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+    <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pinhead_cor</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pinhead_cor</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">annot_arrowprops</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;0001&#39;</span><span class="p">:</span>
+        <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;0001&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">pinhead_cor</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.42</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">arrowprops</span><span class="o">=</span><span class="n">annot_arrowprops</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;0207&#39;</span><span class="p">:</span>
+        <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;0207&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">pinhead_cor</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">arrowprops</span><span class="o">=</span><span class="n">annot_arrowprops</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;0277&#39;</span><span class="p">:</span>
+        <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;0277&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">pinhead_cor</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.83</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">arrowprops</span><span class="o">=</span><span class="n">annot_arrowprops</span><span class="p">)</span>
 
 <span class="n">letter_specs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;fontweight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="s1">&#39;va&#39;</span><span class="p">:</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;ha&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">}</span>
 <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
@@ -538,7 +568,7 @@ fi
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Fig5_20_0.png" src="../_images/Fig5_20_0.png" />
+<img alt="../_images/Fig5_21_0.png" src="../_images/Fig5_21_0.png" />
 </div>
 </div>
 </div>
@@ -602,6 +632,122 @@ flowline08
  &#39;udiff&#39;: array([2195.36425781, 2052.66967773, 2095.30116781, ...,  -51.73809052,
          -55.16622416,  -51.02975082]),
  &#39;udiff_sm&#39;: array([nan, nan, nan, ..., nan, nan, nan])}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;str&#39;&gt;
 </pre></div>
 </div>
 </div>
