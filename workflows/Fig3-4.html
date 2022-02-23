@@ -328,17 +328,18 @@ fi
 </div>
 </div>
 </div>
-<p>File locations. You can replace the number in <code class="docutils literal notranslate"><span class="pre">/glacier0207.nc</span></code> for processing other glacier data. In the paper, <strong>Figure 3</strong> uses <code class="docutils literal notranslate"><span class="pre">/glacier0207.nc</span></code> and <strong>Figure 4</strong> uses <code class="docutils literal notranslate"><span class="pre">/glacier0277.nc</span></code>.</p>
+<p>File locations. <code class="docutils literal notranslate"><span class="pre">glacier_file</span></code> indicates which glacier basin to look at. The default here is <code class="docutils literal notranslate"><span class="pre">/glacier0001.nc</span></code> (Jakobshavn Isbræ), but feel free to replace it with a different glacier ID. In the paper, <strong>Figure 3</strong> uses <code class="docutils literal notranslate"><span class="pre">/glacier0001.nc</span></code> and <strong>Figure 4</strong> uses <code class="docutils literal notranslate"><span class="pre">/glacier0277.nc</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">netcdf_dir</span> <span class="o">=</span> <span class="s1">&#39;../data/Felikson2021&#39;</span>
-<span class="n">glacier_file</span> <span class="o">=</span> <span class="n">netcdf_dir</span> <span class="o">+</span> <span class="s1">&#39;/glacier0277.nc&#39;</span>
+<span class="n">glacier_file</span> <span class="o">=</span> <span class="n">netcdf_dir</span> <span class="o">+</span> <span class="s1">&#39;/glacier0001.nc&#39;</span>
 <span class="n">speed_file</span> <span class="o">=</span> <span class="s1">&#39;../data/GRE_G0240_1998_v.tif&#39;</span>
 <span class="n">vdiff_file</span> <span class="o">=</span> <span class="s1">&#39;../data/GRE_G0240_diff-2018-1998_v.tif&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>If looking at <strong>Jakobshavn Isbræ</strong> or <strong>Alangordliup Sermia</strong>, we use a customized label for figure production.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;0001&#39;</span> <span class="ow">in</span> <span class="n">glacier_file</span><span class="p">:</span>
@@ -351,14 +352,14 @@ fi
 </div>
 </div>
 </div>
-<p>Open the data set and show 6 primary flowlines.</p>
+<p>Open the glacier the Savitzky–Golay filterdata set and show 6 primary flowlines.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">glacier_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">flowline_groups</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">pejzero</span><span class="o">.</span><span class="n">get_flowline_groups</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
 <span class="n">primary_flowlines</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">flowline_groups</span> <span class="k">if</span> <span class="s1">&#39;iter&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">i</span><span class="o">.</span><span class="n">path</span><span class="p">]</span>
 <span class="n">primary_flowlines</span>
-<span class="c1"># Here&#39;s how to access variables in the primary_flowlines object:</span>
+<span class="c1">#### Here&#39;s how to access variables in the primary_flowlines object: ####</span>
 <span class="c1"># primary_flowlines[0][&#39;geometry&#39;][&#39;surface&#39;][&#39;GIMP&#39;][&#39;nominal&#39;][&#39;h&#39;][:]</span>
 </pre></div>
 </div>
@@ -366,39 +367,39 @@ fi
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;class &#39;netCDF4._netCDF4.Group&#39;&gt;
  group /flowline03:
-     dimensions(sizes): d(12402)
+     dimensions(sizes): d(9563)
      variables(dimensions): float32 d(d), float32 x(d), float32 y(d)
      groups: geometry, dh, Pe, knickpoint,
  &lt;class &#39;netCDF4._netCDF4.Group&#39;&gt;
  group /flowline04:
-     dimensions(sizes): d(12519)
+     dimensions(sizes): d(9985)
      variables(dimensions): float32 d(d), float32 x(d), float32 y(d)
      groups: geometry, dh, Pe, knickpoint,
  &lt;class &#39;netCDF4._netCDF4.Group&#39;&gt;
  group /flowline05:
-     dimensions(sizes): d(12501)
+     dimensions(sizes): d(10559)
      variables(dimensions): float32 d(d), float32 x(d), float32 y(d)
      groups: geometry, dh, Pe, knickpoint,
  &lt;class &#39;netCDF4._netCDF4.Group&#39;&gt;
  group /flowline06:
-     dimensions(sizes): d(12455)
+     dimensions(sizes): d(11056)
      variables(dimensions): float32 d(d), float32 x(d), float32 y(d)
      groups: geometry, dh, Pe, knickpoint,
  &lt;class &#39;netCDF4._netCDF4.Group&#39;&gt;
  group /flowline07:
-     dimensions(sizes): d(12420)
+     dimensions(sizes): d(11241)
      variables(dimensions): float32 d(d), float32 x(d), float32 y(d)
      groups: geometry, dh, Pe, knickpoint,
  &lt;class &#39;netCDF4._netCDF4.Group&#39;&gt;
  group /flowline08:
-     dimensions(sizes): d(12426)
+     dimensions(sizes): d(11773)
      variables(dimensions): float32 d(d), float32 x(d), float32 y(d)
      groups: geometry, dh, Pe, knickpoint]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Calculate <span class="math notranslate nohighlight">\(P_e/\ell\)</span> and <span class="math notranslate nohighlight">\(J_0\)</span> for each flowline, and calculate the average of all 6 flowlines:</p>
+<p>Now we can calculate <span class="math notranslate nohighlight">\(P_e/\ell\)</span> and <span class="math notranslate nohighlight">\(J_0\)</span> for each flowline and find out the average of all 6 flowlines:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
@@ -414,9 +415,39 @@ fi
 </div>
 </div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">results</span></code> is a nested dict variable:</p>
+<ul class="simple">
+<li><p>The first layer contains results for each flowline and for the average values.</p></li>
+<li><p>The second layer contains all variables along the flowline distance. All variables are smoothed using the Savitzky-Golay filter (see Section 3.1) unless otherwise noted.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">d</span></code>: distance (km)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code>: surface elevation (m)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>: bed elevation (m)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code>: glacier speed from 1998 (m/yr)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pe</span></code>: <span class="math notranslate nohighlight">\(P_e / \ell\)</span> derived using Eq. 15 (1/m)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">j0</span></code>: <span class="math notranslate nohighlight">\(J_0\)</span> derived using Eq. 10 (m/yr)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pe_ignore_dslope</span></code>: <span class="math notranslate nohighlight">\(P_e / \ell\)</span> derived using Eq. 16 (1/m)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">j0_ignore_dslope</span></code>: <span class="math notranslate nohighlight">\(J_0\)</span> derived using Eq. 17 (m/yr)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">udiff</span></code>: glacier speed change between 1998 and 2018 (m/yr), unsmoothed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">udiff_sm</span></code>: glacier speed change between 1998 and 2018 (m/yr), smoothed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">term1</span></code>: The first term in Eq. 15 (<span class="math notranslate nohighlight">\(\frac{(m+1)\alpha_0}{mH_0}\)</span>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">term2</span></code>: The second term in Eq. 15 (<span class="math notranslate nohighlight">\(-\frac{U_0'}{U_0}\)</span>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">term3</span></code>: The third term in Eq. 15 (<span class="math notranslate nohighlight">\(-\frac{H_0'}{H_0}\)</span>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">term4</span></code>: The fourth term in Eq. 15 (<span class="math notranslate nohighlight">\(\frac{\alpha_0'}{\alpha_0}\)</span>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">term5</span></code>: The first term in Eq. 10 (<span class="math notranslate nohighlight">\(C_0 H'_0\)</span>, = <code class="docutils literal notranslate"><span class="pre">j0_ignore_dslope</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">term6</span></code>: The second term in Eq. 10 (<span class="math notranslate nohighlight">\(D_0 \alpha'_0\)</span>)</p></li>
+</ul>
+</li>
+</ul>
+<p>For more information, please see the docstrings in <code class="docutils literal notranslate"><span class="pre">pejzero.py</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;--------------&#39;</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;flowline03&#39;</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -429,6 +460,23 @@ flowline06
 flowline07
 flowline08
 avg
+--------------
+d
+s
+b
+u
+pe
+j0
+term1
+term2
+term3
+term4
+term5
+term6
+udiff
+udiff_sm
+pe_ignore_dslope
+j0_ignore_dslope
 </pre></div>
 </div>
 </div>
@@ -451,7 +499,7 @@ avg
 <span class="c1"># ==== Plot data</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
     
-    <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s1">&#39;avg&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s1">&#39;avg&#39;</span><span class="p">:</span>   <span class="c1"># for an individual flowline</span>
         <span class="n">ax3</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;s&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:aquamarine&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">ax3</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:brown&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">ax3</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;u&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:light green&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -462,7 +510,7 @@ avg
         <span class="c1"># plot first non-NaN value (the one closest to the terminus)</span>
         <span class="n">axbig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
                    <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:light purple&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">else</span><span class="p">:</span>   <span class="c1"># for the average (using different color and lind width)</span>
         <span class="n">ax3</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;u&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:dark green&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
         <span class="n">ax3</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:dark red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
         <span class="n">ax3</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:dark blue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -472,7 +520,7 @@ avg
         <span class="n">axbig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
                    <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:dark purple&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
         
-<span class="c1"># ==== Add supplemental text </span>
+<span class="c1"># ==== Add supplemental text and labels</span>
 <span class="n">letter_specs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;fontweight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="s1">&#39;va&#39;</span><span class="p">:</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;ha&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">}</span>
 <span class="n">ax3</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">fig_label</span><span class="p">)</span>
 <span class="n">ax3</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Elevantion (m): </span><span class="se">\n</span><span class="s1"> Surface (cyan) </span><span class="se">\n</span><span class="s1"> bed (brown)&#39;</span><span class="p">)</span>
@@ -490,6 +538,8 @@ avg
 <span class="n">axbig</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">)</span>
 <span class="n">axbig</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Dot spacing: 50 m; </span><span class="se">\n</span><span class="s1"> Big dot indicates the first non-NaN value </span><span class="se">\n</span><span class="s1"> (closest to the terminus)&#39;</span><span class="p">)</span>
 <span class="n">axbig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">axbig</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="o">**</span><span class="n">letter_specs</span><span class="p">)</span>
+
+<span class="c1"># ==== For Figure 3 (glacier 0001 -- Jakobshavn Isbræ), we only pplot the first 80 km to highlight the change around the glacier front.</span>
 <span class="k">if</span> <span class="n">fig_label</span> <span class="o">==</span> <span class="s1">&#39;glacier 0001: Jakobshavn Isbræ&#39;</span><span class="p">:</span>
     <span class="n">axbig</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="mf">0.00015</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0001</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.00005</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
     <span class="n">ax3</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
@@ -499,10 +549,10 @@ avg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Fig3-4_15_0.png" src="../_images/Fig3-4_15_0.png" />
+<img alt="../_images/Fig3-4_17_0.png" src="../_images/Fig3-4_17_0.png" />
 </div>
 </div>
-<p>To run the analysis in a batch mode for more than one glacier, uncomment the following cell using <code class="docutils literal notranslate"><span class="pre">Pe-J0-Greenland-SingleBasin.py</span></code>. The default setting prints PNG files but can be switched to pdf easily.</p>
+<p>To run the analysis in a batch mode for more than one glacier, uncomment the following cell and run <code class="docutils literal notranslate"><span class="pre">Pe-J0-Greenland-SingleBasin.py</span></code> in the for loop. The result PNGs will be saved in <code class="docutils literal notranslate"><span class="pre">../data/results/single_basins/</span></code>. You can also make it print to PDF with little modification to the last line of the script.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%bash</span>
@@ -511,251 +561,6 @@ avg
 <span class="c1"># for i in $filelist; do </span>
 <span class="c1">#     python Pe-J0-Greenland-SingleBasin.py $i</span>
 <span class="c1"># done</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([            nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan,             nan,             nan,             nan,
-                   nan, -9.15378881e+02, -9.08689726e+02, -9.02779512e+02,
-       -8.97500571e+02, -8.92729669e+02, -8.88673018e+02, -8.85066033e+02,
-       -8.81320143e+02, -8.77418174e+02, -8.73475792e+02, -8.69481932e+02,
-       -8.65479039e+02, -8.61569670e+02, -8.57867897e+02, -8.54533071e+02,
-       -8.51642941e+02, -8.49204030e+02, -8.47158580e+02, -8.45556504e+02,
-       -8.44001736e+02, -8.42265739e+02, -8.40335473e+02, -8.38083536e+02,
-       -8.35297522e+02, -8.31801882e+02, -8.27967722e+02, -8.24059716e+02,
-       -8.19656157e+02, -8.14989058e+02, -8.10073782e+02, -8.04558306e+02,
-       -7.99179266e+02, -7.94163410e+02, -7.89569685e+02, -7.85101950e+02,
-       -7.80800340e+02, -7.76570718e+02, -7.72345565e+02, -7.67836559e+02,
-       -7.63065984e+02, -7.57979434e+02, -7.52247302e+02, -7.46132354e+02,
-       -7.39744035e+02, -7.32986784e+02, -7.26010179e+02, -7.18637126e+02,
-       -7.10908497e+02, -7.02728545e+02, -6.94241369e+02, -6.85498484e+02,
-       -6.76300550e+02, -6.66540636e+02, -6.56226487e+02, -6.45612012e+02,
-       -6.34891572e+02, -6.24250403e+02, -6.13634044e+02, -6.03078131e+02,
-       -5.92652149e+02, -5.82290518e+02, -5.71984939e+02, -5.61623162e+02,
-       -5.51292731e+02, -5.40970957e+02, -5.33782220e+02, -5.26593427e+02,
-       -5.19375805e+02, -5.12122575e+02, -5.04863902e+02, -4.97552457e+02,
-       -4.90211836e+02, -4.82851844e+02, -4.75457810e+02, -4.68048964e+02,
-       -4.60663697e+02, -4.53294494e+02, -4.45922643e+02, -4.38537660e+02,
-       -4.31092563e+02, -4.23581020e+02, -4.16116813e+02, -4.08617771e+02,
-       -4.01066588e+02, -3.93436757e+02, -3.85737291e+02, -3.78038373e+02,
-       -3.70404235e+02, -3.62726742e+02, -3.55012172e+02, -3.47258421e+02,
-       -3.39503841e+02, -3.31816824e+02, -3.24172881e+02, -3.16449532e+02,
-       -3.08680596e+02, -3.00922798e+02, -2.93127499e+02, -2.85361149e+02,
-       -2.77572333e+02, -2.69743042e+02, -2.61954805e+02, -2.54231318e+02,
-       -2.46566626e+02, -2.38971319e+02, -2.31469182e+02, -2.24084878e+02,
-       -2.16825253e+02, -2.09706091e+02, -2.02735287e+02, -1.95885920e+02,
-       -1.89176238e+02, -1.82595624e+02, -1.76111439e+02, -1.69681806e+02,
-       -1.63355334e+02, -1.57159545e+02, -1.51099857e+02, -1.45178905e+02,
-       -1.39395774e+02, -1.33761720e+02, -1.28236410e+02, -1.22831167e+02,
-       -1.17527831e+02, -1.12371673e+02, -1.07378599e+02, -1.02551736e+02,
-       -9.78767566e+01, -9.32522884e+01, -8.87371040e+01, -8.43185681e+01,
-       -7.99675908e+01, -7.57399259e+01, -7.16280951e+01, -6.75433717e+01,
-       -6.34968397e+01, -5.94688412e+01, -5.54870696e+01, -5.15505170e+01,
-       -4.76728995e+01, -4.38816044e+01, -4.01118901e+01, -3.63781534e+01,
-       -3.26987496e+01, -2.90611078e+01, -2.54658636e+01, -2.19294602e+01,
-       -1.84224498e+01, -1.49228478e+01, -1.14645886e+01, -8.06630647e+00,
-       -4.69301523e+00, -1.34488606e+00,  1.98602635e+00,  5.33439666e+00,
-        8.72528550e+00,  1.21885928e+01,  1.57142750e+01,  1.92840352e+01,
-        2.28497226e+01,  2.64005598e+01,  2.99315267e+01,  3.34016837e+01,
-        3.68251546e+01,  4.02190727e+01,  4.35584978e+01,  4.69115938e+01,
-        5.02907020e+01,  5.36505668e+01,  5.70051339e+01,  6.03136316e+01,
-        6.35727116e+01,  6.67733358e+01,  6.99199388e+01,  7.30416554e+01,
-        7.61033960e+01,  7.91492013e+01,  8.21418713e+01,  8.50842225e+01,
-        8.79719613e+01,  9.07845392e+01,  9.35269411e+01,  9.62586952e+01,
-        9.89803883e+01,  1.01695843e+02,  1.04368918e+02,  1.07016775e+02,
-        1.09706521e+02,  1.12291645e+02,  1.14848515e+02,  1.17406005e+02,
-        1.19923595e+02,  1.22358599e+02,  1.24736723e+02,  1.27020416e+02,
-        1.29202409e+02,  1.31299066e+02,  1.33266589e+02,  1.35142848e+02,
-        1.36980097e+02,  1.38766321e+02,  1.40503608e+02,  1.42203198e+02,
-        1.43841854e+02,  1.45368890e+02,  1.46850218e+02,  1.48291250e+02,
-        1.49679396e+02,  1.50997338e+02,  1.52237252e+02,  1.53433122e+02,
-        1.54610694e+02,  1.55766420e+02,  1.56901197e+02,  1.57986512e+02,
-        1.59042789e+02,  1.60043143e+02,  1.61016538e+02,  1.61906688e+02,
-        1.62753213e+02,  1.63563454e+02,  1.64247742e+02,  1.64835022e+02,
-        1.65339208e+02,  1.65823114e+02,  1.66252375e+02,  1.66661292e+02,
-        1.66984040e+02,  1.67247183e+02,  1.67458122e+02,  1.67615511e+02,
-        1.67788658e+02,  1.68013048e+02,  1.68232971e+02,  1.68370750e+02,
-        1.68424884e+02,  1.68497159e+02,  1.68495823e+02,  1.68464623e+02,
-        1.68597247e+02,  1.68588201e+02,  1.68620277e+02,  1.68661886e+02,
-        1.68685488e+02,  1.68679391e+02,  1.68658550e+02,  1.68611774e+02,
-        1.68621839e+02,  1.68589511e+02,  1.68501107e+02,  1.68355534e+02,
-        1.68135009e+02,  1.67783707e+02,  1.67314573e+02,  1.66782930e+02,
-        1.66232211e+02,  1.65581942e+02,  1.64864111e+02,  1.64042102e+02,
-        1.63136671e+02,  1.62138623e+02,  1.61089638e+02,  1.60003182e+02,
-        1.58923771e+02,  1.57794803e+02,  1.56655927e+02,  1.55515367e+02,
-        1.54396330e+02,  1.53289245e+02,  1.52187595e+02,  1.51110208e+02,
-        1.50048292e+02,  1.49010878e+02,  1.47942813e+02,  1.46894193e+02,
-        1.45847142e+02,  1.44849116e+02,  1.43873680e+02,  1.42920843e+02,
-        1.42008800e+02,  1.41127273e+02,  1.40278788e+02,  1.39511928e+02,
-        1.38761495e+02,  1.38033389e+02,  1.37299245e+02,  1.36580854e+02,
-        1.35879462e+02,  1.35223864e+02,  1.34601868e+02,  1.34021637e+02,
-        1.33498038e+02,  1.33023770e+02,  1.32590367e+02,  1.32194328e+02,
-        1.31805252e+02,  1.31439188e+02,  1.31090420e+02,  1.30764531e+02,
-        1.30427030e+02,  1.30098801e+02,  1.29769178e+02,  1.29437723e+02,
-        1.29057236e+02,  1.28676473e+02,  1.28294313e+02,  1.27907274e+02,
-        1.27505089e+02,  1.27089134e+02,  1.26699882e+02,  1.26326493e+02,
-        1.25930205e+02,  1.25542272e+02,  1.25158320e+02,  1.24798820e+02,
-        1.24467191e+02,  1.24128821e+02,  1.23789704e+02,  1.23441743e+02,
-        1.23095783e+02,  1.22749551e+02,  1.22394088e+02,  1.22040149e+02,
-        1.21698994e+02,  1.21338591e+02,  1.20947021e+02,  1.20526681e+02,
-        1.20074108e+02,  1.19592406e+02,  1.19086076e+02,  1.18589590e+02,
-        1.18098584e+02,  1.17615346e+02,  1.17145019e+02,  1.16670226e+02,
-        1.16219515e+02,  1.15781724e+02,  1.15329278e+02,  1.14874426e+02,
-        1.14435835e+02,  1.14024622e+02,  1.13653803e+02,  1.13279545e+02,
-        1.12873960e+02,  1.12466267e+02,  1.12120511e+02,  1.11828143e+02,
-        1.11580258e+02,  1.11389021e+02,  1.11247017e+02,  1.11162603e+02,
-        1.11127680e+02,  1.11111611e+02,  1.11127121e+02,  1.11204404e+02,
-        1.11337477e+02,  1.11520389e+02,  1.11726611e+02,  1.11936621e+02,
-        1.12132656e+02,  1.12334375e+02,  1.12540885e+02,  1.12734080e+02,
-        1.12912988e+02,  1.13115503e+02,  1.13347046e+02,  1.13570743e+02,
-        1.13777126e+02,  1.13966670e+02,  1.14152233e+02,  1.14318737e+02,
-        1.14453597e+02,  1.14553813e+02,  1.14632451e+02,  1.14689020e+02,
-        1.14709646e+02,  1.14694920e+02,  1.14645132e+02,  1.14572862e+02,
-        1.14515412e+02,  1.14447473e+02,  1.14370818e+02,  1.14281967e+02,
-        1.14186118e+02,  1.14066806e+02,  1.13920436e+02,  1.13740920e+02,
-        1.13534883e+02,  1.13320251e+02,  1.13081494e+02,  1.12815697e+02,
-        1.12510277e+02,  1.12186356e+02,  1.11842256e+02,  1.11494133e+02,
-        1.11141779e+02,  1.10792133e+02,  1.10436470e+02,  1.10074605e+02,
-        1.09717967e+02,  1.09352610e+02,  1.08960645e+02,  1.08554459e+02,
-        1.08135468e+02,  1.07704367e+02,  1.07262955e+02,  1.06850184e+02,
-        1.06470212e+02,  1.06139111e+02,  1.05840860e+02,  1.05560156e+02,
-        1.05287737e+02,  1.05029232e+02,  1.04778554e+02,  1.04553943e+02,
-        1.04373507e+02,  1.04205399e+02,  1.04071921e+02,  1.03974502e+02,
-        1.03897259e+02,  1.03833937e+02,  1.03793939e+02,  1.03772602e+02,
-        1.03754582e+02,  1.03732995e+02,  1.03726532e+02,  1.03702154e+02,
-        1.03662060e+02,  1.03615449e+02,  1.03557775e+02,  1.03489830e+02,
-        1.03393736e+02,  1.03276538e+02,  1.03178877e+02,  1.03089013e+02,
-        1.02988052e+02,  1.02872136e+02,  1.02768732e+02,  1.02673064e+02,
-        1.02568184e+02,  1.02474689e+02,  1.02394726e+02,  1.02347319e+02,
-        1.02307432e+02,  1.02255868e+02,  1.02163879e+02,  1.02047062e+02,
-        1.01916795e+02,  1.01777599e+02,  1.01613038e+02,  1.01412345e+02,
-        1.01176101e+02,  1.00907852e+02,  1.00622454e+02,  1.00307476e+02,
-        9.99460471e+01,  9.95456149e+01,  9.91083313e+01,  9.86380029e+01,
-        9.81470669e+01,  9.76477909e+01,  9.71541268e+01,  9.66757386e+01,
-        9.62022133e+01,  9.57289113e+01,  9.52415634e+01,  9.47560436e+01,
-        9.42675782e+01,  9.37656028e+01,  9.32518145e+01,  9.26898965e+01,
-        9.21145532e+01,  9.15330714e+01,  9.09239246e+01,  9.02941131e+01,
-        8.96463116e+01,  8.89674178e+01,  8.82838123e+01,  8.75860331e+01,
-        8.68570135e+01,  8.61003536e+01,  8.53088310e+01,  8.45213283e+01,
-        8.37063596e+01,  8.28689736e+01,  8.20330983e+01,  8.11692415e+01,
-        8.02992927e+01,  7.94096282e+01,  7.85391735e+01,  7.76653268e+01,
-        7.67778937e+01,  7.58852116e+01,  7.49808390e+01,  7.40633045e+01,
-        7.31324147e+01,  7.21834179e+01,  7.12212299e+01,  7.02550769e+01,
-        6.92846048e+01,  6.83053166e+01,  6.73087150e+01,  6.62874416e+01,
-        6.52321755e+01,  6.41538823e+01,  6.30464998e+01,  6.19247805e+01,
-        6.07827667e+01,  5.96215917e+01,  5.84377537e+01,  5.72185501e+01,
-        5.59816504e+01,  5.47404518e+01,  5.34831673e+01,  5.22194584e+01,
-        5.09587951e+01,  4.96987819e+01,  4.84303832e+01,  4.72127150e+01,
-        4.59832548e+01,  4.47843299e+01,  4.35634341e+01,  4.23549580e+01,
-        4.11578493e+01,  3.99503667e+01,  3.87591108e+01,  3.75687815e+01,
-        3.63774131e+01,  3.51942847e+01,  3.40207588e+01,  3.28756601e+01,
-        3.17407722e+01,  3.06619616e+01,  2.95850899e+01,  2.85058190e+01,
-        2.74378490e+01,  2.63665336e+01,  2.52862029e+01,  2.42145134e+01,
-        2.31601485e+01,  2.21195854e+01,  2.10991110e+01,  2.00658303e+01,
-        1.90598057e+01,  1.80745555e+01,  1.71297606e+01,  1.62100044e+01,
-        1.53153706e+01,  1.44626104e+01,  1.36420403e+01,  1.28467929e+01,
-        1.20622623e+01,  1.12834948e+01,  1.05185381e+01,  9.75768088e+00,
-        9.01154289e+00,  8.28253300e+00,  7.56688543e+00,  6.87028450e+00,
-        6.19283683e+00,  5.52856317e+00,  4.87392621e+00,  4.21695881e+00,
-        3.57973993e+00,  2.94011598e+00,  2.30537504e+00,  1.67780085e+00,
-        1.05461276e+00,  4.53381265e-01, -1.47122356e-01, -7.36657545e-01,
-       -1.32008392e+00, -1.91073849e+00, -2.48841537e+00, -3.07178191e+00,
-       -3.64995130e+00, -4.22634284e+00, -4.79104114e+00, -5.34773398e+00,
-       -5.89235386e+00, -6.43560181e+00, -6.96722446e+00, -7.49827688e+00,
-       -8.01295002e+00, -8.51115612e+00, -8.99470592e+00, -9.46598190e+00,
-       -9.91728277e+00, -1.03488634e+01, -1.07728774e+01, -1.11885261e+01,
-       -1.15889628e+01, -1.19757189e+01, -1.23668124e+01, -1.27533425e+01,
-       -1.31277875e+01, -1.34843015e+01, -1.38194686e+01, -1.41388000e+01,
-       -1.44264976e+01, -1.46862460e+01, -1.49230212e+01, -1.51359622e+01,
-       -1.53366086e+01, -1.55288159e+01, -1.57042663e+01, -1.58651089e+01,
-       -1.60341815e+01, -1.61953852e+01, -1.63507418e+01, -1.64970029e+01,
-       -1.66380047e+01, -1.67770313e+01, -1.69217235e+01, -1.70715975e+01,
-       -1.72230927e+01, -1.73673675e+01, -1.75122071e+01, -1.76585648e+01,
-       -1.78050152e+01, -1.79480603e+01, -1.80825633e+01, -1.82268865e+01,
-       -1.83778876e+01, -1.85289590e+01, -1.86843892e+01, -1.88436346e+01,
-       -1.90118365e+01, -1.91917328e+01, -1.93745287e+01, -1.95478985e+01,
-       -1.97177670e+01, -1.98797202e+01, -2.00441567e+01, -2.02074174e+01,
-       -2.03803497e+01, -2.05647534e+01, -2.07628895e+01, -2.09745231e+01,
-       -2.11919825e+01, -2.14205613e+01, -2.16583146e+01, -2.19002208e+01,
-       -2.21333613e+01, -2.23577271e+01, -2.25723034e+01, -2.27795046e+01,
-       -2.29763588e+01, -2.31692991e+01, -2.33594957e+01, -2.35520281e+01,
-       -2.37395596e+01, -2.39049282e+01, -2.40586194e+01, -2.42092892e+01,
-       -2.43518517e+01, -2.44952226e+01, -2.46278025e+01, -2.47438320e+01,
-       -2.48693223e+01, -2.49765547e+01, -2.50698212e+01, -2.51526463e+01,
-       -2.52208448e+01, -2.52686849e+01, -2.52829622e+01, -2.52679507e+01,
-       -2.52295193e+01, -2.51736509e+01, -2.51017330e+01, -2.50121440e+01,
-       -2.49095102e+01, -2.47977411e+01, -2.46632371e+01, -2.45129960e+01,
-       -2.43490062e+01, -2.41743906e+01, -2.39906811e+01, -2.37969697e+01,
-       -2.35882398e+01, -2.33729371e+01, -2.31481567e+01, -2.29207424e+01,
-       -2.26709184e+01, -2.24114849e+01, -2.21469918e+01, -2.18816442e+01,
-       -2.16105003e+01, -2.13359614e+01, -2.10744772e+01, -2.08078206e+01,
-       -2.05400249e+01, -2.02671117e+01, -1.99866892e+01, -1.97024355e+01,
-       -1.94093329e+01, -1.91166902e+01, -1.88274917e+01, -1.85419170e+01,
-       -1.82715952e+01, -1.79981045e+01, -1.77203226e+01, -1.74435460e+01,
-       -1.71744475e+01, -1.69145944e+01, -1.66625129e+01, -1.64147761e+01,
-       -1.61639097e+01, -1.59252404e+01, -1.56909571e+01, -1.54533595e+01,
-       -1.52039375e+01, -1.49463970e+01, -1.46788800e+01, -1.44084037e+01,
-       -1.41358440e+01, -1.38632468e+01, -1.35963440e+01, -1.33335129e+01,
-       -1.30718555e+01, -1.28096149e+01, -1.25556191e+01, -1.22985433e+01,
-       -1.20388751e+01, -1.17811878e+01, -1.15277022e+01, -1.12763583e+01,
-       -1.10317255e+01, -1.07722680e+01, -1.05174069e+01, -1.02676604e+01,
-       -1.00247807e+01, -9.78684115e+00, -9.54449557e+00, -9.30984814e+00,
-       -9.08355183e+00, -8.86470499e+00, -8.65950335e+00, -8.46492904e+00,
-       -8.27889365e+00, -8.09813809e+00, -7.92505391e+00, -7.75302585e+00,
-       -7.59104615e+00, -7.43473455e+00, -7.28666999e+00, -7.14826976e+00,
-       -6.99742747e+00, -6.86020588e+00, -6.73537313e+00, -6.62347760e+00,
-       -6.52417401e+00, -6.47962794e+00, -6.45256682e+00, -6.45806005e+00,
-       -6.48770869e+00, -6.54573148e+00, -6.63403418e+00, -6.76628327e+00,
-       -6.92621367e+00, -7.09209815e+00, -7.27569361e+00, -7.47005389e+00,
-       -7.69397063e+00, -7.93318541e+00, -8.18640774e+00, -8.45217502e+00,
-       -8.72807266e+00, -8.98701228e+00, -9.25428896e+00, -9.52037412e+00,
-       -9.77740221e+00, -1.00263558e+01, -1.02674738e+01, -1.05024232e+01,
-       -1.07291496e+01, -1.09435005e+01, -1.11476739e+01, -1.13433428e+01,
-       -1.15273601e+01, -1.16998122e+01, -1.18631910e+01, -1.20162208e+01,
-       -1.21562127e+01, -1.22982645e+01, -1.24452060e+01, -1.25959938e+01,
-       -1.27503071e+01, -1.29106618e+01, -1.30749226e+01, -1.32492741e+01,
-       -1.34324203e+01, -1.36226524e+01, -1.38176038e+01, -1.40104947e+01,
-       -1.41988680e+01, -1.44005162e+01, -1.45928250e+01, -1.47723514e+01,
-       -1.49472148e+01, -1.51075505e+01, -1.52619982e+01, -1.53921103e+01,
-       -1.55088389e+01, -1.56099051e+01, -1.56885881e+01, -1.57434132e+01,
-       -1.57908657e+01, -1.58331342e+01, -1.58687265e+01, -1.59041730e+01,
-       -1.12463177e+01, -1.13565199e+01, -1.14691063e+01, -1.15836379e+01,
-       -1.16944980e+01, -1.18043190e+01, -1.19210947e+01, -1.20401972e+01,
-       -1.21555114e+01, -1.22584554e+01, -1.23589016e+01, -1.24531584e+01,
-       -1.25218824e+01, -1.25808345e+01, -1.25987185e+01, -1.26083215e+01,
-       -1.26066509e+01, -1.26159828e+01, -1.26106018e+01, -1.25966317e+01,
-       -1.25679335e+01, -1.25264803e+01, -1.24618599e+01, -1.23852941e+01,
-       -1.23013303e+01, -1.22058524e+01, -1.21009733e+01, -1.19914899e+01,
-       -1.18763124e+01, -1.17583849e+01, -1.16360611e+01, -1.15102518e+01,
-       -1.13827838e+01, -1.12476032e+01, -1.11081069e+01, -1.09658367e+01,
-       -1.08196000e+01, -1.06734571e+01, -1.05171708e+01, -1.03555727e+01,
-       -1.01887426e+01, -1.00173818e+01, -9.83991496e+00, -9.65684976e+00,
-       -9.47319478e+00, -9.29028541e+00, -9.10767456e+00, -8.90306454e+00,
-       -8.69741162e+00, -8.49107081e+00, -8.28517955e+00, -8.08177717e+00,
-       -7.88492892e+00, -7.69545023e+00, -7.51197930e+00, -7.34102118e+00,
-       -7.17778005e+00, -7.01848994e+00, -6.85509760e+00, -6.68742032e+00,
-       -6.51387804e+00])
 </pre></div>
 </div>
 </div>
