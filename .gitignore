@@ -1,11 +1,4 @@
 # User defined
-workflows/*.log
-workflows/utils.py
-workflows/Pe-J0-Greenland-Hayes.ipynb
-workflows/Pe-J0-Greenland-MultipleFelikson.ipynb
-workflows/Pe-J0-Greenland-MultipleOwnCalc2.ipynb
-workflows/mega_results.p
-workflows/tmp*
 data/Felikson2021
 data/ITMIX
 data/GRE_G0240_1998_v.tif
@@ -13,7 +6,7 @@ data/GRE_G0240_diff-2018-1998_v.tif
 data/SRA_G0240_2018_v_EPSG32633.tif
 data/results/glacier*.png
 data/results/mega_results_Greenland.h5
-workflows/deprecated
+data/results/single_basins
 jupyter-book/_build
 
 # Byte-compiled / optimized / DLL files
