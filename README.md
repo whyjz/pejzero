@@ -6,6 +6,10 @@ Supplemental materials (including documentation, workflows, figures, and code) p
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://whyjz.github.io/pejzero/)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/whyjz/pejzero/HEAD)
 
+### Article link
+
+Zheng, W.: Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds, The Cryosphere Discuss. [preprint], https://doi.org/10.5194/tc-2021-345, in review, 2021.
+
 ### License
 
-© Whyjay Zheng 2021. MIT and CC-BY 4.0 dual licensed.
+© Whyjay Zheng 2021-2022. MIT and CC-BY 4.0 dual licensed.

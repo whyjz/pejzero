@@ -8,11 +8,15 @@ Whyjay Zheng<sup>1, 2</sup>
 
 Corresponding author and email: Whyjay Zheng <whyjz@berkeley.edu>
 
+## Article link
+
+Zheng, W.: Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds, The Cryosphere Discuss. [preprint], https://doi.org/10.5194/tc-2021-345, in review, 2021.
+
 ## Content of this Jupyter Book
 
 1. Workflow for generating Figures 3, 4, and other supplementary figures
 2. Workflow for generating Figure 5
-3. Workflow for generating Figure 6
+3. Workflow for generating Figure 6 and the relevant data analysis
 4. Workflow for generating Figure 7 and other supplementary figures
 
 ## Introduction

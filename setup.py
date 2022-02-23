@@ -9,7 +9,7 @@ requirements = ['numpy', 'scipy', 'h5py']
     
 setuptools.setup(
     name             = "pejzero",
-    version          = "0.1.0",
+    version          = "0.2.0",
     author           = "Whyjay Zheng",
     author_email     = "whyjz@berkeley.edu",
     description      = 'Supplmental materials presented in "Characteristics of marine-terminating glaciers vulnerable to lubricated bed"',
