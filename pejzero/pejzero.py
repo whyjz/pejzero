@@ -1,5 +1,7 @@
 # This file contains functions needed for running Pe-J0 comparison,
 # especially for the Greenland Ice Sheet (GrIS).
+# by Whyjay Zheng
+# Last modified: Feb 22, 2022
 
 import numpy as np
 from scipy.signal import savgol_filter
@@ -7,11 +9,13 @@ from scipy import interpolate
 import warnings
 import h5py
 
+# ============ Code from Felikson et al.
 
 def get_flowline_groups(ds):
     '''
-    Adopts from Felikson et al., re-distributed under the MIT license.
-    You can find the original script (utils.py) at https://doi.org/10.5281/zenodo.4284715
+    Adopted from Felikson et al., original script (utils.py) at https://doi.org/10.5281/zenodo.4284715
+    re-distributed under the MIT license.
+    
     Reference to cite if used:
     Felikson, D., A. Catania, G., Bartholomaus, T. C., Morlighem, M., &Noël, B. P. Y. (2021). 
     Steep Glacier Bed Knickpoints Mitigate Inland Thinning in Greenland. Geophysical Research Letters, 48(2), 1–10. https://doi.org/10.1029/2020GL090112
@@ -34,9 +38,11 @@ def get_flowline_groups(ds):
             
     return flowline_groups, iteration_list
 
+# ============ Customized Savitzky–Golay filter
+
 def savgol_smoothing(u, elev, bed, w=201, delta=50, mode='interp'):
     '''
-    Apply Savitzky–Golay filter to glacier speed (u), surface elevation (elev), and surface elevations (bed) 
+    Apply a customized Savitzky–Golay filter to glacier speed (u), surface elevation (elev), and surface elevations (bed) 
     along a flowline, and calculate smoothed surface elevation (elev_sm), bed elevation (bed_sm), 
     speed (u_sm), ice thickness (h_sm), speed derivative to distance (dudx_sm), 
     thickness derivate to distance (dhdx_sm), surface slope (alpha_sm),
@@ -55,6 +61,8 @@ def savgol_smoothing(u, elev, bed, w=201, delta=50, mode='interp'):
     
     Doc for savgol_filter:
     https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html
+    
+    For details about the customized Savitzky–Golay filter, see the docstring for my_savgol_filter.
     '''
     h = elev - bed
     h[h < 0] = 0
@@ -77,8 +85,7 @@ def my_savgol_filter(x, window_length, polyorder=1, deriv=0, delta=50, mode='int
     '''
     A customized savgol_filter used in savgol_smoothing.
     
-    We have to customize the savgol_filter to avoid the edge effect. 
-    Generally, this function replace the edge points (within window_length//2 data points) with a np.nan
+    To avoid the edge effect, this function replace the edge points (within window_length//2 data points) with a np.nan
     and uses a reduced window length for 60 points closest to the edges.
     '''
     x_sm = savgol_filter(x, window_length=window_length, polyorder=polyorder, deriv=deriv, delta=delta, mode=mode)
@@ -93,18 +100,26 @@ def my_savgol_filter(x, window_length, polyorder=1, deriv=0, delta=50, mode='int
             x_sm[-i-1] = tmp[-i-1]
     return x_sm
 
+# ============ Calcuate Pe and J0 along flowlines
+
 def pe_corefun(u, h, dudx, dhdx, slope, dalphadx, m=3):
     '''
-    Calculate Peclet number using a default flow parameter m=3.
+    Calculate Pe/l and J0 using a default flow parameter m=3.
     
     Arguments:
     - u, h, dudx, dhdx, slope, dalphadx: variables from savgol_smoothing. Must be of the same size.
     
     Returns:
-    - pe: Peclet number (precisely, Pe devided by the characteristic length)
-    - J0: see the paper for definition
-    - term1, term2, term3, term4: four components of pe (see the comments below and Equation XX in the paper)
-    
+    - pe: Pe/l derived using Eq. 15
+    - j0: J0 derived using Eq. 10
+    - term1: The first term in Eq. 15  : (m+1)alpha / (mH) 
+    - term2: The second term in Eq. 15 : -U' / U
+    - term3: The third term in Eq. 15  : -H' / H
+    - term4: The fourth term in Eq. 15 : alpha' / alpha
+    - term5: The first term in Eq. 10  : C * H', = j0_ignore_dslope
+    - term6: The second term in Eq. 10 : D * alpha'
+    - pe_ignore_dslope: Pe/l derived using Eq. 16
+    - j0_ignore_dslope: J0 derived using Eq. 17
     '''
     term1 = (m + 1) * slope / (m * h)  #  (m+1)alpha / (mH)
     term2 = -dudx / u                      # -U' / U         
@@ -118,18 +133,10 @@ def pe_corefun(u, h, dudx, dhdx, slope, dalphadx, m=3):
     diffu_const = m * u * h / slope    # mUH / alpha; D0
     # dd0dx_obsv = np.gradient(diffu_const, 200)
 
-    # only calculating where ice thickness > 50 m. (all Ture)
-    # idx = h_sm > 50
-
-    # dfdx = kinevelo[idx] * dhdx_sm[idx] + diffu_const[idx] * dalphadx_sm[idx]  # C * H' + D * alpha'
-    # j_over_c0 = -dfdx / ((m + 1) * dudx_sm[idx])
-    # term5 = kinevelo * dhdx              # C * H'
     term5 = (m + 1) * u * dhdx         # C * H'
     term6 = diffu_const * dalphadx       # D * alpha'
     j0 = term5 + term6
-    # j0_ignore_dslope = ((m + 1) * u - m * (h * dudx / slope + u * dhdx / slope)) * dhdx
     j0_ignore_dslope = term5[:]
-    # j_over_c0 = -j0 / ((m + 1) * dudx)
     
     return pe, j0, term1, term2, term3, term4, term5, term6, pe_ignore_dslope, j0_ignore_dslope
 
@@ -146,8 +153,26 @@ def cal_pej0_for_each_flowline(flowline_obj, speed_data, vdiff_data, size_limit=
     - savgol_winlength: Savgol filter window length.
     
     Returns:
-    - data group: dict object with the following entries: 'd', 's', 'b', 'u', 'pe', 'j0', 'term1', 'term2', 'term3', 'term4',  'udiff', and 'udiff_sm'
-    Note: Pe is stored as the form of Pe/l.
+    - data group: dict object with the following entries: 
+    
+    --- d: distance (km)
+    --- s: surface elevation (m)
+    --- b: bed elevation (m)
+    --- u: reference glacier speed used for claculating Pe and J0 (m/yr)
+    --- pe: Pe/l derived using Eq. 15
+    --- j0: J0 derived using Eq. 10
+    --- term1: The first term in Eq. 15  : (m+1)alpha / (mH) 
+    --- term2: The second term in Eq. 15 : -U' / U
+    --- term3: The third term in Eq. 15  : -H' / H
+    --- term4: The fourth term in Eq. 15 : alpha' / alpha
+    --- term5: The first term in Eq. 10  : C * H', = j0_ignore_dslope
+    --- term6: The second term in Eq. 10 : D * alpha'
+    --- udiff: glacier speed change between the reference year and the target year (m/yr), unsmoothed.
+    --- udiff_sm: glacier speed change between the reference year and the target year (m/yr), smoothed.
+    --- pe_ignore_dslope: Pe/l derived using Eq. 16
+    --- j0_ignore_dslope: J0 derived using Eq. 17
+    
+    All variables are smoothed using the Savitzky-Golay filter (the savgol_smoothing function) unless otherwise noted.
     '''
      
     x = flowline_obj['x'][:]
@@ -231,6 +256,9 @@ def cal_pej0_for_each_flowline(flowline_obj, speed_data, vdiff_data, size_limit=
     return data_group
     
 def cal_avg_for_each_basin(data_group):
+    '''
+    Calculate and return the average for each entry in data_group (the object returned by cal_pej0_for_each_flowline).
+    '''
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", category=RuntimeWarning)
         minlength = min([len(data_group[x]['d']) for x in data_group])
@@ -271,12 +299,10 @@ def cal_avg_for_each_basin(data_group):
            'udiff': udiff_avg, 'udiff_sm': udiff_sm_avg, 'pe_ignore_dslope': pe_ignore_dslope_avg, 'j0_ignore_dslope': j0_ignore_dslope_avg}
     return avg
 
-
-
 def cal_pej0_for_each_flowline_raw(d, s, b, u, size_limit=280, minimum_amount_valid_u=20, savgol_winlength=251):
     '''
-    Calculate Pe/J0 given d, s, b, and u.
-    
+    Similar to cal_pej0_for_each_flowline, this function calculates Pe and J0 but without fancy I/O and sampling of glacier speed from a target year.
+
     Arguments:
     - d: distance along the flowline, from terminus
     - s: surface elevation
@@ -287,8 +313,24 @@ def cal_pej0_for_each_flowline_raw(d, s, b, u, size_limit=280, minimum_amount_va
     - savgol_winlength: Savgol filter window length.
     
     Returns:
-    - data group: dict object with the following entries: 'd', 's', 'b', 'u', 'pe', 'j0', 'term1', 'term2', 'term3', 'term4',  'udiff', and 'udiff_sm'
-    Note: Pe is stored as the form of Pe/l.
+    - data group: dict object with the following entries: 
+    
+    --- d: distance (km)
+    --- s: surface elevation (m)
+    --- b: bed elevation (m)
+    --- u: reference glacier speed used for claculating Pe and J0 (m/yr)
+    --- pe: Pe/l derived using Eq. 15
+    --- j0: J0 derived using Eq. 10
+    --- term1: The first term in Eq. 15  : (m+1)alpha / (mH) 
+    --- term2: The second term in Eq. 15 : -U' / U
+    --- term3: The third term in Eq. 15  : -H' / H
+    --- term4: The fourth term in Eq. 15 : alpha' / alpha
+    --- term5: The first term in Eq. 10  : C * H', = j0_ignore_dslope
+    --- term6: The second term in Eq. 10 : D * alpha'
+    --- pe_ignore_dslope: Pe/l derived using Eq. 16
+    --- j0_ignore_dslope: J0 derived using Eq. 17
+    
+    All input variables are smoothed using the Savitzky-Golay filter (the savgol_smoothing function) unless otherwise noted.
     '''
      
     if d.size < size_limit:
@@ -333,8 +375,6 @@ def cal_pej0_for_each_flowline_raw(d, s, b, u, size_limit=280, minimum_amount_va
                   'pe_ignore_dslope': pe_ignore_dslope, 'j0_ignore_dslope': j0_ignore_dslope,}
     return data_group
 
-
-
 # ============ DATA IO
 
 # These functions are based on the StackExchange post at https://codereview.stackexchange.com/questions/120802/recursively-save-python-dictionaries-to-hdf5-files-using-h5py/121308 (written by hpaulj)
@@ -342,7 +382,7 @@ def cal_pej0_for_each_flowline_raw(d, s, b, u, size_limit=280, minimum_amount_va
 
 def save_pej0_results(result_dic, filename):
     """
-    ....
+    Save a nested dict object as an HDF5 file.
     """
     def recursively_save_dict_contents_to_group(h5file, path, dic):
         """
@@ -362,7 +402,7 @@ def save_pej0_results(result_dic, filename):
                 
 def load_pej0_results(filename):
     """
-    ....
+    Load an HDF5 file containing a nested dict object.
     """
     def recursively_load_dict_contents_from_group(h5file, path):
         """
