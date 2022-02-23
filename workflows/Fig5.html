@@ -348,10 +348,9 @@ fi
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="c1"># from mpl_toolkits.axes_grid1.inset_locator import inset_axes</span>
 </pre></div>
 </div>
 </div>
@@ -383,11 +382,12 @@ fi
 </div>
 </div>
 </div>
+<p>Besides the ITS_LIVE speed files, here we include the Greenland glacier retreat data to prepare the data table for <strong>Figure 6</strong>. The original glacier retreat data are available at <a class="reference external" href="https://doi.org/10.7280/D1667W">https://doi.org/10.7280/D1667W</a> as the form of terminal position time series. We manually measure the retreat for all 104 glacier outlets and save the results as <code class="docutils literal notranslate"><span class="pre">GrIS_ice-retreat.csv</span></code>, see Section 3.1 for more details.</p>
+<p>Reference: Wood, M., Rignot, E., Fenty, I., An, L., Bjørk, A., van denBroeke, M., Cai, C., Kane, E., Menemenlis, D., Millan, R., Morlighem, M., Mouginot, J., Noël, B., Scheuchl, B., Velicogna, I., Willis, J. K., &amp;Zhang, H. (2021). Ocean forcing drives glacier retreat in Greenland. Science Advances, 7(1), 1–11. <a class="reference external" href="https://doi.org/10.1126/sciadv.aba7282">https://doi.org/10.1126/sciadv.aba7282</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed_file</span> <span class="o">=</span> <span class="s1">&#39;../data/GRE_G0240_1998_v.tif&#39;</span>
 <span class="n">vdiff_file</span> <span class="o">=</span> <span class="s1">&#39;../data/GRE_G0240_diff-2018-1998_v.tif&#39;</span>
-
 <span class="n">retreat_file</span> <span class="o">=</span> <span class="s1">&#39;../data/GrIS_ice-retreat.csv&#39;</span>
 </pre></div>
 </div>
@@ -429,43 +429,32 @@ fi
 </div>
 </div>
 </div>
-<p>We extract 3 features for each average flowline, convert them to a Pandas dataframe, and save them into a CSV file for <strong>Figure 6</strong>:</p>
+<p>We extract 4 features for each average flowline, convert them to a Pandas dataframe, and save them into a CSV file for <strong>Figure 6</strong>:</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(P_e/\ell\)</span> at 3 km (the closest <span class="math notranslate nohighlight">\(P_e/\ell\)</span> reading to the terminus)</p></li>
-<li><p><span class="math notranslate nohighlight">\(J_0\)</span> at 3 km (the closest <span class="math notranslate nohighlight">\(P_e/\ell\)</span> reading to the terminus)</p></li>
-<li><p>Speed change</p></li>
+<li><p><span class="math notranslate nohighlight">\(J_0\)</span> at 3 km (the closest <span class="math notranslate nohighlight">\(J_0\)</span> reading to the terminus)</p></li>
+<li><p>Speed change (as <em>both</em> absolute difference and percentage difference, so it takes two columns)</p></li>
+<li><p>Terminus advance (i.e. retreat would be a negative value)</p></li>
 </ol>
 <p>We have commented out this cell out because <code class="docutils literal notranslate"><span class="pre">pej0_GrIS_classification.csv</span></code> is provided along with the workflows. That said, you can always uncomment the cell below and regenerate it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">retreat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">retreat_file</span><span class="p">)</span>
-<span class="n">retreat</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">retreat</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0001&#39;</span><span class="p">][</span><span class="s1">&#39;advance (km)&#39;</span><span class="p">]</span>
-<span class="c1"># float(front_pos)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    -17
-Name: advance (km), dtype: object
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_df</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
-    <span class="n">u1998</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;u&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="n">udiff</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="n">front_pos</span> <span class="o">=</span> <span class="n">retreat</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">retreat</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">][</span><span class="s1">&#39;advance (km)&#39;</span><span class="p">]</span>
-    <span class="n">to_df</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> 
-                  <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> 
-                  <span class="n">udiff</span><span class="p">,</span>
-                  <span class="mi">100</span> <span class="o">*</span> <span class="n">udiff</span> <span class="o">/</span> <span class="n">u1998</span><span class="p">,</span>
-                  <span class="nb">float</span><span class="p">(</span><span class="n">front_pos</span><span class="p">)])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retreat = pd.read_csv(retreat_file)</span>
+
+<span class="c1"># to_df = []</span>
+
+<span class="c1"># for key in mega_results:</span>
+<span class="c1">#     u1998 = next(x for x in mega_results[key][&#39;avg&#39;][&#39;u&#39;] if not np.isnan(x))</span>
+<span class="c1">#     udiff = next(x for x in mega_results[key][&#39;avg&#39;][&#39;udiff_sm&#39;] if not np.isnan(x))</span>
+<span class="c1">#     front_pos = retreat.loc[retreat[&#39;ID&#39;] == key][&#39;advance (km)&#39;]</span>
+<span class="c1">#     to_df.append([next(x for x in mega_results[key][&#39;avg&#39;][&#39;pe_ignore_dslope&#39;] if not np.isnan(x)), </span>
+<span class="c1">#                   next(x for x in mega_results[key][&#39;avg&#39;][&#39;j0_ignore_dslope&#39;] if not np.isnan(x)), </span>
+<span class="c1">#                   udiff,</span>
+<span class="c1">#                   100 * udiff / u1998,</span>
+<span class="c1">#                   float(front_pos)])</span>
     
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">to_df</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (m$^{-1}$)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="s1">&#39;Speed diff (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="s1">&#39;Speed diff (%)&#39;</span><span class="p">,</span> <span class="s1">&#39;Advance (km)&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../data/results/pej0_GrIS_classification.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># df = pd.DataFrame(to_df, columns=[r&#39;$\frac{P_e}{\ell}$ (m$^{-1}$)&#39;, r&#39;$J_0$ (m yr$^{-1}$)&#39;, &#39;Speed diff (m yr$^{-1}$)&#39;, &#39;Speed diff (%)&#39;, &#39;Advance (km)&#39;])</span>
+<span class="c1"># df.to_csv(&#39;../data/results/pej0_GrIS_classification.csv&#39;, index=False)</span>
 </pre></div>
 </div>
 </div>
@@ -473,25 +462,7 @@ Name: advance (km), dtype: object
 </div>
 <div class="section" id="visualization">
 <h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
-<p>Firstly we design a color map based on the 1998-2018 speed change. This color map uses 7 nodes that stretch from -500 m/yr to 3500/yr.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Version 1 (original submission)</span>
-<span class="c1"># colors = np.array([[5,113,176,255],</span>
-<span class="c1">#                    [171,229,255,255],</span>
-<span class="c1">#                    [255,240,189,255],</span>
-<span class="c1">#                    [222,130,38,255],</span>
-<span class="c1">#                    [202,0,32,255],</span>
-<span class="c1">#                    [220,22,177,255],</span>
-<span class="c1">#                    [132,17,177,255]])</span>
-<span class="c1"># colors = colors / 255</span>
-<span class="c1"># nodes = (np.array([-500, -300, 100, 500, 1500, 2500, 3500]) + 500) / 4000</span>
-<span class="c1"># mycmap = LinearSegmentedColormap.from_list(&quot;mycmap&quot;, list(zip(nodes, colors)))</span>
-<span class="c1"># mycmap</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Firstly we design a color map based on the 1998-2018 speed change. This color map uses 8 nodes that stretch from -500 m/yr to 3500/yr.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Version 2 (revised submission, based on the roma colormap https://github.com/GenericMappingTools/gmt/blob/master/share/cpt/roma.cpt)</span>
@@ -513,7 +484,7 @@ Name: advance (km), dtype: object
 <div class="cell_output docutils container">
 <div class="output text_html"><div style="vertical-align: middle;"><strong>mycmap</strong> </div><div class="cmap"><img alt="mycmap colormap" title="mycmap" style="border: 1px solid #555;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAABACAYAAABsv8+/AAAAFXRFWHRUaXRsZQBteWNtYXAgY29sb3JtYXBbv6KmAAAAG3RFWHREZXNjcmlwdGlvbgBteWNtYXAgY29sb3JtYXASKLpCAAAAMHRFWHRBdXRob3IATWF0cGxvdGxpYiB2My40LjIsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmes1mPdAAAAMnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHYzLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZ4Jw/PoAAAI0SURBVHic7dZNcptAFIXRB5L3lMVmPVlKNhGpOwMaRQIT/5TtSuWeM8GNXjfg0Td9+/7jZ1XV6TS1++v5NPWqqtN5sz7Ny/q8rm+/r/s3++a+XKtVVT3NfVnPfV2Pa/WqqqepH831x/mDuWk397DenTfm57pMVVWnfpmrqub+a1quy/p2f8xVW9bVrmN9nauqers8rG/Xvsz1g33r+u73o/t/39d3vx+919g3fr/2ZXsb12ub7tetjfULc/3apzFfm/mxv9Xz8+vchz/n4bzb/Ob+/rlt/Jv6s8/tu+cu+9v2vQ/fZ5y/O/foex/3t+33HrzPn+/efe+41nK/Fi9e+yvn3jr/Wed+8Xy9cu5ff+93rz/6vM0fb93/Wed+2Xnr+oP/r6v54D4A8B8TAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQKDfsO+ktOquTRgAAAAASUVORK5CYII="></div><div style="vertical-align: middle; max-width: 514px; display: flex; justify-content: space-between;"><div style="float: left;"><div title="#389cc6e6" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #389cc6e6;"></div> under</div><div style="margin: 0 auto; display: inline-block;">bad <div title="#00000000" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #00000000;"></div></div><div style="float: right;">over <div title="#200600ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #200600ff;"></div></div></div></div>
 </div>
-<p>We can make <strong>Figure 5</strong> by color coding each average glacier flowline using <code class="docutils literal notranslate"><span class="pre">mycmap</span></code> on the profile and the <span class="math notranslate nohighlight">\(J_0\)</span>-<span class="math notranslate nohighlight">\(P_0/\ell\)</span> plots.</p>
+<p>We can make <strong>Figure 5</strong> by color coding each average glacier flowline using <code class="docutils literal notranslate"><span class="pre">mycmap</span></code> in the profile and the <span class="math notranslate nohighlight">\(J_0\)</span> versus <span class="math notranslate nohighlight">\(P_0/\ell\)</span> plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -521,13 +492,13 @@ Name: advance (km), dtype: object
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;height_ratios&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 
+<span class="c1"># ==== plot data and annotations</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
     <span class="n">z_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
     <span class="n">z_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">])</span>
     <span class="n">z_value</span> <span class="o">=</span> <span class="n">z_max</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_max</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z_min</span><span class="p">)</span> <span class="k">else</span> <span class="n">z_min</span>
     <span class="n">z_value_scaled</span> <span class="o">=</span> <span class="p">(</span><span class="n">z_value</span> <span class="o">+</span> <span class="mi">500</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4000</span>
     <span class="n">rgba</span> <span class="o">=</span> <span class="n">mycmap</span><span class="p">(</span><span class="n">z_value_scaled</span><span class="p">)</span>
-    <span class="c1"># rgba2 = np.array(rgba) / 1.5 </span>
     <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;udiff_sm&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
     <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">pinhead_cor</span> <span class="o">=</span> <span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
@@ -541,6 +512,7 @@ Name: advance (km), dtype: object
     <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;0277&#39;</span><span class="p">:</span>
         <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;0277&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">pinhead_cor</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.83</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">arrowprops</span><span class="o">=</span><span class="n">annot_arrowprops</span><span class="p">)</span>
 
+<span class="c1"># ==== Add supplemental text and labels</span>
 <span class="n">letter_specs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;fontweight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="s1">&#39;va&#39;</span><span class="p">:</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;ha&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">}</span>
 <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance from the terminus (km)&#39;</span><span class="p">)</span>
@@ -551,13 +523,11 @@ Name: advance (km), dtype: object
 <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">)</span>
 <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.96</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="o">**</span><span class="n">letter_specs</span><span class="p">)</span>
 <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">cbaxes</span> <span class="o">=</span> <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">inset_axes</span><span class="p">([</span><span class="mf">0.32</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
-<span class="c1"># cbaxes = inset_axes(ax4[1], width=&quot;30%&quot;, height=&quot;3%&quot;, loc=4) </span>
 
-<span class="c1"># cmap = mpl.cm.cool</span>
+<span class="c1"># ==== Place a color bar </span>
+<span class="n">cbaxes</span> <span class="o">=</span> <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">inset_axes</span><span class="p">([</span><span class="mf">0.32</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
 <span class="n">norm</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=-</span><span class="mi">500</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">3500</span><span class="p">)</span>
 <span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">3500</span><span class="p">]</span>
-
 <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">mycmap</span><span class="p">),</span>
              <span class="n">cax</span><span class="o">=</span><span class="n">cbaxes</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Speed change (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
 <span class="n">cbaxes</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -567,13 +537,19 @@ Name: advance (km), dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Fig5_21_0.png" src="../_images/Fig5_21_0.png" />
+<img alt="../_images/Fig5_20_0.png" src="../_images/Fig5_20_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="exploring-the-results">
 <h2>Exploring the results<a class="headerlink" href="#exploring-the-results" title="Permalink to this headline">¶</a></h2>
-<p>These extra cells provide a general overview of the data structure of <code class="docutils literal notranslate"><span class="pre">mega_results.h5</span></code>.</p>
+<p>These extra cells provide a general overview of the data structure of <code class="docutils literal notranslate"><span class="pre">mega_results.h5</span></code>. It is a three-layered dictionary structure:</p>
+<ul class="simple">
+<li><p>The first layer is indexed by the glacier ID (see the cell below).</p></li>
+<li><p>The second layer contains results for each flowline and for the average values.</p></li>
+<li><p>The third layer contains all variables along the flowline distance. All variables are smoothed using the Savitzky-Golay filter (see Section 3.1) unless otherwise noted.</p></li>
+</ul>
+<p>The second and third layers are identical to the nested structure of the <code class="docutils literal notranslate"><span class="pre">results</span></code> variable in <code class="docutils literal notranslate"><span class="pre">Fig3-4.ipynb</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="s1">&#39;a034&#39;</span><span class="p">]:</span>    <span class="c1"># This is Alison glacier (see Figure 1). You can replace the ID with any one we select in the beginning of this notebook.</span>
@@ -631,122 +607,6 @@ flowline08
  &#39;udiff&#39;: array([2195.36425781, 2052.66967773, 2095.30116781, ...,  -51.73809052,
          -55.16622416,  -51.02975082]),
  &#39;udiff_sm&#39;: array([nan, nan, nan, ..., nan, nan, nan])}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
-&lt;class &#39;str&#39;&gt;
 </pre></div>
 </div>
 </div>

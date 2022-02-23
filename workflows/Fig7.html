@@ -336,14 +336,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>This notebook produces Figure 7 and other auxiliary figures.</p>
 <div class="section" id="get-data">
 <h2>Get data<a class="headerlink" href="#get-data" title="Permalink to this headline">¶</a></h2>
-<p>(1) from the Ice Thickness Models Intercomparison eXperiment (ITMIX) data set (Farinotti et al., 2017), available at <a class="reference external" href="https://doi.org/10.5905/ethz-1007-92">https://doi.org/10.5905/ethz-1007-92</a>. Redistributed under the CC BY-NC-SA 4.0 License (see the previous link for details).</p>
+<p>(1) From the Ice Thickness Models Intercomparison eXperiment (ITMIX) data set (Farinotti et al., 2017), available at <a class="reference external" href="https://doi.org/10.5905/ethz-1007-92">https://doi.org/10.5905/ethz-1007-92</a>. Redistributed under the CC BY-NC-SA 4.0 License (see the previous link for details).</p>
 <p>Reference: Farinotti, D., Brinkerhoff, D. J., Clarke, G. K. C., Fürst, J. J., Frey, H., Gantayat, P., Gillet-Chaulet, F., Girard, C., Huss, M., Leclercq, P. W., Linsbauer, A., Machguth, H., Martin, C., Maussion, F., Morlighem, M., Mosbeux, C., Pandit, A., Portmann, A., Rabatel, A., …Andreassen, L. M. (2017). How accurate are estimates of glacier ice thickness? Results from ITMIX, the Ice Thickness Models Intercomparison eXperiment. Cryosphere, 11(2), 949–970. <a class="reference external" href="https://doi.org/10.5194/tc-11-949-2017">https://doi.org/10.5194/tc-11-949-2017</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
 
 if [ ! -d ../data/ITMIX/ ]; then
-    wget -P ../data/ITMIX/ --content-disposition --no-verbose &#39;http://www.geo.cornell.edu/eas/gstudent/wz278/paperdraft2021/ITMIX_dataset.zip&#39; 
+    wget -P ../data/ITMIX/ --content-disposition --no-verbose &#39;https://github.com/whyjz/pejzero/releases/download/v0.1/ITMIX_dataset.zip&#39; 
     unzip ../data/ITMIX/ITMIX_dataset.zip -d ../data/ITMIX/
     unzip ../data/ITMIX/01_ITMIX_input_data.zip -d ../data/ITMIX/01_ITMIX_input_data/
     unzip ../data/ITMIX/02_ITMIX_results.zip -d ../data/ITMIX/02_ITMIX_results/
@@ -365,7 +365,7 @@ fi
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
 
 if [ ! -f ../data/SRA_G0240_2018_v_EPSG32633.tif ]; then
-    wget http://www.geo.cornell.edu/eas/gstudent/wz278/paperdraft2021/SRA_G0240_2018_v_EPSG32633.tif -P ../data/ --no-verbose
+    wget https://github.com/whyjz/pejzero/releases/download/v0.1/SRA_G0240_2018_v_EPSG32633.tif -P ../data/ --no-verbose
 fi
 </pre></div>
 </div>
@@ -604,7 +604,7 @@ fi
 </div>
 <div class="section" id="plot-for-single-glacier-basin">
 <h3>(3) plot for single glacier basin<a class="headerlink" href="#plot-for-single-glacier-basin" title="Permalink to this headline">¶</a></h3>
-<p>Similar to <strong>Figure 3 and 4</strong>, you can change <code class="docutils literal notranslate"><span class="pre">basin_no_list</span></code> to plot more basins.</p>
+<p>You can change <code class="docutils literal notranslate"><span class="pre">basin_no_list</span></code> to plot more basins. The result PNGs will be saved in <code class="docutils literal notranslate"><span class="pre">../data/results/single_basins/</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pej0_plot_length</span> <span class="o">=</span> <span class="mi">200</span>   <span class="c1"># This determines how many vertices from the terminus should be plotted (200 vertices = 10 km)</span>
@@ -646,7 +646,7 @@ fi
             <span class="n">axbig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
                        <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="n">basin_no</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="n">pej0_plot_length</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:dark purple&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
             
-    <span class="c1"># ==== Add supplemental text </span>
+    <span class="c1"># ==== Add supplemental text and labels</span>
     <span class="n">letter_specs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;fontweight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="s1">&#39;va&#39;</span><span class="p">:</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;ha&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">}</span>
     <span class="n">ax1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Basin </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basin_no</span><span class="p">))</span>
     <span class="n">ax1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Elevantion (m): </span><span class="se">\n</span><span class="s1"> Surface (cyan) </span><span class="se">\n</span><span class="s1"> bed (brown)&#39;</span><span class="p">)</span>
@@ -665,39 +665,26 @@ fi
     <span class="n">axbig</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">)</span>
     <span class="n">axbig</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Dot spacing: 50 m; </span><span class="se">\n</span><span class="s1"> Big dot indicates the first non-NaN value </span><span class="se">\n</span><span class="s1"> (closest to the terminus)&#39;</span><span class="p">)</span>
     <span class="n">axbig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">axbig</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="o">**</span><span class="n">letter_specs</span><span class="p">)</span>
-    <span class="n">axbig</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="mf">0.0001</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">,</span> <span class="mf">0.0002</span><span class="p">])</span>
+    <span class="n">pe_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">{:.6f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">axbig</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">()]</span>
+    <span class="n">axbig</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">pe_labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
     
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../data/results/Austfonna_glacier</span><span class="si">{}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basin_no</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../data/results/single_basins/Austfonna_glacier</span><span class="si">{}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basin_no</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Fig7_15_0.png" src="../_images/Fig7_15_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-8-9197152a31aa&gt;:60: UserWarning: FixedFormatter should only be used together with FixedLocator
+  axbig.set_xticklabels(pe_labels, rotation=45)
+</pre></div>
+</div>
+<img alt="../_images/Fig7_15_1.png" src="../_images/Fig7_15_1.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="visualization">
 <h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
-<p>Firstly we use the same color map from <strong>Figure 5</strong> but will eventually stretch it differently.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Version 1 (original submission)</span>
-<span class="c1"># colors = np.array([[5,113,176,255],</span>
-<span class="c1">#                    [171,229,255,255],</span>
-<span class="c1">#                    [255,240,189,255],</span>
-<span class="c1">#                    [222,130,38,255],</span>
-<span class="c1">#                    [202,0,32,255],</span>
-<span class="c1">#                    [220,22,177,255],</span>
-<span class="c1">#                    [132,17,177,255]])</span>
-<span class="c1"># colors = colors / 255</span>
-<span class="c1"># nodes = (np.array([-500, -300, 100, 500, 1500, 2500, 3500]) + 500) / 4000</span>
-<span class="c1"># mycmap = LinearSegmentedColormap.from_list(&quot;mycmap&quot;, list(zip(nodes, colors)))</span>
-<span class="c1"># mycmap</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>We use the same color map from <strong>Figure 5</strong> but stretch it differently.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Version 2 (revised submission, based on the roma colormap https://github.com/GenericMappingTools/gmt/blob/master/share/cpt/roma.cpt)</span>
@@ -746,6 +733,7 @@ fi
     <span class="n">label_top</span> <span class="o">=</span> <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Speed change </span><span class="se">\n</span><span class="s1"> 1996-2018 </span><span class="se">\n</span><span class="s1"> (m yr$^{-1}$)&#39;</span><span class="p">)</span>
     <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
     <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">][:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># Not plotting small dots here for better readibility</span>
     <span class="c1"># ax4[1].plot(mega_results[key][&#39;avg&#39;][&#39;pe_ignore_dslope&#39;][:100], mega_results[key][&#39;avg&#39;][&#39;j0_ignore_dslope&#39;][:100], &#39;.&#39;, color=rgba, markersize=6)</span>
     <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
                 <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">rgba</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -755,21 +743,19 @@ fi
     <span class="c1"># Fine tune label location</span>
     <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;5&#39;</span><span class="p">:</span>
         <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">-</span> <span class="mf">0.00002</span><span class="p">,</span>
-                    <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># , color=rgba, markersize=15)</span>
+                    <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;pe_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="mf">0.00001</span><span class="p">,</span>
-                    <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># , color=rgba, markersize=15)</span>
+                    <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mega_results</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;avg&#39;</span><span class="p">][</span><span class="s1">&#39;j0_ignore_dslope&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
     
 <span class="n">letter_specs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;fontweight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="s1">&#39;va&#39;</span><span class="p">:</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;ha&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">}</span>
 <span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="o">**</span><span class="n">letter_specs</span><span class="p">)</span>
 <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="o">**</span><span class="n">letter_specs</span><span class="p">)</span>
 
+<span class="c1"># ==== Place a color bar </span>
 <span class="n">cbaxes</span> <span class="o">=</span> <span class="n">ax4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">inset_axes</span><span class="p">([</span><span class="mf">0.34</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
-<span class="c1"># norm = matplotlib.colors.Normalize(vmin=-500, vmax=3500)</span>
 <span class="n">norm</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
-<span class="c1"># bounds = [-500, 0, 1500, 3500]</span>
 <span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]</span>
-
 <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">mycmap</span><span class="p">),</span>
              <span class="n">cax</span><span class="o">=</span><span class="n">cbaxes</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Speed change (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
 <span class="n">cbaxes</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -779,7 +765,7 @@ fi
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Fig7_20_0.png" src="../_images/Fig7_20_0.png" />
+<img alt="../_images/Fig7_19_0.png" src="../_images/Fig7_19_0.png" />
 </div>
 </div>
 </div>

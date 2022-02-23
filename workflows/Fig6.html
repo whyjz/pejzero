@@ -231,8 +231,30 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualization">
-   Visualization
+  <a class="reference internal nav-link" href="#figure-6a">
+   Figure 6A
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualization">
+     Visualization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistical-analysis">
+     Statistical analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#figure-6b">
+   Figure 6B
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#figure-6c">
+   Figure 6C
   </a>
  </li>
 </ul>
@@ -261,8 +283,30 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualization">
-   Visualization
+  <a class="reference internal nav-link" href="#figure-6a">
+   Figure 6A
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualization">
+     Visualization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistical-analysis">
+     Statistical analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#figure-6b">
+   Figure 6B
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#figure-6c">
+   Figure 6C
   </a>
  </li>
 </ul>
@@ -276,14 +320,12 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="figure-6">
 <h1>Figure 6<a class="headerlink" href="#figure-6" title="Permalink to this headline">¶</a></h1>
-<p>This notebook produces Figure 6 and other auxiliary figures.</p>
+<p>This notebook produces all subpanels of Figure 6, other auxillary figures, and the related statistical analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="c1"># import numpy as np</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="c1"># import matplotlib.pyplot as plt</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 </pre></div>
 </div>
@@ -419,7 +461,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>104 rows × 5 columns</p>
 </div></div></div>
 </div>
-<p>This histogram gives a quick idea about the distribution of speed change:</p>
+<p>This histogram gives a quick idea about the distribution of speed change in both absolute difference (the first histogram) and percentage difference (the second histogram). We use the absolute difference for the following analysis because it shows many outliers away from the peaked distribution centered at around 0 m/yr.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;Speed diff (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">);</span>
@@ -441,8 +483,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<div class="section" id="figure-6a">
+<h2>Figure 6A<a class="headerlink" href="#figure-6a" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="visualization">
-<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
+<h3>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h3>
 <p>We add a new column called <code class="docutils literal notranslate"><span class="pre">Legend</span></code> and classify the glaciers based on a simple threshold of speed change (here set to <span class="math notranslate nohighlight">\(\pm\)</span>300 m/yr):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -468,13 +512,11 @@ How many glaciers have a lower speed change?:  50
 </div>
 </div>
 </div>
-<p>Finally, we plot <strong>Figure 6</strong>:</p>
+<p>Now we plot <strong>Figure 6A</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="c1"># fig, ax1 = plt.subplots(1, 1, figsize=(8, 8))</span>
 
 <span class="n">cmap</span> <span class="o">=</span> <span class="p">{</span><span class="sa">r</span><span class="s1">&#39;$|\Delta V| \geq$ 300 m yr$^{-1}$&#39;</span><span class="p">:</span> <span class="s1">&#39;#C94337&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$|\Delta V| &lt;$ 300 m yr$^{-1}$&#39;</span><span class="p">:</span> <span class="s1">&#39;#8EB7E4&#39;</span><span class="p">}</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{P_e}</span><span class="s1">{\ell}$ (m$^{-1}$)&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Legend&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> 
@@ -496,6 +538,10 @@ How many glaciers have a lower speed change?:  50
 <img alt="../_images/Fig6_10_0.png" src="../_images/Fig6_10_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="statistical-analysis">
+<h3>Statistical analysis<a class="headerlink" href="#statistical-analysis" title="Permalink to this headline">¶</a></h3>
+<p>We use the two-sample <strong>Kolmogorov-Smirnov test</strong> to determine if the two kernel distributions shown in <strong>Figure 6A</strong> are drawn from the same probability distribution. The test is one dimensional, so we need to perform this twice, one for each axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unstable_j0</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Legend&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="sa">r</span><span class="s1">&#39;$|\Delta V| \geq$ 300 m yr$^{-1}$&#39;</span><span class="p">][</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">]</span>
@@ -506,6 +552,7 @@ How many glaciers have a lower speed change?:  50
 </div>
 </div>
 </div>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">kstest</span></code> fuction from the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> package and perform a two-sided Kolmogorov–Smirnov test. The p value is sufficiently small to reject the null hypothesis that both kernels are drawn from the same probability distribution under a 95% confidence level.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">unstable_j0</span><span class="p">,</span> <span class="n">stable_j0</span><span class="p">)</span>
@@ -530,25 +577,11 @@ How many glaciers have a lower speed change?:  50
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U1</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">stable_j0</span><span class="p">,</span> <span class="n">unstable_j0</span><span class="p">)</span>
-</pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.001338775306495195
-</pre></div>
-</div>
-</div>
-</div>
+<div class="section" id="figure-6b">
+<h2>Figure 6B<a class="headerlink" href="#figure-6b" title="Permalink to this headline">¶</a></h2>
+<p>First, this scatter plot shows how speed change and terminal retreat correlate to each other, motivating the needs to isolate that forcing in <strong>Figures 6B-C</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Speed diff (m yr$^{-1}$)&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Advance (km)&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">)</span>
@@ -559,9 +592,10 @@ How many glaciers have a lower speed change?:  50
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Speed diff (m yr$^{-1}$)&#39;, ylabel=&#39;Advance (km)&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/Fig6_24_1.png" src="../_images/Fig6_24_1.png" />
+<img alt="../_images/Fig6_17_1.png" src="../_images/Fig6_17_1.png" />
 </div>
 </div>
+<p>First, let’s select glaciers with retreat &gt; 0.5 km and plot them in <strong>Figure 6B</strong> using the same way as Figure 6A.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Advance (km)&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">]</span>
@@ -583,9 +617,10 @@ How many glaciers have a lower speed change?:  50
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Fig6_29_0.png" src="../_images/Fig6_29_0.png" />
+<img alt="../_images/Fig6_19_0.png" src="../_images/Fig6_19_0.png" />
 </div>
 </div>
+<p>Below is the same statistical test for this subset. Separation of <span class="math notranslate nohighlight">\(P_e / \ell\)</span> is still significant, but <span class="math notranslate nohighlight">\(J_0\)</span> is not.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unstable_j0_1</span> <span class="o">=</span> <span class="n">df_1</span><span class="p">[</span><span class="n">df_1</span><span class="p">[</span><span class="s1">&#39;Legend&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="sa">r</span><span class="s1">&#39;$|\Delta V| \geq$ 300 m yr$^{-1}$&#39;</span><span class="p">][</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">]</span>
@@ -620,6 +655,10 @@ How many glaciers have a lower speed change?:  50
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="figure-6c">
+<h2>Figure 6C<a class="headerlink" href="#figure-6c" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s select glaciers with retreat &lt; 0.5 km and plot them in <strong>Figure 6C</strong> using the same way as Figure 6A.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Advance (km)&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">]</span>
@@ -641,9 +680,10 @@ How many glaciers have a lower speed change?:  50
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Fig6_34_0.png" src="../_images/Fig6_34_0.png" />
+<img alt="../_images/Fig6_25_0.png" src="../_images/Fig6_25_0.png" />
 </div>
 </div>
+<p>Below is the same statistical test for this subset. Separation of <span class="math notranslate nohighlight">\(J_0\)</span> is now significant, but <span class="math notranslate nohighlight">\(P_e / \ell\)</span> is not.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unstable_j0_2</span> <span class="o">=</span> <span class="n">df_2</span><span class="p">[</span><span class="n">df_2</span><span class="p">[</span><span class="s1">&#39;Legend&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="sa">r</span><span class="s1">&#39;$|\Delta V| \geq$ 300 m yr$^{-1}$&#39;</span><span class="p">][</span><span class="sa">r</span><span class="s1">&#39;$J_0$ (m yr$^{-1}$)&#39;</span><span class="p">]</span>
