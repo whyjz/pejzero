@@ -9,7 +9,7 @@ requirements = ['numpy', 'scipy', 'h5py']
     
 setuptools.setup(
     name             = "pejzero",
-    version          = "0.2.0",
+    version          = "1.0.0",
     author           = "Whyjay Zheng",
     author_email     = "whyjz@berkeley.edu",
     description      = 'Supplmental materials presented in "Characteristics of marine-terminating glaciers vulnerable to lubricated bed"',
@@ -19,9 +19,8 @@ setuptools.setup(
     classifiers       = [
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
+        "License :: OSI Approved :: MIT License",
     ],
     python_requires  = '>= 3.8',
     install_requires = requirements,
 )
-
-# License to be decided:        "License :: OSI Approved :: BSD License",

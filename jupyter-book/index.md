@@ -1,16 +1,16 @@
 # Supplemental material for "Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds"
 
-Whyjay Zheng<sup>1, 2</sup>
+**Whyjay Zheng**<sup>1, 2</sup>
 
 <sup>1</sup>Department of Earth and Atmospheric Sciences, Cornell University, Ithaca, NY, USA
 
 <sup>2</sup>Department of Statistics, University of California Berkeley, Berkeley, CA, USA
 
-Corresponding author and email: Whyjay Zheng <whyjz@berkeley.edu>
+**Correspondence** Whyjay Zheng (whyjz@berkeley.edu)
 
 ## Article link
 
-Zheng, W.: Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds, The Cryosphere Discuss. [preprint], https://doi.org/10.5194/tc-2021-345, in review, 2021.
+Zheng, W. (2022). Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds. The Cryosphere, 16(4), 1431–1445. https://doi.org/10.5194/tc-16-1431-2022
 
 ## Content of this Jupyter Book
 
