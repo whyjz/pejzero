@@ -6,11 +6,18 @@
 
 <sup>2</sup>Department of Statistics, University of California Berkeley, Berkeley, CA, USA
 
-**Correspondence** Whyjay Zheng (whyjz@berkeley.edu)
+**Correspondence**: Whyjay Zheng (whyjz@berkeley.edu)
 
 ## Article link
 
 Zheng, W. (2022). Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds. The Cryosphere, 16(4), 1431–1445. https://doi.org/10.5194/tc-16-1431-2022
+
+## Zenodo DOI and Binder Link
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5641953.svg)](https://doi.org/10.5281/zenodo.5641953)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/whyjz/pejzero/HEAD)
+
+All the Jupyter Notebooks (in the “workflows” folder) are executable on the Binder server without installing additional dependencies. 
 
 ## Content of this Jupyter Book
 
