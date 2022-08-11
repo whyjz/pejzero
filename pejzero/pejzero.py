@@ -155,7 +155,7 @@ def cal_pej0_for_each_flowline(flowline_obj, speed_data, vdiff_data, size_limit=
     Returns:
     - data group: dict object with the following entries: 
     
-    --- d: distance (m)
+    --- d: distance (km)
     --- s: surface elevation (m)
     --- b: bed elevation (m)
     --- u: reference glacier speed used for claculating Pe and J0 (m/yr)
@@ -304,10 +304,10 @@ def cal_pej0_for_each_flowline_raw(d, s, b, u, size_limit=280, minimum_amount_va
     Similar to cal_pej0_for_each_flowline, this function calculates Pe and J0 but without fancy I/O and sampling of glacier speed from a target year.
 
     Arguments:
-    - d: distance along the flowline, from terminus
-    - s: surface elevation
-    - b: bed elevation
-    - u: speed
+    - d: distance along the flowline, FROM terminus (m)
+    - s: surface elevation (m)
+    - b: bed elevation (m)
+    - u: speed (m/yr)
     - size_limit: minimum size to start calculation, otherwise return None
     - minimum_amount_valid_u: minimum amount of valid u measurements, otherwise return None
     - savgol_winlength: Savgol filter window length.
@@ -315,7 +315,7 @@ def cal_pej0_for_each_flowline_raw(d, s, b, u, size_limit=280, minimum_amount_va
     Returns:
     - data group: dict object with the following entries: 
     
-    --- d: distance (m)
+    --- d: distance (km)
     --- s: surface elevation (m)
     --- b: bed elevation (m)
     --- u: reference glacier speed used for claculating Pe and J0 (m/yr)
