@@ -155,7 +155,7 @@ def cal_pej0_for_each_flowline(flowline_obj, speed_data, vdiff_data, size_limit=
     Returns:
     - data group: dict object with the following entries: 
     
-    --- d: distance (km)
+    --- d: distance (m)
     --- s: surface elevation (m)
     --- b: bed elevation (m)
     --- u: reference glacier speed used for claculating Pe and J0 (m/yr)
@@ -315,7 +315,7 @@ def cal_pej0_for_each_flowline_raw(d, s, b, u, size_limit=280, minimum_amount_va
     Returns:
     - data group: dict object with the following entries: 
     
-    --- d: distance (km)
+    --- d: distance (m)
     --- s: surface elevation (m)
     --- b: bed elevation (m)
     --- u: reference glacier speed used for claculating Pe and J0 (m/yr)
